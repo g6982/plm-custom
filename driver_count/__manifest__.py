@@ -10,7 +10,7 @@
     'data': [
         'views/driver_name_views.xml',
         ],
-    'demo': [],
+    'demo': ['stock'],
     "installable": True,
     "license": "AGPL-3",
 }

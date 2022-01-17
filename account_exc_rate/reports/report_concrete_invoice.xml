@@ -21,7 +21,7 @@
                                     <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/>
                                 </div>
                                 <div class="col-9" style="text-align:center;margin-top:10px;">
-                                    <div style="cursive; font-size:20px;"><h5>PLM IMPORT EXPORT CO.,LTD. </h5></div>
+                                    <div style="cursive; font-size:20px;"><h2>PLM IMPORT EXPORT CO.,LTD. </h2></div>
                                     <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">Address: <t t-esc="company.street2"/>,<t t-esc="company.city"/><t t-esc="company.country_id.name"/></div>
                                     <div style="font-size:14px;">TEL:<t t-esc="company.phone"/> Email: <t t-esc="company.email"/> <t t-esc="company.website"/></div>
