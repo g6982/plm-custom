@@ -6,11 +6,11 @@
     'author': "Jenny",
     'category': 'inventory',
     'version': '14.0.1.0.0',
-    'depends': [],
+    'depends': ['stock'],
     'data': [
         'views/driver_name_views.xml',
         ],
-    'demo': ['stock'],
+    'demo': [],
     "installable": True,
     "license": "AGPL-3",
 }
