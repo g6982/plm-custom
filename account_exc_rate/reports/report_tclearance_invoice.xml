@@ -21,7 +21,7 @@
                                     <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/>
                                 </div>
                                 <div class="col-9" style="text-align:center;margin-top:10px;">
-                                    <div style="cursive; font-size:20px;"><h5> POLO IMPORT EXPORT </h5></div>
+                                    <div style="cursive; font-size:20px;"><h5>POLO TRANSPORT</h5></div>
                                     <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">Address: <t t-esc="company.street2"/>,<t t-esc="company.city"/><t t-esc="company.country_id.name"/></div>
                                     <div style="font-size:14px;">TEL:<t t-esc="company.phone"/> Email: <t t-esc="company.email"/> <t t-esc="company.website"/></div>
@@ -147,7 +147,6 @@
                                         </td>
                                     </tr>
 
-
                                     <!-- Total Amount in each Currentcy, Will display KHR and THB only input the currency rate -->
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
                                         <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជារៀល / Total in RIEL </td>
@@ -189,26 +188,28 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <!-- Customer and Vender Sign  -->
-                        <div style="page-break-inside:avoid;">
-                                <div class="row" style="margin-top:264.56px;font-weight:bold;">
-                                    <div class="col-3" style="font-size:14px;margin-top: 30px;">
-                                            <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកទិញ</div>
-                                            <div class="text-center" style="font-size:14px">Customer's Signature &amp; Name</div>
-                                    </div>
-                                    <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;"/>
-                                    <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;">
-                                            <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកលក់</div>
-                                            <div style="font-size:14px">Seller's Signature &amp; Name</div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <ul class="list-inline" style="text-align: right; font-size:12px">
-                                        <li>Page: <span class="page"/> of <span class="topage"/></li>
-                                    </ul>
-                                </div>
-                            </div>                        
                         </div>
+
+                        <!-- Customer and Vender Sign  -->
+                        <div style="page-break-inside:avoid;">
+                            <div class="row" style="margin-top:264.56px;font-weight:bold;">
+                                <div class="col-3" style="font-size:14px;margin-top: 30px;">
+                                        <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកទិញ</div>
+                                        <div class="text-center" style="font-size:14px">Customer's Signature &amp; Name</div>
+                                </div>
+                                <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;"/>
+                                <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;">
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកលក់</div>
+                                        <div style="font-size:14px">Seller's Signature &amp; Name</div>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <ul class="list-inline" style="text-align: right; font-size:12px">
+                                    <li>Page: <span class="page"/> of <span class="topage"/></li>
+                                </ul>
+                            </div>
+                        </div>                      
+                    </div>
                 </t>
             </t>
         </template>
