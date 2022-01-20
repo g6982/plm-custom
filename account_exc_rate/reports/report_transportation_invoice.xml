@@ -28,11 +28,10 @@
                                 <!-- Email: <t t-esc="company.email"/>  -->
                                 <!-- <t t-esc="company.website"/> -->
                             </div>
-                        </div>
                             <div class="col-2">                                    
                             </div>
-                        
-
+                        </div>
+                            
                         <div style="border-bottom:3px solid #000000; margin-top:5px;"/>
                         <div class="page" >
                                 <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:15px;font-size:18px;">
@@ -193,23 +192,23 @@
 
                         <!-- Customer and Vender Sign  -->
                         <div style="page-break-inside:avoid;">
-                                <div class="row" style="margin-top:264.56px;font-weight:bold;">
-                                    <div class="col-3" style="font-size:14px;margin-top: 30px;">
-                                            <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះម្ចាស់ទំនិញ</div>
-                                            <div class="text-center" style="font-size:14px">Goods Owner's Signature &amp; Name</div>
-                                    </div>
-                                    <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;"/>
-                                    <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;">
-                                            <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកដឹកទំនិញ</div>
-                                            <div style="font-size:14px">Delivery's Signature &amp; Name</div>
-                                    </div>
+                            <div class="row" style="margin-top:264.56px;font-weight:bold;">
+                                <div class="col-3" style="font-size:14px;margin-top: 30px;">
+                                        <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះម្ចាស់ទំនិញ</div>
+                                        <div class="text-center" style="font-size:14px">Goods Owner's Signature &amp; Name</div>
                                 </div>
-                                <div class="footer">
-                                    <ul class="list-inline" style="text-align: right; font-size:12px">
-                                        <li>Page: <span class="page"/> of <span class="topage"/></li>
-                                    </ul>
+                                <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;"/>
+                                <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;">
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកដឹកទំនិញ</div>
+                                        <div style="font-size:14px">Delivery's Signature &amp; Name</div>
                                 </div>
-                            </div>                        
+                            </div>
+                            <div class="footer">
+                                <ul class="list-inline" style="text-align: right; font-size:12px">
+                                    <li>Page: <span class="page"/> of <span class="topage"/></li>
+                                </ul>
+                            </div>
+                        </div>                        
                     </div>
                 </t>
             </t>
