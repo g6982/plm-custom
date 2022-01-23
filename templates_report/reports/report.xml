@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="report_tclearance_khmer" model="ir.actions.report">
+            <field name="name">Tclearance Invoice</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">templates_report.report_tclearance_invoice_document</field>
+            <field name="report_file">templates_report.report_tclearance_invoice</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'tclearance_'+(object.name)</field>
+        </record>
+
+        <record id="report_sale_invoice" model="ir.actions.report">
+            <field name="name">Sale Invoice</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">templates_report.report_sale_invoice_document</field>
+            <field name="report_file">templates_report.report_sale_invoice</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'sale_'+(object.name)</field>
+        </record>
+
+        <record id="report_concrete_invoice" model="ir.actions.report">
+            <field name="name">Concrete Invoice</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">templates_report.report_concrete_invoice_document</field>
+            <field name="report_file">templates_report.report_concrete_invoice</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'concrete_'+(object.name)</field>
+        </record>
+
+        <record id="report_transportation_invoice" model="ir.actions.report">
+            <field name="name">transportation Invoice</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">templates_report.report_transportation_invoice_document</field>
+            <field name="report_file">templates_report.report_transportation_invoice</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'transportation_'+(object.name)</field>
+        </record>
+</odoo>
