@@ -11,6 +11,7 @@
     'depends': ['account'],
     'data': [
         'views/web.xml',
+        'reports/report_tax_invoice_concrete.xml',
         'reports/report_tclearance_invoice.xml',        
         'reports/report_sale_invoice.xml',
         'reports/report_concrete_invoice.xml',

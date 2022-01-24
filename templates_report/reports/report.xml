@@ -43,4 +43,15 @@
             <field name="binding_type">report</field>
             <field name="print_report_name">'transportation_'+(object.name)</field>
         </record>
+
+        <record id="report_tax_invoice_concrete" model="ir.actions.report">
+            <field name="name">Tax Invoice Concrete</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">templates_report.report_tax_invoice_concrete_document</field>
+            <field name="report_file">templates_report.report_tax_invoice_concrete</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'tax_invoice_concrete_'+(object.name)</field>
+        </record>
 </odoo>
