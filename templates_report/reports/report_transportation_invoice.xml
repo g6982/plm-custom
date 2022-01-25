@@ -116,6 +116,9 @@
                                             <div>ទឹកប្រាក់</div>
                                             <div>Amount</div>
                                         </td>
+                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:130px">
+                                            
+                                        </td>
                                     </tr>
                                 </thead>
 
@@ -159,6 +162,11 @@
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
+                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
+                                            ឈ្មោះតៃកុងនិងផ្លាកលេខឡាន<t-field="o.driver_names"/> 
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid">
                                         <td rowspan="6" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
                                             <p style="font-size:14px;" t-field="o.narration"/>
                                         </td>
@@ -183,7 +191,7 @@
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
                                         </td>
                                     </tr>
-
+                                    
                                     <!-- Total Balance in each Currency -->
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
                                         <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
@@ -210,14 +218,13 @@
                         <!-- Customer and Vender Sign  -->
                         <div style="page-break-inside:avoid;">
                             <div class="row" style="margin-top:200px;font-weight:bold;">
-                                <div class="col-3" style="font-size:14px;margin-top: 30px;">
-                                        <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;margin-right: 5px">ហត្ថលេខានិងឈ្មោះម្ចាស់ទំនិញ</div>
+                                <div class="col-3" style="font-size:14px;margin-top: 30px;margin-left: 5px;">
+                                        <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះម្ចាស់ទំនិញ</div>
                                         <div class="text-center" style="font-size:14px">Customer's Signature &amp; Name</div>
                                 </div>
                                 <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;"/>
-                                <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-size:14px"><span t-esc="o.driver_names"/></div>
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;margin-right: 5px">ហត្ថលេខានិងឈ្មោះអ្នកដឹកជញ្ជូន</div>
+                                <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;margin-right: 5px;">
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកដឹកជញ្ជូន</div>
                                         <div style="font-size:14px">Seller's Signature &amp; Name</div>
                                 </div>
                             </div>
