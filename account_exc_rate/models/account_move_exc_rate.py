@@ -12,8 +12,22 @@ class account_exc_rate(models.Model):
     khr_currency_id = fields.Many2one('res.currency', compute = '_compute_total_khmer')
     thb_currency_id = fields.Many2one('res.currency', compute = '_compute_total_bat')
     source_origin = fields.Many2one('sale.origin', string="Source")
-    # amount_due_khr = fields.Monetary(compute = '_compute_amount_due_khr', string="Amount Due in KHR", currency_field='khr_currency_id')
-    # amount_due_thb = fields.Monetary(compute = '_compute_amount_due_thb', string="Amount Due in THB", currency_field='thb_currency_id')
+
+    driver_names = fields.Many2many(
+        comodel_name="res.partner",
+        store=True,
+        compute="_compute_driver_names",
+        help="Related pickings ",
+        
+    )
+
+    @api.depends("invoice_line_ids", "invoice_line_ids.move_line_ids")
+    def _compute_driver_names(self):
+        for invoice in self:
+            invoice.driver_names = invoice.mapped(
+                "invoice_line_ids.move_line_ids.picking_id.driver_name.id"
+            )
+    
 
     # functions to computer the total amunte that from input currency khmer and thb into USDD 
     @api.depends('amount_total')
