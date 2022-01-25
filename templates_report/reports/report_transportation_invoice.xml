@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data>    
-         <template id="report_transportation_invoice_document">
+<?xml version="1.0"?>
+<t t-name="templates_report.report_transportation_invoice_document">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-if="not o" t-set="o" t-value="doc"/>
@@ -13,17 +11,17 @@
                     </t>
                     <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                         <t t-raw="0"/>
-                        <t t-set="o" t-value="o.with_context(lang=lang)" />
+                        <t t-set="o" t-value="o.with_context(lang=lang)"/>
                         <div>
                             <t t-raw="0"/>
                             <div class="row header" style="font-size:18px;">
-                                <div class="col-2">
+                                <div class="col-1">
                                     <!-- <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/> -->
                                 </div>
-                                <div class="col-9" style="text-align:center;margin-top:10px;">
+                                <div class="col-10" style="text-align:center;margin-top:10px;">
                                     <div style="cursive; font-size:20px;"><h2>POLO TRANSPORTATION</h2></div>
                                     <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
-                                    <div style="font-size:14px;">Address: <t t-esc="company.street2"/>,<t t-esc="company.city"/><t t-esc="company.country_id.name"/></div>
+                                    <div style="font-size:14px;">Address: <t t-esc="company.street2"/><t t-esc="company.city"/><t t-esc="company.country_id.name"/></div>
                                     <div style="font-size:14px;">
                                         TEL: 086 866 266,069 703 555  Email: plm@netkhmer.com
                                         <!-- TEL:<t t-esc="company.phone"/>  -->
@@ -31,19 +29,19 @@
                                         <!-- <t t-esc="company.website"/> -->
                                     </div>
                                 </div>
-                                <div class="col-2">                                    
+                                <div class="col-1">                                    
                                 </div>
                             </div>
                         </div>
 
                         <div style="border-bottom:3px solid #000000; margin-top:5px;"/>
-                        <div class="page" >
+                        <div class="page">
                                 <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:15px;font-size:18px;">
                                     <h5>វិក័យបត្រ<br/>Invoice</h5>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-8">
-                                        <table class="table table-borderless" >
+                                        <table class="table table-borderless">
                                             <tr>
                                                 <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';">
                                                     <span>អតិថិជន</span><br/>
@@ -71,12 +69,12 @@
                                 </div>
                                 <div>
                                     <table class="table table-borderless">
-                                        <tr >
+                                        <tr>
                                             <td style="font-size:18px;font-weight:bold;">
                                                 No:<b><span t-field="o.name"/></b>
                                             </td>
                                         </tr>
-                                        <tr >
+                                        <tr>
                                             <td style="padding-top:0px;font-size:18px; font-family:'Khmer OS'; font-weight:bold;"><span>កាលបរិច្ឆេទ/Date:</span> <span style="font-weight:bold;" t-field="o.invoice_date"/></td>
                                         </tr>
                                         <tr>
@@ -92,15 +90,15 @@
                                 <!-- Table Header -->
                                 <thead>
                                     <tr style="font-family:'Khmer OS';">
-                                        <td class="text-center" style="border:1px solid black; width: 30px;border-right: 0px solid white;">
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border-right: 1px solid black;">
                                             <div>ល.រ</div>
                                             <div>No</div>
                                         </td>
-                                        <td class="text-center" style="border:1px solid black; width:320px;border-right: 0px solid white;">
-                                            <!-- <div>តៃកុងឡាន</div>
-                                            <div>Driver</div> -->
-                                        </td>
+                                        
                                         <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">
+                                            
+                                        </td>
+                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px;">
                                             <div>បរិយាយ</div>
                                             <div>Description</div>
                                         </td>
@@ -112,13 +110,17 @@
                                             <!-- <div>តម្លៃរាយ</div>
                                             <div>Unit Price</div> -->
                                         </td>
+                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">
+                                            
+                                        </td>
+                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">
+                                            
+                                        </td>
                                         <td class="text-center" style="border:1px solid black;width:130px;border-left: 0px solid white;">
                                             <div>ទឹកប្រាក់</div>
                                             <div>Amount</div>
                                         </td>
-                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:130px">
-                                            
-                                        </td>
+                                        
                                     </tr>
                                 </thead>
 
@@ -154,6 +156,9 @@
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
                                             <!-- <span t-field="line.price_unit"/> -->
                                         </td>
+                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
+                                            
+                                        </td>
                                     
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
                                             <span>
@@ -163,31 +168,31 @@
                                     </tr>
                                 
                                     <tr style="page-break-inside:avoid">
-                                        <td rowspan="6" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
-                                            ឈ្មោះតៃកុងនិងផ្លាកលេខឡាន<p style="font-size:14px;" t-field="o.driver_names"/>
+                                        <td rowspan="4" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
+                                            ឈ្មោះតៃកុងនិងផ្លាកលេខឡាន<p style="font-size:14px;font-weight:bold;" t-field="o.driver_names"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
-                                        <td rowspan="6" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
+                                        <td rowspan="4" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
                                             <p style="font-size:14px;" t-field="o.narration"/>
                                         </td>
                                     </tr>
 
                                     <!-- Total Amount in each Currentcy, Will display KHR and THB only input the currency rate -->
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
-                                        <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជារៀល / Total in RIEL </td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជារៀល / Total in RIEL </td>
                                         <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
                                             <t t-esc="'{0:,.2f}'.format(o.total_exc_khr)"/> ៛ 
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.rate_thb != o.rate_khr">
-                                        <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាបាត / Total in BATH </td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាបាត / Total in BATH </td>
                                         <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
                                             B <t t-esc="'{0:,.0f}'.format(o.total_exc_thb)"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
-                                        <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
                                         <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
                                         </td>
@@ -195,19 +200,19 @@
                                     
                                     <!-- Total Balance in each Currency -->
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
-                                        <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
                                             <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> ៛
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.rate_thb != o.rate_khr">
-                                        <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
                                             B <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="6" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
+                                        <td colspan="5" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
                                         </td>
@@ -219,13 +224,13 @@
                         <!-- Customer and Vender Sign  -->
                         <div style="page-break-inside:avoid;">
                             <div class="row" style="margin-top:200px;font-weight:bold;">
-                                <div class="col-3" style="font-size:14px;margin-top: 30px;margin-left: 5px;">
+                                <div class="col-4" style="font-size:14px;margin-top: 30px;">
                                         <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះម្ចាស់ទំនិញ</div>
                                         <div class="text-center" style="font-size:14px">Customer's Signature &amp; Name</div>
                                 </div>
-                                <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;"/>
-                                <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;margin-right: 5px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកដឹកជញ្ជូន</div>
+                                <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;"/>
+                                <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកដឹកទំនិញ</div>
                                         <div style="font-size:14px">Seller's Signature &amp; Name</div>
                                 </div>
                             </div>
@@ -236,8 +241,8 @@
                             </div>
                         </div>                      
                     </div>
+                    
                 </t>
             </t>
-        </template>
-    </data>
-</odoo>
+        </t>
+    
