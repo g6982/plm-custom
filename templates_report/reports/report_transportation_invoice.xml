@@ -95,10 +95,10 @@
                                             <div>ល.រ</div>
                                             <div>No</div>
                                         </td>
-                                        <!-- <td class="text-center" style="border:1px solid black; width:320px;border-right: 0px solid white;">
-                                            <div>តៃកុងឡាន</div>
-                                            <div>Driver</div>
-                                        </td> -->
+                                        <td class="text-center" style="border:1px solid black; width:320px;border-right: 0px solid white;">
+                                            <!-- <div>តៃកុងឡាន</div>
+                                            <div>Driver</div> -->
+                                        </td>
                                         <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">
                                             <div>បរិយាយ</div>
                                             <div>Description</div>
@@ -144,9 +144,7 @@
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
                                             <!-- <span t-field="line.price_unit"/> -->
                                         </td>
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            
-                                        </td>
+                                    
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
                                             <span>
                                                 <span class="text-nowrap" t-field="line.price_subtotal"/>
