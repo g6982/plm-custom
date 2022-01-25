@@ -39,55 +39,56 @@
 
                         <div style="border-bottom:3px solid black; margin-top:5px;"/>
                         <div class="page" >
-                                <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:18px;">
-                                    <h5>វិក័យបត្រ<br/>Invoice</h5>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-8">
-                                        <table class="table table-borderless" >
-                                            <tr>
-                                                <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';">
-                                                    <span>អតិថិជន</span><br/>
-                                                    <span>Sale To</span>
-                                                </td>
-                                                <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">:
-                                                    <span t-field="o.partner_id.name"/>
-                                                </td>
-                                                <tr>
-                                                    <td style="width:150px;padding-top:0px;font-family:'Khmer OS';"><span>អាស័យដ្ឋាន / Address</span></td>
-                                                    <td style="padding-top:0px;">
-                                                        :<span t-field="o.partner_id.street"/><br/><span t-field="o.partner_id.street2"/>
-                                                        :<span t-field="o.partner_id.city"/><span t-field="o.partner_id.country_id"/>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';"><span>ទូរស័ព្ទ / Tel</span></td>
-                                                    <td style="padding-top:0px;">
-                                                        : <t t-if="o.partner_id.mobile"><span style="font-size:18px;" t-field="o.partner_id.mobile"/></t>
-                                                        <t t-if="o.partner_id.phone"><span style="font-size:18px;" t-field="o.partner_id.phone"/></t>
-                                                    </td>
-                                                </tr>
-                                            </tr>
-                                        </table>
-                                </div>
-                                <div>
-                                    <table class="table table-borderless">
-                                        <tr >
-                                            <td style="font-size:18px;font-weight:bold;">
-                                                No:<b><span t-field="o.name"/></b>
-                                            </td>
-                                        </tr>
-                                        <tr >
-                                            <td style="padding-top:0px;font-size:18px; font-family:'Khmer OS'; font-weight:bold;"><span>កាលបរិច្ឆេទ/Date:</span> <span style="font-weight:bold;" t-field="o.invoice_date"/></td>
-                                        </tr>
+                            <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:18px;">
+                                <h5>វិក័យបត្រ<br/>Invoice</h5>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-8">
+                                    <table class="table table-borderless" >
                                         <tr>
-                                            <td style="font-size:18px;font-weight:bold;">
-                                                Source:<span t-field="o.invoice_origin"/>
+                                            <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';">
+                                                <span>អតិថិជន</span><br/>
+                                                <span>Sale To</span>
                                             </td>
+                                            <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">:
+                                                <span t-field="o.partner_id.name"/>
+                                            </td>
+                                            <tr>
+                                                <td style="width:150px;padding-top:0px;font-family:'Khmer OS';"><span>អាស័យដ្ឋាន / Address</span></td>
+                                                <td style="padding-top:0px;">
+                                                    :<span t-field="o.partner_id.street"/><br/><span t-field="o.partner_id.street2"/>
+                                                    :<span t-field="o.partner_id.city"/><span t-field="o.partner_id.country_id"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';"><span>ទូរស័ព្ទ / Tel</span></td>
+                                                <td style="padding-top:0px;">
+                                                    : <t t-if="o.partner_id.mobile"><span style="font-size:18px;" t-field="o.partner_id.mobile"/></t>
+                                                    <t t-if="o.partner_id.phone"><span style="font-size:18px;" t-field="o.partner_id.phone"/></t>
+                                                </td>
+                                            </tr>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
+                            <div>
+                                <table class="table table-borderless">
+                                    <tr >
+                                        <td style="font-size:18px;font-weight:bold;">
+                                            No:<b><span t-field="o.name"/></b>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td style="padding-top:0px;font-size:18px; font-family:'Khmer OS'; font-weight:bold;"><span>កាលបរិច្ឆេទ/Date:</span> <span style="font-weight:bold;" t-field="o.invoice_date"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:18px;font-weight:bold;">
+                                            Source:<span t-field="o.invoice_origin"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
 
                             <table class="table table-borderless" style="font-size:14px;">
                                 <thead>
