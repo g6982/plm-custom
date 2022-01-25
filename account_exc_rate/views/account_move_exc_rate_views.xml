@@ -9,7 +9,7 @@
           <group>
             <field name="rate_khr"/>
             <field name="rate_thb"/>   
-            <field name="driver_names"/>         
+            <field name="driver_names" widget="many2many_tags"/>         
           </group>
         </xpath>
         <xpath expr="//field[@name='amount_total']" position="after">
