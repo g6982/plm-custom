@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<t t-name="templates_report.report_transportation_invoice_document">
+<odoo>
+    <data>    
+         <template id="report_transportation_invoice_document">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-if="not o" t-set="o" t-value="doc"/>
@@ -244,5 +246,7 @@
                     
                 </t>
             </t>
-        </t>
+        </template>
+    </data>
+</odoo>
     
