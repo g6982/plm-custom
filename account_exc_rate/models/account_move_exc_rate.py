@@ -12,7 +12,7 @@ class account_exc_rate(models.Model):
     khr_currency_id = fields.Many2one('res.currency', compute = '_compute_total_khmer')
     thb_currency_id = fields.Many2one('res.currency', compute = '_compute_total_bat')
     source_origin = fields.Many2one('sale.origin', string="Source")
-
+    
     driver_names = fields.Many2many(
         comodel_name="res.partner",
         store=True,
@@ -28,7 +28,7 @@ class account_exc_rate(models.Model):
                 "invoice_line_ids.move_line_ids.picking_id.driver_name.id"
             )
     
-
+    
     # functions to computer the total amunte that from input currency khmer and thb into USDD 
     @api.depends('amount_total')
     def _compute_total_khmer(self):
@@ -40,6 +40,8 @@ class account_exc_rate(models.Model):
         for i in self:
             i.total_exc_thb = i.amount_total * i.rate_thb
             i.thb_currency_id = self.env['res.currency'].search([('id','=',137)])
+
+
     
 
     
