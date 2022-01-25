@@ -89,6 +89,7 @@
                             </div>
 
                             <table class="table table-borderless" style="font-size:14px;">
+                                <!-- Table Header -->
                                 <thead>
                                     <tr style="font-family:'Khmer OS';">
                                         <td class="text-center" style="border:1px solid black; width: 30px;border-right: 0px solid white;">
@@ -117,13 +118,16 @@
                                         </td>
                                     </tr>
                                 </thead>
+
+                                <!-- Table Body -->
                                 <tbody class="invoice_tbody">
                                     <tr t-foreach="o.invoice_line_ids" t-as="line" style="page-break-inside:avoid">
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span t-esc="line_index+1"/>
                                         </td>
-                                        
-                                        
+                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
+                                            
+                                        </td>
                                         <td class="text-center" style="width:130px; border-bottom:1px solid black;">
                                             <t t-if="not line.product_id">
                                                 <span t-field="line.name"/>
@@ -135,12 +139,15 @@
                                                 </t>
                                             </t>
                                         </td>
+
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
                                             <!-- <span t-field="line.quantity"/> -->
                                         </td>
+
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
                                             <!-- <span t-field="line.product_uom_id"/> -->
                                         </td>
+
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
                                             <!-- <span t-field="line.price_unit"/> -->
                                         </td>
@@ -202,15 +209,15 @@
 
                         <!-- Customer and Vender Sign  -->
                         <div style="page-break-inside:avoid;">
-                            <div class="row" style="margin-top:264.56px;font-weight:bold;">
+                            <div class="row" style="margin-top:200px;font-weight:bold;">
                                 <div class="col-3" style="font-size:14px;margin-top: 30px;">
-                                        <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះម្ចាស់ទំនិញ</div>
+                                        <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;margin-right: 5px">ហត្ថលេខានិងឈ្មោះម្ចាស់ទំនិញ</div>
                                         <div class="text-center" style="font-size:14px">Customer's Signature &amp; Name</div>
                                 </div>
                                 <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;"/>
                                 <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;">
                                         <div style="font-size:14px"><span t-esc="o.driver_names"/></div>
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកដឹកជញ្ជូន</div>
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;margin-right: 5px">ហត្ថលេខានិងឈ្មោះអ្នកដឹកជញ្ជូន</div>
                                         <div style="font-size:14px">Seller's Signature &amp; Name</div>
                                 </div>
                             </div>
