@@ -17,7 +17,7 @@ class account_exc_rate(models.Model):
         comodel_name="res.partner",
         store=True,
         compute="_compute_driver_names",
-        help="Related pickings ",
+        help="ឈ្មោះអ្នកបើកឡាន",
         
     )
 

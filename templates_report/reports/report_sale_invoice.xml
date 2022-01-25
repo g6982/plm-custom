@@ -48,11 +48,11 @@
                                     <div class="col-8">
                                         <table class="table table-borderless" >
                                             <tr>
-                                                <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';">
+                                                <td style="width:150px;padding-top:20px;font-size:16px;font-family:'Khmer OS';">
                                                     <span>អតិថិជន</span><br/>
                                                     <span>Sale To</span>
                                                 </td>
-                                                <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">:
+                                                <td style="vertical-align: middle;padding-top:20px;font-size:18px;font-family:'Khmer OS';">:
                                                     <span t-field="o.partner_id.name"/>
                                                 </td>
                                                 <tr>
@@ -75,7 +75,7 @@
                                 <div>
                                     <table class="table table-borderless">
                                         <tr >
-                                            <td style="font-size:18px;font-weight:bold;">
+                                            <td style="font-size:18px;font-weight:bold;padding-top:20px;">
                                                 No:<b><span t-field="o.name"/></b>
                                             </td>
                                         </tr>

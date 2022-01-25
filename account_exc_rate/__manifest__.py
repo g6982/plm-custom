@@ -3,7 +3,7 @@
     'name': "account_exc_rate",
     'summary': """ Add 2 fields more for exchange rate in khmer and thai bath """,
     'description': """
-        Exchange Rate in KHR and THB
+        Exchange Rate in KHR and THB and display driver name from picking in invoice
     """,
     'author': "Jenny Sun ",
     'category': 'Extra Tool',

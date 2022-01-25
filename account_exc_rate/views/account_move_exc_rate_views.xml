@@ -5,20 +5,46 @@
       <field name="model">account.move</field>
       <field name="inherit_id" ref="account.view_move_form"/>
       <field name="arch" type="xml">
-        <xpath expr="//div[@name='journal_div']" position="after">
-          <group>
-            <field name="rate_khr"/>
-            <field name="rate_thb"/>   
-            <field name="driver_names" widget="many2many_tags"/>         
+
+        <xpath expr="//div[@name='journal_div']" position="after"> 
+          <field name="driver_names" widget="many2many_tags"/>
+        </xpath>
+
+        <xpath expr="//group[@class='oe_subtotal_footer oe_right']" position="replace">
+          <group col="3">
+            <group></group>
+            <group>
+              <field name="rate_khr"/>
+              <field name="rate_thb"/> 
+            </group>
+            <group class="oe_subtotal_footer oe_right" attrs="{'invisible': ['|', ('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt')),                                                                ('payment_state' ,'=', 'invoicing_legacy')]}">
+                    <field name="amount_tax" invisible="1"/>
+                    <field name="amount_untaxed" attrs="{'invisible': [('amount_tax', '=', 0)]}"/>
+                    <field name="amount_by_group" widget="tax-group-custom-field" nolabel="1" colspan="2" attrs="{'invisible': [('amount_tax', '=', 0)]}"/>
+                    <field name="amount_total" attrs="{'invisible': [('amount_tax', '!=', 0)]}"/>
+                    <field name="amount_total" class="oe_subtotal_footer_separator" attrs="{'invisible': [('amount_tax', '=', 0)]}"/>
+                    <field name= "total_exc_khr"/>
+                    <field name= "total_exc_thb"/> 
+                    <field name = "khr_currency_id" invisible="1"/>
+                    <field name = "thb_currency_id" invisible="1"/>
+                    <field name="invoice_payments_widget" colspan="2" nolabel="1" widget="payment"/>
+                    <field name="amount_residual" class="oe_subtotal_footer_separator" attrs="{'invisible': [('state', '=', 'draft')]}"/>
+            </group>
           </group>
         </xpath>
-        <xpath expr="//field[@name='amount_total']" position="after">
-            <field name= "total_exc_khr"/>
-            <field name= "total_exc_thb"/> 
-            <field name = "khr_currency_id" invisible="1"/>
-            <field name = "thb_currency_id" invisible="1"/> 
-        </xpath>
+
       </field>
+    </record>
+
+    <record id="account_invoice_view_tree" model="ir.ui.view">
+        <field name="name">account.move.inherit_tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='amount_total_signed']" position="after">
+            <field name="driver_names" optional="hide"/>
+          </xpath>
+        </field>
     </record>
   </data>
 </odoo>
