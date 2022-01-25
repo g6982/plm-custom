@@ -161,9 +161,10 @@
                                             </span>
                                         </td>
                                     </tr>
+                                
                                     <tr style="page-break-inside:avoid">
-                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
-                                            ឈ្មោះតៃកុងនិងផ្លាកលេខឡាន<t-field="o.driver_names"/> 
+                                        <td rowspan="6" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
+                                            ឈ្មោះតៃកុងនិងផ្លាកលេខឡាន<p style="font-size:14px;" t-field="o.driver_names"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
