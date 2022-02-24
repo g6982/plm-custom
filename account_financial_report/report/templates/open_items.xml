@@ -145,10 +145,6 @@
                     Ref -
                     Label
                 </div>
-                <!--## test print describtion- -->
-                <div class="act_as_cell" style="width: 24.5%;">
-                    description Expense
-                </div>
                 <!--## date_due-->
                 <div class="act_as_cell" style="width: 6.47%;">
                     Due
@@ -224,10 +220,6 @@
             <!--## ref - label-->
             <div class="act_as_cell left">
                 <span t-esc="line['ref_label']" />
-            </div>
-            <!--## ref - label-->
-            <div class="act_as_cell left">
-                <span t-esc="line['descr']" />
             </div>
             <!--## date_due-->
             <div class="act_as_cell left">

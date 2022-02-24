@@ -65,7 +65,6 @@ class OpenItemsReport(models.AbstractModel):
             "currency_id",
             "amount_currency",
             "amount_residual_currency",
-            "product_id",
         ]
         move_lines = self.env["account.move.line"].search_read(
             domain=domain, fields=ml_fields
@@ -141,19 +140,6 @@ class OpenItemsReport(models.AbstractModel):
             else:
                 ref_label = move_line["ref"] + str(" - ") + move_line["name"]
 
-            if move_line["desc"] == move_line["product_id"]:
-                if move_line["desc"]:
-                    description = move_line["desc"]
-                else:
-                    description = ""
-            elif not move_line["desc"]:
-                desc = move_line["desc"]
-            elif not move_line["desc"]:
-                description = move_line["desc"]
-            else:
-                description = move_line["desc"] + str(" - ") + move_line["product_id"]
-            
-
             move_line.update(
                 {
                     "date": move_line["date"],
@@ -163,7 +149,6 @@ class OpenItemsReport(models.AbstractModel):
                     "partner_id": prt_id,
                     "partner_name": prt_name,
                     "ref_label": ref_label,
-                    "descr": description,
                     "journal_id": move_line["journal_id"][0],
                     "move_name": move_line["move_id"][1],
                     "entry_id": move_line["move_id"][0],
