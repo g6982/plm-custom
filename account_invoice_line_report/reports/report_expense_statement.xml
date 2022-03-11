@@ -12,11 +12,11 @@
                         <t t-set="company" t-value="res_company"/>
                     </t>
 
-                    <!-- Expense Detail -->
+                     <!-- Expense Detail -->
                     <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
    
                         <t t-raw="0"/>
-                        <t t-set="o" t-value="o.with_context(lang=lang)" />
+                        <t t-set="o" t-value="o.with_context(lang=lang)"/>
                         <div>
                             <t t-raw="0"/>
                             <div class="row" style="font-size:18px;">
@@ -40,13 +40,13 @@
                         </div>
 
                         <div style="border-bottom:3px solid black; margin-top:5px;"/>
-                        <div class="page" >
+                        <div class="page">
                             <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:18px;font-weight:bold;">
                                 <h5>របាយការណ៍ចំណាយ<br/>Expense Statement</h5>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-8">
-                                    <table class="table table-borderless" >
+                                    <table class="table table-borderless">
                                         <tr>
                                             <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';">
                                                 <span>Pay to </span>
@@ -67,14 +67,14 @@
                                     </table>
                                 </div>
                                 <div>
-                                    <table class="table table-borderless" >
+                                    <table class="table table-borderless">
                                         <tr>
                                             <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';">
                                                 <span>ថ្ងៃ ខែ ឆ្នាំ</span><br/>
                                                 <span>Date</span>
                                             </td>
                                             <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">:
-                                                <span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')" />
+                                                <span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/>
                                             </td>
                                             
                                         </tr>
@@ -156,26 +156,31 @@
                         <div style="page-break-inside:avoid;">
                             <div class="row" style="margin-top:200px;font-weight:bold;">
                                 <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">រៀបរៀងដោយ</div>
                                         <div style="font-size:14px">Prepare By</div>
+                                        <div style="padding-top:40px">___________________</div>
                                 </div>
                                     <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
-                                        <div style="font-size:14px">Validate By</div>
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ត្រួតពិនិត្យដោយ</div>
+                                        <div style="font-size:14px">Verified By</div>
+                                        <div style="padding-top:40px">___________________</div>
                                     </div>
                                  <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
-                                        <div style="font-size:14px">Approve</div>
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">អនុញ្ញាតដោយ</div>
+                                        <div style="font-size:14px">Approved By</div>
+                                        <div style="padding-top:40px">___________________</div>
                                 </div>
                             </div>
                             <div class="row" style="margin-top:200px;font-weight:bold;">
                                  <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ទទួលប្រាក់ដោយ</div>
                                         <div style="font-size:14px">Received Cash By</div>
+                                        <div style="padding-top:40px">___________________</div>
                                 </div>
                                  <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ចាយប្រាក់ដោយ</div>
                                         <div style="font-size:14px">Payment By</div>
+                                        <div style="padding-top:40px">___________________</div>
                                 </div>             
                             </div>
                             <div class="footer">
@@ -191,7 +196,7 @@
                     <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
    
                         <t t-raw="0"/>
-                        <t t-set="o" t-value="o.with_context(lang=lang)" />
+                        <t t-set="o" t-value="o.with_context(lang=lang)"/>
                         <div>
                             <t t-raw="0"/>
                             <div class="row" style="font-size:18px;">
@@ -216,7 +221,7 @@
                         </div>
 
                         <div style="border-bottom:3px solid black; margin-top:5px;"/>
-                        <div class="page" >
+                        <div class="page">
                             <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:18px;font-weight:bold;">
                                 <h5>ប័ណ្ណចំណាយសាច់ប្រាក់ ឬ មូលប្បទានប័ត្រ<br/>PAYMENT VOUCHER</h5>
                             </div>
@@ -225,14 +230,14 @@
                         <div>
                             <table class="table table-borderless" style="font-size:14px;">
                                 <thead>
-                                    <tr >
+                                    <tr>
                                         <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <span>ថ្ងៃ ខែ ឆ្នាំ</span><br/>
                                             <span>Date</span>                                          
                                         </td>
                                         <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div></div>
-                                            <div><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')" /></div>
+                                            <div/>
+                                            <div><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></div>
                                         </td>                                                
                                     </tr>
 
@@ -243,8 +248,8 @@
                                         </td>
 
                                         <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div></div>
-                                            <div><span t-field="docs.partner_id.name" /></div>                                            
+                                            <div/>
+                                            <div><span t-field="docs.partner_id.name"/></div>                                            
                                         </td>
                                     </tr>
 
@@ -254,7 +259,7 @@
                                             <div>Amount</div>
                                         </td> 
                                         <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div></div>
+                                            <div/>
                                             <div>$ <span t-esc="abs(sum(docs.mapped('price_subtotal')))"/></div>
                                         </td> 
                                     </tr>
@@ -264,8 +269,8 @@
                                             <div>In Respect of</div>
                                         </td> 
                                         <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div></div>
-                                            <div></div>
+                                            <div/>
+                                            <div/>
                                         </td> 
                                     </tr>
                                 </thead>
@@ -278,10 +283,12 @@
                                  <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
                                         <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">អ្នកទទួលប្រាក់</div>
                                         <div style="font-size:14px">Received Cash By</div>
+                                        <div style="padding-top:40px">___________________</div>
                                 </div>
                                  <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
                                         <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">អ្នកប្រគល់ប្រាក់</div>
                                         <div style="font-size:14px">Payment By</div>
+                                        <div style="padding-top:40px">___________________</div>
                                 </div>             
                             </div>
                             <div class="footer">
