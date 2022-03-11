@@ -8,17 +8,6 @@
         <field name="report_file">account_invoice_line_report.report_expense_statement</field>
         <field name="binding_model_id" ref="account.model_account_invoice_report"/>
         <field name="binding_type">report</field>
-        <field name="print_report_name">'tclearance_'+(object.name)</field>
+        <field name="print_report_name">'Expense_'+(object.partner_id.name)</field>
     </record>
-
-    <!-- <record id="report_expense_statement2" model="ir.actions.report">
-        <field name="name">Expense Line Move </field>
-        <field name="model">account.move</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">account_invoice_line_report.report_expense_statement_document</field>
-        <field name="report_file">account_invoice_line_report.report_expense_statement</field>
-        <field name="binding_model_id" ref="account.model_account_move"/>
-        <field name="binding_type">report</field>
-        <field name="print_report_name">'tclearance_'+(object.name)</field>
-    </record> -->
 </odoo>
