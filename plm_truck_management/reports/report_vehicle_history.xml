@@ -27,20 +27,22 @@
                                     </div>
 
                                     <div class="page">
-                                        <div>
-                                            <!-- <span t-field="o.customer"/> -->
-                                        </div>
                                         <table class="table table-borderless" style="font-size:14px;">
                                             <thead>
                                                 <tr>
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         <span>
-                                                            Date
+                                                            Customer
                                                         </span>
                                                     </td>
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         <span>
                                                             Vehicle
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                                        <span>
+                                                            Date
                                                         </span>
                                                     </td>
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
@@ -53,11 +55,6 @@
                                                             Revenue
                                                         </span>
                                                     </td>
-                                                    <!-- <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                                        <span>
-                                                            Maintainance
-                                                        </span>
-                                                    </td> -->
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         <span>
                                                             Legal Fee
@@ -89,10 +86,13 @@
                                             <tbody>    
                                                 <tr t-foreach="docs" t-as="line" style="page-break-inside:avoid">
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                                        <span t-field="line.date"> </span>
-                                                    </td>
+                                                        <span t-field="line.customer"> </span>
+                                                    </td> 
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         <span t-field="line.truck_id"> </span>
+                                                    </td>
+                                                    <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                                        <span t-field="line.date"> </span>
                                                     </td>
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         <span t-field="line.description"> </span>
@@ -100,9 +100,7 @@
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         $ <span t-field="line.revenue"> </span>
                                                     </td>
-                                                    <!-- <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                                        $ <span t-field="docs.truck_id.mapped('amount')"> </span>
-                                                    </td>                                      -->
+                                                                                        
                                                     <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         $ <span t-field="line.legal"> </span>
                                                     </td>
@@ -121,16 +119,12 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="3" style="border:1px solid black; width: 30px;border: 1px solid black;">  
+                                                    <td colspan="4" style="border:1px solid black; width: 30px;border: 1px solid black;">  
                                                         សរុប                                                      
                                                     </td>
-
                                                     <td style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         $<span t-esc="sum(docs.mapped('revenue'))"> </span>
                                                     </td>
-                                                    <!-- <td style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                                        <span t-esc="sum(docs.mapped('truck_id.amount'))"> </span>
-                                                    </td> -->
                                                     <td style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         $<span t-esc="sum(docs.mapped('legal'))"> </span>
                                                     </td>
@@ -140,7 +134,6 @@
                                                     <td style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         <span t-esc="sum(docs.mapped('fuel_qty'))"> </span>L
                                                     </td>
-
                                                     <td style="border:1px solid black; width: 30px;border: 1px solid black;">
                                                         $<span t-esc="sum(docs.mapped('fuel_cost'))"> </span>
                                                     </td>
@@ -152,23 +145,23 @@
                                         </table>
                                     </div>
 
-                                    <div class="row" style="margin-top:200px;font-weight:bold;">
+                                    <div class="row" style="margin-top:50px;font-weight:bold;">
                                         <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">                                       
                                         </div>
                                         <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
                                         </div>
                                         <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
-                                                <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">កោះកុងថ្ងៃទី&#160;ខែ&#160;ឆ្នាំ&#160;</div>
+                                                <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">កោះកុងថ្ងៃទី<span t-esc="datetime.datetime.now().strftime('%d')"/>&#160;ខែ<span t-esc="datetime.datetime.now().strftime('%m')"/>&#160;ឆ្នាំ<span t-esc="datetime.datetime.now().strftime('%Y')"/>&#160;</div>
                                         </div>
                                     </div>
-                                    <div class="row" style="margin-top:200px;font-weight:bold;">
+                                    <div class="row" style="margin-top:70px;font-weight:bold;">
                                         <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
                                                 <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ត្រួតពិនិត្យដោយ</div>
-                                                <div style="font-size:14px">_______________________________________</div>
+                                                <div style="font-size:14px;padding-top:40px;">_______________________________________</div>
                                         </div>
                                         <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
                                                 <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ធ្វើរបាយការណ៍ដោយ</div>
-                                                <div style="font-size:14px">_______________________________________</div>
+                                                <div style="font-size:14px;padding-top:40px;">_______________________________________</div>
                                         </div>             
                                     </div>
                                     <div class="footer">
