@@ -17,12 +17,12 @@
                         <div>
                             <t t-raw="0"/>
                             <div class="row header" style="font-size:18px;">
-                                <div class="col-1">
-                                    <!-- <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/> -->
+                                <div class="col-2">
+                                    <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="max-height:90px;" alt="Logo"/>
                                 </div>
-                                <div class="col-10" style="text-align:center;margin-top:10px;">
+                                <div class="col-8" style="text-align:center;margin-top:10px;padding-top:15px;">
                                     <div style="cursive; font-size:20px;"><h2>POLO TRANSPORTATION</h2></div>
-                                    <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
+                                    <div style="magin-top: 15px; font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">Address: <t t-esc="company.street2"/><t t-esc="company.city"/><t t-esc="company.country_id.name"/></div>
                                     <div style="font-size:14px;">
                                         TEL: 086 866 266,069 703 555  Email: plm@netkhmer.com
@@ -31,7 +31,7 @@
                                         <!-- <t t-esc="company.website"/> -->
                                     </div>
                                 </div>
-                                <div class="col-1">                                    
+                                <div class="col-3">                                    
                                 </div>
                             </div>
                         </div>

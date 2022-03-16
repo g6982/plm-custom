@@ -63,13 +63,13 @@
                                             <tr>
                                                 <td style="font-size:14px;font-weight:bold; width:150px;padding-top:5px; font-family:'Khmer OS';"><span>ឈ្មោះក្រុមហ៊ុន</span></td>
                                                 <td style="font-size:14px;font-weight:bold; padding-top:5px;">
-                                                    :<span t-field="o.partner_id.name"/>
+                                                    :<span t-field="o.partner_id.kh_name"/>
                                                 </td>                                                
                                             </tr>
                                             <tr>
                                                 <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px; font-family:'Khmer OS';"><span>Company Name/ Customer</span></td>
                                                 <td style="font-size:14px;font-weight:bold; padding-top:0px;">
-                                                    :<span t-field="o.partner_id.parent_id"/>
+                                                    :<span t-field="o.partner_id.name"/>
                                                 </td>
                                             </tr>
                                             <tr>

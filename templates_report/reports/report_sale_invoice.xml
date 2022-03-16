@@ -20,9 +20,9 @@
                             <t t-raw="0"/>
                             <div class="row header" style="font-size:18px;">
                                 <div class="col-2">
-                                    <!-- <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/> -->
+                                    <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="size:max-height:90px;" alt="Logo" />
                                 </div>
-                                <div class="col-9" style="text-align:center;margin-top:10px;">
+                                <div class="col-8" style="text-align:center;margin-top:10px;padding-top: 15px;">
                                     <div style="cursive; font-size:20px;"><h2>វិក័យបត្រ<br/>Invoice</h2></div>
                                     <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">Address: <t t-esc="company.street2"/>,<t t-esc="company.city"/><t t-esc="company.country_id.name"/></div>
@@ -33,7 +33,7 @@
                                         <!-- <t t-esc="company.website"/> -->
                                     </div>
                                 </div>
-                                <div class="col-2">                                    
+                                <div class="col-3">                                    
                                 </div>
                             </div>
                         </div>
@@ -71,25 +71,25 @@
                                                 </tr>
                                             </tr>
                                         </table>
+                                    </div>
+                                    <div>
+                                        <table class="table table-borderless">
+                                            <tr >
+                                                <td style="font-size:18px;font-weight:bold;padding-top:20px;">
+                                                    No:<b><span t-field="o.name"/></b>
+                                                </td>
+                                            </tr>
+                                            <tr >
+                                                <td style="padding-top:0px;font-size:14px; font-family:'Khmer OS'; font-weight:bold;"><span>កាលបរិច្ឆេទ/Date:</span> <span style="font-weight:bold;" t-field="o.invoice_date"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:18px;font-weight:bold;">
+                                                    Source:<span t-field="o.invoice_origin"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
-                                <div>
-                                    <table class="table table-borderless">
-                                        <tr >
-                                            <td style="font-size:18px;font-weight:bold;padding-top:20px;">
-                                                No:<b><span t-field="o.name"/></b>
-                                            </td>
-                                        </tr>
-                                        <tr >
-                                            <td style="padding-top:0px;font-size:18px; font-family:'Khmer OS'; font-weight:bold;"><span>កាលបរិច្ឆេទ/Date:</span> <span style="font-weight:bold;" t-field="o.invoice_date"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-size:18px;font-weight:bold;">
-                                                Source:<span t-field="o.invoice_origin"/>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
                             <div style="border-bottom:3px solid #000000; margin-top:15px;"/>
                             <table class="table table-borderless" style="font-size:14px;">
                                 <thead>

@@ -75,8 +75,7 @@
                                             </td>
                                             <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">:
                                                 <span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/>
-                                            </td>
-                                            
+                                            </td>                                            
                                         </tr>
                                     </table>
                                 </div>
