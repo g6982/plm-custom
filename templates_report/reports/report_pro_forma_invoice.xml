@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>    
-         <template id="report_quotation_sale_document">
+         <template id="report_pro_forma_invoice_document">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-if="not o" t-set="o" t-value="doc"/>
@@ -37,9 +37,10 @@
                             </div>
                         </div>
 
-                        <div style="border-bottom:3px solid #000000; margin-top:5px;"/>
+                        <div style="border-bottom:3px solid #000000; margin-top:15px;"/>
                         <div class="page">
-                                <div class="text-center" style="cursive; font-size:20px;"><h2>Quotation #<span t-field="o.name"/></h2></div>
+                                
+                                <div class="text-center" style="cursive; font-size:20px;"><h2>Pro-Forma Invoice #<span t-field="o.name"/></h2></div>
                                 
                                 <div class="row mb-2">
                                     <div class="col-8">

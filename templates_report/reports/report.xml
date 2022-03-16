@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-        <!-- <record id="report_quotation_sale" model="ir.actions.report">
-            <field name="name">Expense</field>
+<odoo>  
+        <record id="report_pro_forma_invoice" model="ir.actions.report">
+            <field name="name">Pro-Forma Invoice</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">templates_report.report_pro_forma_invoice_document</field>
+            <field name="report_file">templates_report.report_pro_forma_invoice</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'quotation_'+(object.partner_id.name)</field>
+        </record>
+        <record id="report_quotation_sale" model="ir.actions.report">
+            <field name="name">Quotation</field>
             <field name="model">sale.order</field>
             <field name="report_type">qweb-pdf</field>
             <field name="report_name">templates_report.report_quotation_sale_document</field>
             <field name="report_file">templates_report.report_quotation_sale</field>
-            <field name="binding_model_id" ref="sale.model_report_saleorder_document"/>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
             <field name="binding_type">report</field>
-            <field name="print_report_name">'expense_'+(object.partner_id.name)</field>
-        </record> -->
+            <field name="print_report_name">'quotation_'+(object.partner_id.name)</field>
+        </record>
         <record id="report_tclearance_khmer" model="ir.actions.report">
             <field name="name">Tclearance Invoice</field>
             <field name="model">account.move</field>
