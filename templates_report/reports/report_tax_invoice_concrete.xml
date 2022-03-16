@@ -17,17 +17,17 @@
                         <div>
                             <t t-raw="0"/>
                             <div class="row header" style="font-size:14px;">
-                                <div class="col-1">
-                                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:80px;" alt="Logo"/>
+                                <div class="col-2">
+                                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/>
                                 </div>
-                                <div class="col-9" style="text-align:center;margin-top:10px;">
+                                <div class="col-8" style="text-align:center;margin-top:10px;">
                                     <div style="cursive; font-size:12px;"><h3>ភី.អិល.អិម. អ៊ីមផត អិចផត</h3></div>
                                     <div style="cursive; font-size:12px;"><h3>P.L.M IMPORT EXPORT CO.,LTD.</h3></div>
                                     <div style="font-size:14px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">TEL:<t t-esc="company.phone"/> </div>
                                     <div style="font-size:14px; font-family:'Khmer OS',">លេខអត្តសញ្ញាណកម្ម/VAT TIN: B109-360000789 </div>
                                 </div>
-                                <div class="col-1">
+                                <div class="col-3">
                                 </div>
                             </div>
                         </div>
