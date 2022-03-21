@@ -217,9 +217,7 @@
                                             <p style="font-size:14px;" t-field="o.narration"/>
                                         </td>
                                     </tr>
-                                
-                                    
-                                    
+                                </tbody>       
                             </table>
                         </div>
 
