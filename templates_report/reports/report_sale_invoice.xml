@@ -35,12 +35,12 @@
                             </div>
                         </div>
 
-                        
+                        <div style="border-bottom:3px solid #000000; margin-top:5px;"/>
                         <div class="page">
                                 <!-- <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:15px;font-size:18px;">
                                     <h5>វិក័យបត្រ<br/>Invoice</h5>
                                 </div> -->
-                                <div style="border-bottom:3px solid #000000; margin-top:5px;"/>
+                                
                                 <div class="row mb-2">
                                     <div class="col-8">
                                         <table class="table table-borderless">
@@ -95,6 +95,10 @@
                                             <div>ល.រ</div>
                                             <div>No</div>
                                         </td>
+                                        <td class="text-center" style="border:1px solid black; width: 30px">
+                                            <div>លេខកូដ</div>
+                                            <div>Item Code</div>
+                                        </td>
                                         <td class="text-center" style="border:1px solid black; width:320px">
                                             <div>បរិយាយ</div>
                                             <div>Description</div>
@@ -122,6 +126,9 @@
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span t-esc="line_index+1"/>
                                         </td>
+                                        <td class="text-center" style="border:1px solid black;padding:5px;">
+                                            <span t-field="line.product_id.default_code"/>
+                                        </td>
                                         <td style="border:1px solid black;padding:5px;">
                                             <t t-if="not line.product_id">
                                                 <span t-field="line.name"/>
@@ -140,7 +147,7 @@
                                             <span t-field="line.product_uom_id"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
-                                            <span t-field="line.price_unit"/>
+                                            $ <span t-field="line.price_unit"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span>

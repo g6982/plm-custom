@@ -21,7 +21,7 @@
                                     <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/>
                                 </div>
                                 <div class="col-8" style="text-align:center;margin-top:10px;">
-                                    <div style="cursive; font-size:20px;"><h2>POLO TRANSPORTATION</h2></div>
+                                    <div style="cursive; font-size:20px;"><h2>POLO IMPORT EXPORT CO.,LTD.</h2></div>
                                     <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">Address: <t t-esc="company.street2"/><t t-esc="company.city"/><t t-esc="company.country_id.name"/></div>
                                     <div style="font-size:14px;">
@@ -165,7 +165,48 @@
                                             </span>
                                         </td>
                                     </tr>
-                                
+
+                                    <!-- Total Amount in each Currentcy, Will display KHR and THB only input the currency rate -->
+                                    <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជារៀល / Total in RIEL </td>
+                                        <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
+                                            <t t-esc="'{0:,.2f}'.format(o.total_exc_khr)"/> ៛ 
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.rate_thb != o.rate_khr">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាបាត / Total in BATH </td>
+                                        <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
+                                            B <t t-esc="'{0:,.0f}'.format(o.total_exc_thb)"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
+                                        <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
+                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Total Balance in each Currency -->
+                                    <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.amount_residual != 0.0">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
+                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
+                                            <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> ៛
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.amount_residual != 0.0">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
+                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
+                                            B <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != 0.0">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
+                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
+                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row of column Driver name with plate number -->
                                     <tr style="page-break-inside:avoid">
                                         <td rowspan="4" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
                                             ឈ្មោះតៃកុងនិងផ្លាកលេខឡាន<p style="font-size:14px;font-weight:bold;" t-field="o.driver_names"/>
@@ -176,47 +217,9 @@
                                             <p style="font-size:14px;" t-field="o.narration"/>
                                         </td>
                                     </tr>
-
-                                    <!-- Total Amount in each Currentcy, Will display KHR and THB only input the currency rate -->
-                                    <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជារៀល / Total in RIEL </td>
-                                        <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
-                                            <t t-esc="'{0:,.2f}'.format(o.total_exc_khr)"/> ៛ 
-                                        </td>
-                                    </tr>
-                                    <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.rate_thb != o.rate_khr">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាបាត / Total in BATH </td>
-                                        <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
-                                            B <t t-esc="'{0:,.0f}'.format(o.total_exc_thb)"/>
-                                        </td>
-                                    </tr>
-                                    <tr style="page-break-inside:avoid">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
-                                        <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
-                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
-                                        </td>
-                                    </tr>
+                                
                                     
-                                    <!-- Total Balance in each Currency -->
-                                    <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
-                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
-                                            <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> ៛
-                                        </td>
-                                    </tr>
-                                    <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.rate_thb != o.rate_khr">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
-                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
-                                            B <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
-                                        </td>
-                                    </tr>
-                                    <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="5" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
-                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
-                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                    
                             </table>
                         </div>
 
@@ -224,13 +227,13 @@
                         <div style="page-break-inside:avoid;">
                             <div class="row" style="margin-top:200px;font-weight:bold;">
                                 <div class="col-4" style="font-size:14px;margin-top: 30px;">
-                                        <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះម្ចាស់ទំនិញ</div>
-                                        <div class="text-center" style="font-size:14px">Customer's Signature &amp; Name</div>
+                                        <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះមអ្នកលក់ទំនិញ</div>
+                                        <div class="text-center" style="font-size:14px">Seller's Signature &amp; Name</div>
                                 </div>
                                 <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;"/>
                                 <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកដឹកទំនិញ</div>
-                                        <div style="font-size:14px">Seller's Signature &amp; Name</div>
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកទទួលទំនិញ</div>
+                                        <div style="font-size:14px">Goods Receiver's Signature &amp; Name</div>
                                 </div>
                             </div>
                             <div class="footer">
