@@ -156,7 +156,7 @@
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
-                                        <td rowspan="6" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
+                                        <td rowspan="7" colspan="3" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
                                             <p style="font-size:14px;" t-field="o.narration"/>
                                         </td>
                                     </tr>
@@ -194,7 +194,7 @@
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="5" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
                                         </td>

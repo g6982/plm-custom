@@ -194,7 +194,7 @@
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
                                         <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:18px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
                                         </td>
@@ -202,23 +202,24 @@
                                     
                                     <!-- Total Balance in each Currency -->
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
                                             <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> ៛
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.rate_thb != o.rate_khr">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
                                             B <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="5" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:18px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
                                         </td>
                                     </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
