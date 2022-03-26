@@ -84,6 +84,11 @@
                                                 Source:<span t-field="o.invoice_origin"/>
                                             </td>
                                         </tr>
+                                        <tr style="page-break-inside:avoid">
+                                            <td style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
+                                                ឈ្មោះតៃកុងនិងផ្លាកលេខឡាន<p style="font-size:14px;font-weight:bold;" t-field="o.driver_names"/>
+                                            </td>
+                                        </tr>
                                     </table>
                                 </div>
                             </div>
@@ -169,11 +174,7 @@
                                         </td>
                                     </tr>
                                 
-                                    <tr style="page-break-inside:avoid">
-                                        <td rowspan="4" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
-                                            ឈ្មោះតៃកុងនិងផ្លាកលេខឡាន<p style="font-size:14px;font-weight:bold;" t-field="o.driver_names"/>
-                                        </td>
-                                    </tr>
+                                    
                                     <tr style="page-break-inside:avoid">
                                         <td rowspan="4" colspan="2" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
                                             <p style="font-size:14px;" t-field="o.narration"/>
