@@ -13,10 +13,10 @@
                     </t>
                     <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                         <t t-raw="0"/>
-                        <t t-set="o" t-value="o.with_context(lang=lang)" />
+                        <t t-set="o" t-value="o.with_context(lang=lang)"/>
                         <div>
                             <t t-raw="0"/>
-                            <div class="row header" style="font-size:14px;">
+                            <div class="row" style="font-size:14px;">
                                 <div class="col-2">
                                     <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/>
                                 </div>
@@ -32,65 +32,75 @@
                             </div>
                         </div>
 
-                        <div style="border-bottom:3px solid black; margin-top:100px;"/>
-                        <div class="page" >
+                        <div style="border-bottom:3px solid black; margin-top:20px;"/>
+                        <div class="page">
                                 <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:25px;font-size:14px;">
                                     <h5>វិក្ក័យបត្រអាករ<br/>TAX INVOICE</h5>
                                 </div>
-                                
-                                <div >   
-                                    <table class="table table-borderless" style="width: auto;margin-left:600px;border-collapse: collapse;border-radius: 30px;border-style: hidden;box-shadow: 0 0 0 1px #666;">
-                                                                           
-                                            <tr>
-                                                <td style="font-size:14px;font-weight:bold;">
-                                                    Invoice No:<b><span t-field="o.name"/></b>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td style="font-size:14px;font-weight:bold;">
-                                                    Date:<b><span t-field="o.invoice_date"/></b>
-                                                </td>
-                                            </tr>
-                                        
-                                    </table>
-                                </div> 
-                               
-
-                                <div>
-                                    <table class="table table-borderless" style="border-collapse: collapse;border-radius: 30px;border-style: hidden;box-shadow: 0 0 0 1px #666;">
-                                        
-                                            <tr>
-                                                <td style="font-size:14px;font-weight:bold; width:150px;padding-top:5px; font-family:'Khmer OS';"><span>ឈ្មោះក្រុមហ៊ុន</span></td>
-                                                <td style="font-size:14px;font-weight:bold; padding-top:5px;">
-                                                    :<span t-field="o.partner_id.kh_name"/>
-                                                </td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px; font-family:'Khmer OS';"><span>Company Name/ Customer</span></td>
-                                                <td style="font-size:14px;font-weight:bold; padding-top:0px;">
-                                                    :<span t-field="o.partner_id.name"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px;font-family:'Khmer OS';"><span>អាស័យដ្ឋាន / Address</span></td>
-                                                <td style="font-size:14px;font-weight:bold; padding-top:0px;">
-                                                    :<span t-field="o.partner_id.street"/><br/><span t-field="o.partner_id.street2"/>
-                                                    :<span t-field="o.partner_id.city"/><span t-field="o.partner_id.country_id"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px;font-size:14px;font-family:'Khmer OS';"><span>ទូរស័ព្ទ / Tel</span></td>
-                                                <td style="font-size:14px;font-weight:bold; padding-top:0px;">
-                                                    : <t t-if="o.partner_id.mobile"><span style="font-size:14px;" t-field="o.partner_id.mobile"/></t>
-                                                    <t t-if="o.partner_id.phone"><span style="font-size:14px;" t-field="o.partner_id.phone"/></t>
-                                                </td>
-                                            </tr>
-                                        
-                                    </table>
+                                <div class="row mb-2">
+                                    <div class="col-7">
+                                      <table class="table table-borderless" style="border-collapse: collapse;border-radius: 30px;border-style: hidden;box-shadow: 0 0 0 1px #666;">
+                                          
+                                              <tr>
+                                                  <td style="font-size:14px;font-weight:bold; width:150px;padding-top:5px; font-family:'Khmer OS';"><span>ឈ្មោះក្រុមហ៊ុន</span></td>
+                                                  <td style="font-size:14px;font-weight:bold; padding-top:5px;">
+                                                      :<span t-field="o.partner_id.kh_name"/>
+                                                  </td>                                                
+                                              </tr>
+                                              <tr>
+                                                  <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px; font-family:'Khmer OS';"><span>Company Name/ Customer</span></td>
+                                                  <td style="font-size:14px;font-weight:bold; padding-top:0px;">
+                                                      :<span t-field="o.partner_id.name"/>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px;font-family:'Khmer OS';"><span>អាស័យដ្ឋាន / Address:</span></td>
+                                                  <td style="font-size:14px;font-weight:bold; padding-top:0px;">
+                                                      :<span t-field="o.partner_id.street"/><br/><span t-field="o.partner_id.street2"/>
+                                                      <span t-field="o.partner_id.city"/><span t-field="o.partner_id.country_id"/>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px;font-size:14px;font-family:'Khmer OS';"><span>ទូរស័ព្ទ / Tel</span></td>
+                                                  <td style="font-size:14px;font-weight:bold; padding-top:0px;">
+                                                      : <t t-if="o.partner_id.mobile"><span style="font-size:14px;" t-field="o.partner_id.mobile"/></t>
+                                                      <t t-if="o.partner_id.phone"><span style="font-size:14px;" t-field="o.partner_id.phone"/></t>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px;font-size:14px;font-family:'Khmer OS';"><span>លេខអត្តសញ្ញាណកម្ម / VAT TIN</span></td>
+                                                  <td style="font-size:14px;font-weight:bold; padding-top:0px;">
+                                                      : <t><span style="font-size:14px;" t-field="o.partner_id.vat"/></t>
+                                                      
+                                                  </td>
+                                              </tr>
+                                          
+                                      </table>
+                                  </div>
+                                  
+                                  <div class="col-4">   
+                                      <table class="table table-borderless" style="width: auto;margin-left:600px;border-collapse: collapse;border-radius: 30px;border-style: hidden;box-shadow: 0 0 0 1px #666;">
+                                                                             
+                                              <tr>
+                                                  <td style="font-size:14px;font-weight:bold;">
+                                                      <span>លេខវិក្កយបត្រ / Invoice No:</span> <b><span t-field="o.name"/></b>
+                                                  </td>
+                                              </tr>
+  
+                                              <tr>
+                                                  <td style="font-size:14px;font-weight:bold;">
+                                                      <span>កាលបរិច្ឆេទ/ Date:</span><b><span t-field="o.invoice_date"/></b>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td style="font-size:14px;font-weight:bold;">
+                                                      <span>លេខយោង/ Reference:</span><b><span t-field="o.payment_reference"/></b>
+                                                  </td>
+                                              </tr>
+                                      </table>
+                                  </div> 
+                                  
                                 </div>
-                                
-                            
 
                             <table class="table table-borderless" style="font-size:14px; border-style: double; ">
                                 <thead>
@@ -144,7 +154,7 @@
                                             <span t-field="line.product_uom_id"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black; width:130px; font-size:14px;">            
-                                            <span t-esc="'{0:,.3f}'.format(line.price_unit / 1.1)"/>
+                                            $ <span t-esc="'{0:,.2f}'.format(line.price_unit / 1.1)"/>
                                         </td>
                                         <td class="text-right" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
                                             <span>
@@ -152,47 +162,87 @@
                                             </span>
                                         </td>
                                     </tr>
-                
+                                    
                                     <tr style="page-break-inside:avoid">
-                                        <td colspan="2" style="border: 1px solid black;text-align:center;font-weight:bold;padding:5px;">
-                                            Rate Exchange: $1 = <span style="font-size:14px;" t-field="o.rate_khr"/>
+                                        <td rowspan="9" colspan="3" style="margin-top:20px;border: 1px solid black;text-align:left;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:16px;">
+                                          
+                                              <span >Payment can be made by cheque or Bank transfer to:</span> <br/>
+                                              <span style="padding-right:33px;margin-top:5px;">Account Name:</span> <span>P.L.M. IMPORT EXPORT Co., Ltd.</span><br/>
+                                              <span style="padding-right:20px;margin-top:5px;">Account Number:</span> <span>038-0000002299</span><br/>
+                                              <span style="padding-right:51px;margin-top:5px;">Bank Name:</span> <span>Canadia Bank PLC</span><br/>
+                                              
+                                          
                                         </td>
-                                        <td colspan="3" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">សរុប / Sub Total</td>
+                                       
+                                    </tr>
+                                    <tr style="page-break-inside:avoid">
+                                        
+                                        <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">សរុបមុនបញ្ចុះតម្លៃ / Sub Total</td>
+                                        <td class="text-right" style="background: #F8F0E3; border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
+                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_untaxed + o.amount_discount)"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid">
+                                        
+                                        <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">បញ្ចុះតម្លៃ / Discount</td>
+                                        <td class="text-right" style="background: #F8F0E3; border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
+                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_discount)"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid">
+                                        
+                                        <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">សរុបក្រោយបញ្ចុះតម្លៃ / Total After Discount</td>
                                         <td class="text-right" style="background: #F8F0E3; border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_untaxed)"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
-                                    
-                                        <td colspan="5" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">អាករលើតម្លៃបន្ថែម / VAT 10%</td>
+                                        
+                                        <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">ថ្លៃកក់ / Deposit Amount</td>
+                                        <td class="text-right" style="background: #F8F0E3; border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
+                                             <!--<t t-esc="'{0:,.2f}'.format(o.amount_tax)"/>-->
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid">
+                                        
+                                        <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">អាករលើតម្លៃបន្ថែម / VAT 10%</td>
                                         <td class="text-right" style="background: #F8F0E3; border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_tax)"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
                                         
-                                        <td colspan="5" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">សរុបរួម / Grand Total</td>
+                                        <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">សរុបជាប្រាក់ដុល្លារ / Grand Total in</td>
                                         <td class="text-right" style="background: #F8F0E3; border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
                                         
-                                        <td colspan="5" style="background: #F8F0E3; border:1px solid black; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាប្រាក់រៀល / Total in RIEL </td>
+                                        <td colspan="2" style="background: #F8F0E3; border:1px solid black; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">អត្រាប្ដូរប្រាក់ / Exchange Rate </td>
                                         <td class="text-right" style="background: #F8F0E3;border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
-                                            <t t-esc="'{0:,.2f}'.format(o.total_exc_khr)"/> ៛ 
+                                            KHR <t t-esc="'{0:,.0f}'.format(o.rate_khr)"/>  
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.rate_khr != o.rate_thb">
+                                        
+                                        <td colspan="2" style="background: #F8F0E3; border:1px solid black; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាប្រាក់រៀល / Total in KHR </td>
+                                        <td class="text-right" style="background: #F8F0E3;border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
+                                            KHR <t t-esc="'{0:,.0f}'.format(o.total_exc_khr)"/>  
                                         </td>
                                     </tr>
                                     
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="5" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
+                                        
+                                        <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Amount Dule in RIEL </td>
                                         <td class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
-                                            <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> ៛
+                                            KHR<t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
                                         </td>
                                     </tr>
                                     
                                     <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="5" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
+                                        
+                                        <td colspan="2" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Amount Dule in USD </td>
                                         <td class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
                                         </td>
