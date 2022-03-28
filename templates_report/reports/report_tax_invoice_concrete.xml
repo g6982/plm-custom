@@ -78,8 +78,8 @@
                                       </table>
                                   </div>
                                   
-                                  <div class="col-4">   
-                                      <table class="table table-borderless" style="width: auto;margin-left:600px;border-collapse: collapse;border-radius: 30px;border-style: hidden;box-shadow: 0 0 0 1px #666;">
+                                  <div class="col-5">   
+                                      <table class="table table-borderless" style="border-collapse: collapse;border-radius: 30px;border-style: hidden;box-shadow: 0 0 0 1px #666;">
                                                                              
                                               <tr>
                                                   <td style="font-size:14px;font-weight:bold;">
@@ -166,7 +166,7 @@
                                     <tr style="page-break-inside:avoid">
                                         <td rowspan="9" colspan="3" style="margin-top:20px;border: 1px solid black;text-align:left;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:16px;">
                                           
-                                              <span >Payment can be made by cheque or Bank transfer to:</span> <br/>
+                                              <span>Payment can be made by cheque or Bank transfer to:</span> <br/>
                                               <span style="padding-right:33px;margin-top:5px;">Account Name:</span> <span>P.L.M. IMPORT EXPORT Co., Ltd.</span><br/>
                                               <span style="padding-right:20px;margin-top:5px;">Account Number:</span> <span>038-0000002299</span><br/>
                                               <span style="padding-right:51px;margin-top:5px;">Bank Name:</span> <span>Canadia Bank PLC</span><br/>
