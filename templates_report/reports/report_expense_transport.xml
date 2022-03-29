@@ -2,7 +2,7 @@
 <odoo>
     <data>    
         <template id="report_transport_expense_document">
-            <t t-call="web.html_container">
+             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-if="not o" t-set="o" t-value="doc"/>
                     <t t-if="o and 'company_id' in o">
@@ -23,126 +23,106 @@
                                 <div class="col-2">
                                 </div>
                                 <div class="col-8" style="text-align:center;margin-top:10px;">
-                                    <div style="cursive; font-size:20px;font-family:'Khmer OS';">
+                                    <div style="cursive; font-size:20px;font-family:'Moul';">
                                         <h2>លឹម សោភ័ណ្ឌលក់សំភារៈសំណង់</h2>
                                         <h5>លិខិតសុំបើកប្រាក់មុនពីបេឡាបំរុង</h5>
                                     </div>
-                                    <div class="text-left" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:18px;font-weight:bold;">
-                                        <h5>សំគាល់: ទឹកប្រាក់ស្នើរមិនលើសពី $100.00)</h5>
+                                    <div class="text-right" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:18px;font-weight:bold;">
+                                    
                                     </div>
                                 </div>
-                                <div class="col-2" style="text-align:left;"> 
-                                    N0:<span t-esc="o.name"/>
+                                <div class="col-3" style="text-align:left;padding-top:20px;margin-right:40px;"> 
                                 </div>
+                                 
+                            </div>
+                            <div class="text-center" style="font-weight:bold;">
+                                N0:<span t-esc="o.name"/>
                             </div>
                         </div>
-
+                        
+                        <div class="text-right" style="font-size:12px;">សំគាល់: (ទឹកប្រាក់ស្នើរមិនលើសពី $100.00)</div>
                         <div style="border-bottom:3px solid black; margin-top:5px;"/>
                         <div class="page">
-                            <div  class="row mb-2">
+                            <div class="row mb-2" style="margin-top:20px;">
                                 <div class="col-8">
                                     <table>
-                                        <thead>
-                                            <tr>
-                                                <td>ផ្នែក:</td>
-                                                <td>Transport</td>
+                                        <thead >
+                                            <tr style="font-size:16px;">
+                                                <td colspan="3">ផ្នែក:</td>
+                                                <td colspan="2" style="text-align:right;padding-left:30px;margin-top:30px;padding-top:20px;font-weight:bold;">Transport</td>
                                             </tr>
-                                            <tr>
-                                                <td>ទឹកប្រាក់ស្នើរសុំ:</td>
-                                                <td><span t-esc="o.amount_total"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td>បរិយាយនៃការស្នើរសុំ:</td>
-                                                <td><span t-esc="o.invoice_line_ids.product_id"/><span t-esc="o.invoice_line_ids.name"/></td>
+                                            <tr></tr>
+                                            <tr style="font-size:16px; margin-top:20px;">
+                                                <td colspan="3">ទឹកប្រាក់ស្នើរសុំ:</td>
+                                                <td colspan="2" style="text-align:right;padding-left:40px;padding-top:20px;font-weight:bold;">&#009;<span t-esc="o.amount_total"/>&#032;<span t-esc="o.currency_id.name"/></td>
                                             </tr>
                                         </thead>
                                     </table>
                                 </div>
-                                <div class="col-5">
-                                    <thead>
-                                        <tr>
-                                            <td>ថ្ងៃ ខែ ឆ្នាំ</td>
-                                            <td><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></td>
+                                <div class="col-6">
+                                  <table>
+                                    <thead style="font-size:16px;">
+                                        <tr style="font-size:16px;">
+                                            <td>ថ្ងៃ ខែ ឆ្នាំ:</td>
+                                            <td></td>
+                                            <td style="text-align:left;padding-left:30px;padding-top:20px;"><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></td>
                                         </tr>
-                                        <tr>
-                                            <td>លេខគណនី</td>
-                                            <td><span t-esc="o.invoice_line_ids.move_id"/></td>
+                                        <tr></tr>
+                                        <tr style="font-size:16px;">
+                                            <td>លេខគណនី:</td>
+                                            <td></td>
+                                            <td style="text-align:left;padding-left:30px;padding-top:20px;"><span t-field="o.invoice_line_ids.account_id.code"/></td>
                                         </tr>
                                     </thead>
+                                  </table>
+                                </div>
+                            </div>
+                            <div>
+                                <tr style="font-size:14px;" >
+                                    <td style="padding-top:20px;">បរិយាយនៃការស្នើរសុំ:</td>
+                                    <td style="text-align:left;padding-left:30px;">&#009;<span t-esc="o.invoice_date.strftime('%d/%m/%Y')"/>:&#009;<span t-esc="o.invoice_line_ids.product_id.name"/>:&#009;<span t-esc="o.invoice_line_ids.name"/></td>
+                                </tr>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-8">
+                                    <table>
+                                        <thead >
+                                            <tr style="font-size:16px;">
+                                                <td colspan="3">ស្នើរសុំដោយ:</td>
+                                                <td colspan="2" style="text-align:right;padding-left:10px;margin-top:30px;padding-top:20px;"><span t-esc="o.partner_id.name"/></td>
+                                            </tr>
+                                            <tr></tr>
+                                            <tr style="font-size:16px;">
+                                                <td colspan="3">អនុញ្ញាតដោយ:</td>
+                                                <td colspan="2" style="text-align:right;padding-left:60px;padding-top:20px;"><span t-esc="o.invoice_user_id.name"/></td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="col-6">
+                                  <table>
+                                    <thead style="font-size:16px;">
+                                        
+                                        <div>
+                                          <tr style="font-size:16px;margin-top:30px;">
+                                              <td>ហត្ថលេខា</td>
+                                              
+                                              <td style="text-align:left;padding-left:30px;padding-top:20px;">___________________</td>
+                                          </tr>
+                                        </div>
+                                        <div></div>
+                                        <div>
+                                          <tr style="font-size:16px;">
+                                              <td>ហត្ថលេខា</td>
+                                              
+                                              <td style="text-align:left;padding-left:30px;padding-top:20px;">___________________</td>
+                                          </tr>
+                                        </div>
+                                    </thead>
+                                  </table>
                                 </div>
                             </div>
                         </div>
-                            
-                        <!-- <div>
-                            <table class="table table-borderless" style="font-size:14px;">
-                                <thead>
-                                    <tr>
-                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <span>ថ្ងៃ ខែ ឆ្នាំ</span><br/>
-                                            <span>Date</span>                                          
-                                        </td>
-                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            
-                                            <div><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></div>
-                                        </td>                                                
-                                    </tr>
-
-                                    <tr style="font-family:'Khmer OS';">
-                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div>ចំណាយប្រាក់អោយ</div>
-                                            <div>Pay to:</div>
-                                        </td>
-
-                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div/>
-                                            <div><span t-field="docs.partner_id.name"/></div>                                            
-                                        </td>
-                                    </tr>
-
-                                    <tr style="font-family:'Khmer OS';">
-                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div>ទឹកប្រាក់</div>
-                                            <div>Amount</div>
-                                        </td> 
-                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div/>
-                                            <div>$ <span t-esc="abs(sum(docs.mapped('price_subtotal')))"/></div>
-                                        </td> 
-                                    </tr>
-                                    <tr style="font-family:'Khmer OS';">
-                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div>អត្ថន័យចំណាយ</div>
-                                            <div>In Respect of</div>
-                                        </td> 
-                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div>
-                                            <div/>
-                                        </td> 
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div> -->
-
-                        <!-- Customer and Vender Sign  -->
-                        <div style="page-break-inside:avoid;">
-                            <div class="row" style="margin-top:200px;font-weight:bold;">
-                                 <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
-                                        <div style="font-size:14px">ស្នើរសុំដោយ</div>
-                                        <div style="padding-top:40px"><span t-esc="o.partner_id"/></div>
-                                </div>
-                                 <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
-                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
-                                        <div style="font-size:14px">អ្នកអនុញ្ញាតដោយ</div>
-                                        <div style="padding-top:40px"><span t-esc="o.invoice_user_id"/></div>
-                                </div>             
-                            </div>
-                            <div class="footer">
-                                <ul class="list-inline" style="text-align: right; font-size:12px">
-                                    <li>Page: <span class="page"/> of <span class="topage"/></li>
-                                </ul>
-                            </div>
-                        </div>  
                     </div>
                 </t>
             </t>
