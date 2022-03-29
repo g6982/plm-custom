@@ -16,6 +16,7 @@ class account_exc_rate(models.Model):
     driver_names = fields.Many2many(
         comodel_name="res.partner",
         store=True,
+        readonly=False,
         compute="_compute_driver_names",
         help="ឈ្មោះអ្នកបើកឡាន",
         
