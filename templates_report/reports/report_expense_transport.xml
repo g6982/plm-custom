@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>    
+        <template id="report_transport_expense_document">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-if="not o" t-set="o" t-value="doc"/>
+                    <t t-if="o and 'company_id' in o">
+                        <t t-set="company" t-value="o.company_id"/>
+                    </t>
+                    <t t-if="not o or not 'company_id' in o">
+                        <t t-set="company" t-value="res_company"/>
+                    </t>
+                    
+                    <!-- Summary Expense -->
+                    <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+   
+                        <t t-raw="0"/>
+                        <t t-set="o" t-value="o.with_context(lang=lang)"/>
+                        <div>
+                            <t t-raw="0"/>
+                            <div class="row" style="font-size:18px;">
+                                <div class="col-2">
+                                </div>
+                                <div class="col-8" style="text-align:center;margin-top:10px;">
+                                    <div style="cursive; font-size:20px;font-family:'Khmer OS';">
+                                        <h2>លឹម សោភ័ណ្ឌលក់សំភារៈសំណង់</h2>
+                                        <h5>លិខិតសុំបើកប្រាក់មុនពីបេឡាបំរុង</h5>
+                                    </div>
+                                    <div class="text-left" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:18px;font-weight:bold;">
+                                        <h5>សំគាល់: ទឹកប្រាក់ស្នើរមិនលើសពី $100.00)</h5>
+                                    </div>
+                                </div>
+                                <div class="col-2" style="text-align:left;"> 
+                                    N0:<span t-esc="o.name"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="border-bottom:3px solid black; margin-top:5px;"/>
+                        <div class="page">
+                            <div  class="row mb-2">
+                                <div class="col-8">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <td>ផ្នែក:</td>
+                                                <td>Transport</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ទឹកប្រាក់ស្នើរសុំ:</td>
+                                                <td><span t-esc="o.amount_total"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>បរិយាយនៃការស្នើរសុំ:</td>
+                                                <td><span t-esc="o.invoice_line_ids.product_id"/><span t-esc="o.invoice_line_ids.name"/></td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="col-5">
+                                    <thead>
+                                        <tr>
+                                            <td>ថ្ងៃ ខែ ឆ្នាំ</td>
+                                            <td><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>លេខគណនី</td>
+                                            <td><span t-esc="o.invoice_line_ids.move_id"/></td>
+                                        </tr>
+                                    </thead>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <!-- <div>
+                            <table class="table table-borderless" style="font-size:14px;">
+                                <thead>
+                                    <tr>
+                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <span>ថ្ងៃ ខែ ឆ្នាំ</span><br/>
+                                            <span>Date</span>                                          
+                                        </td>
+                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            
+                                            <div><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></div>
+                                        </td>                                                
+                                    </tr>
+
+                                    <tr style="font-family:'Khmer OS';">
+                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>ចំណាយប្រាក់អោយ</div>
+                                            <div>Pay to:</div>
+                                        </td>
+
+                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div/>
+                                            <div><span t-field="docs.partner_id.name"/></div>                                            
+                                        </td>
+                                    </tr>
+
+                                    <tr style="font-family:'Khmer OS';">
+                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>ទឹកប្រាក់</div>
+                                            <div>Amount</div>
+                                        </td> 
+                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div/>
+                                            <div>$ <span t-esc="abs(sum(docs.mapped('price_subtotal')))"/></div>
+                                        </td> 
+                                    </tr>
+                                    <tr style="font-family:'Khmer OS';">
+                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>អត្ថន័យចំណាយ</div>
+                                            <div>In Respect of</div>
+                                        </td> 
+                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>
+                                            <div/>
+                                        </td> 
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div> -->
+
+                        <!-- Customer and Vender Sign  -->
+                        <div style="page-break-inside:avoid;">
+                            <div class="row" style="margin-top:200px;font-weight:bold;">
+                                 <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
+                                        <div style="font-size:14px">ស្នើរសុំដោយ</div>
+                                        <div style="padding-top:40px"><span t-esc="o.partner_id"/></div>
+                                </div>
+                                 <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
+                                        <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;"></div>
+                                        <div style="font-size:14px">អ្នកអនុញ្ញាតដោយ</div>
+                                        <div style="padding-top:40px"><span t-esc="o.invoice_user_id"/></div>
+                                </div>             
+                            </div>
+                            <div class="footer">
+                                <ul class="list-inline" style="text-align: right; font-size:12px">
+                                    <li>Page: <span class="page"/> of <span class="topage"/></li>
+                                </ul>
+                            </div>
+                        </div>  
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
