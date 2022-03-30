@@ -8,7 +8,7 @@
                     <field name="picking_type_id" string="Warehouse"/>
                 </xpath>
                 <xpath expr="//field[@name='effective_date']" position="after">
-                    <field name="payment_term_id" string="Warehouse"/>
+                    <field name="payment_term_id"/>
                 </xpath>
             </field>
         </record> 
@@ -18,10 +18,8 @@
             <field name="model">account.move</field>
             <field name="inherit_id" ref="sale_order_type.sot_invoice_form" />
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='sale_type_id']" position="replace">
-                    
-                </xpath>
-                
+                <xpath expr="//field[@name='sale_type_id']" position="replace">                    
+                </xpath>                
             </field>
         </record> 
     </data>
