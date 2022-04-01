@@ -107,10 +107,13 @@
                                                 <td colspan="3" style="margin-top:30px;padding-top:20px;">ស្នើរសុំដោយ:</td>
                                                 <td colspan="2" style="text-align:right;padding-left:10px;margin-top:30px;padding-top:20px;"><span t-esc="o.driver_names.name"/></td>
                                             </tr>
-                                            <tr/>
+                                            <tr style="font-size:16px;">
+                                                <td colspan="3">ចេញលិខិតដោយ:</td>
+                                                <td colspan="2" style="text-align:right;padding-left:60px;padding-top:20px;"><span t-esc="o.invoice_user_id.name"/></td>
+                                            </tr>
                                             <tr style="font-size:16px;">
                                                 <td colspan="3">អនុញ្ញាតដោយ:</td>
-                                                <td colspan="2" style="text-align:right;padding-left:60px;padding-top:20px;"><span t-esc="o.invoice_user_id.name"/></td>
+                                                <td colspan="2" style="text-align:right;padding-left:60px;padding-top:20px;"><span t-esc="o.approver.name"/></td>
                                             </tr>
                                         </thead>
                                     </table>
@@ -126,7 +129,13 @@
                                               <td style="text-align:left;padding-left:30px;padding-top:20px;">___________________</td>
                                           </tr>
                                         </div>
-                                        <div/>
+                                        <div>
+                                          <tr style="font-size:16px;margin-top:30px;">
+                                              <td>ហត្ថលេខា</td>
+                                              
+                                              <td style="text-align:left;padding-left:30px;padding-top:20px;">___________________</td>
+                                          </tr>
+                                        </div>
                                         <div>
                                           <tr style="font-size:16px;">
                                               <td>ហត្ថលេខា</td>
