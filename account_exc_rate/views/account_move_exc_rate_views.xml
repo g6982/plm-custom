@@ -8,7 +8,7 @@
 
         <xpath expr="//div[@name='journal_div']" position="after"> 
           <field name="driver_names" widget="many2one_tags"/>
-          <field name="approver" widget="many2one_tags"/>
+          <field name="approver" widget="many2one_tags" string="រើសអ្នកអនុញ្ញាតសម្រាប់ការស្នើរសុំបើកប្រាក់បំរុងមុន (ផ្នែកដឹកជញ្ជូន)"/>
         </xpath>
 
         <xpath expr="//group[@class='oe_subtotal_footer oe_right']" position="replace">
