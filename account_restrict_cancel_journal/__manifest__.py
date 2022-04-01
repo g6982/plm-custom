@@ -9,5 +9,6 @@
     'depends': ['account'],
     'data': [
         'views/account_cancel_journal_views.xml',
+        'views/account_register_payment_views.xml',
     ],
 }
