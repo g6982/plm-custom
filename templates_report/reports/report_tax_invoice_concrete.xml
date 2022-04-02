@@ -151,7 +151,7 @@
                                             <span t-field="line.quantity"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black; width:130px; font-size:14px;">
-                                            <span t-field="line.product_uom_id"/>
+                                            <!-- <span t-field="line.product_uom_id"/> -->M³
                                         </td>
                                         <td class="text-center" style="border:1px solid black; width:130px; font-size:14px;">            
                                             $ <span t-esc="'{0:,.2f}'.format(line.price_unit / 1.1)"/>
@@ -199,7 +199,7 @@
                                         
                                         <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';font-size:14px;">ថ្លៃកក់ / Deposit Amount</td>
                                         <td class="text-right" style="background: #F8F0E3; border:1px solid black;font-weight:bold;padding:5px;font-size:14px;">
-                                             <!--<t t-esc="'{0:,.2f}'.format(o.amount_tax)"/>-->
+                                             <t t-esc="'{0:,.2f}'.format(o.amount_total - o.amount_residual)"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">

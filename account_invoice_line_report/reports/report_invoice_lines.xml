@@ -17,14 +17,15 @@
                         <div>
                             <t t-raw="0"/>
                             <div class="row" style="font-size:14px;">
-                                <div class="col-2" style="margin-top:0px; padding-top: 0px;">
+                                <div class="col-2" >
                                     <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="max-height:90px;" alt="Logo"/>
                                 </div>
-                                <div class="col-8" style="text-align:center; margin-top:5px; padding-top: 15px;">
+                                <div class="col-8" style="text-align:center; margin-top:0px; padding-top: 10px;">
+                                    <!-- <div style="cursive; font-size:12px;"><h3>ភី.អិល.អិម. អ៊ីមផត អិចផត</h3></div> -->
                                     <div style="cursive; font-size:12px;">
-                                        <h1>LIM SOPHORN</h1>
+                                        <h3>LIM SOPHORN</h3>
                                     </div>
-                                    <div style="font-size:14px; font-family:'Khmer OS'; padding-top: 20px;">
+                                    <div style="font-size:14px; font-family:'Khmer OS'; padding-top: 15px;">
                                         PHUM 2, KHUM DORNG TONG, SRUK SMACH MEANCHEY, KRONG KHEMARAK PHUMIN, KOH KONG, CAMBODIA                                       
                                     </div>
 
@@ -159,10 +160,10 @@
                                                 <span t-field="line.product_uom_id"/>
                                             </td>
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
-                                                $<span t-field="line.price_average"/>
+                                                <span t-field="line.quantity"/>
                                             </td>
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
-                                                <span t-field="line.quantity"/>
+                                                $<span t-field="line.price_average"/>
                                             </td>
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">                                                
                                                 <!-- <t t-if="line.discount != 0.0">Discount:

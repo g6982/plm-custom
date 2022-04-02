@@ -86,25 +86,20 @@
                             <table class="table table-borderless" style="font-size:14px;">
                                 <thead>
                                     <tr style="font-family:'Khmer OS';">
+
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>ថ្ងៃចំណាយ</div>
+                                            <div>Expense Date</div>                    
+                                        </td>
+
                                         <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <div>បរិយាយ</div>
-                                            <div>Description</div>
-                                            
+                                            <div>Description</div>                    
                                         </td>
                                         
                                         <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <div>លេខវិក័យប័ត្រ</div>
                                             <div>Invoice</div>
-                                        </td>
-
-                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div>លេខគណនី</div>
-                                            <div>Account Number</div>
-                                        </td>
-
-                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div>ផ្នែក</div>
-                                            <div>Journal Name</div>
                                         </td>
 
                                         <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
@@ -119,6 +114,10 @@
                                 <tbody class="invoice_tbody">
                                     <!-- <t t-set="docs.parter_id" t-value="partner_id.move_id" t-as="move"/> -->
                                     <tr t-foreach="docs" t-as="line" style="page-break-inside:avoid">
+
+                                        <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
+                                            <span t-field="line.expense_date"/><br/>
+                                        </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             <span t-field="line.label_name"/><br/>
                                             <span t-field="line.product_id"/>
@@ -127,14 +126,7 @@
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
                                             <span t-field="line.move_id"/>
                                         </td>
-
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            <span t-field="line.account_id"/>
-                                        </td>
-
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            <span t-field="line.journal_id"/>
-                                        </td>                                    
+                                   
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">$                                           
                                             <span class="text-nowrap" t-esc="abs(line.price_subtotal)"/>
                                         </td>
