@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>  
         <record id="report_transport_expense" model="ir.actions.report">
-            <field name="name">Advance Transport Expense Invoice</field>
+            <field name="name">Advance Transport Expense Bill</field>
             <field name="model">account.move</field>
             <field name="report_type">qweb-pdf</field>
             <field name="report_name">templates_report.report_transport_expense_document</field>
-            <field name="report_file">templates_report.report_transport_expense</field>
+            <field name="report_file">templates_report.report_advance_expense_transport</field>
             <field name="binding_model_id" ref="account.model_account_move"/>
             <field name="binding_type">report</field>
             <field name="print_report_name">'advance_transport_'+(object.name)</field>
