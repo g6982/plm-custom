@@ -253,7 +253,7 @@
 
                         <!-- Customer and Vender Sign  -->
                         <div style="page-break-inside:avoid;">
-                                <div class="row" style="margin-top:230px;font-weight:bold;">
+                                <div class="row" style="margin-top:150px;font-weight:bold;">
                                     <div class="col-3" style="font-size:14px;margin-top: 0px;">
                                             <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 12px;">ហត្ថលេខានិងឈ្មោះអ្នកទិញ</div>
                                             <div class="text-center" style="font-size:14px">Customer's Signature &amp; Name</div>

@@ -35,7 +35,7 @@
                             </div>
                         </div>
 
-                        <div style="border-bottom:3px solid #000000; margin-top:15px;"/>
+                        <div style="border-bottom:3px solid #000000; margin-top:5px;"/>
                         <div class="page">
                                 <!-- <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:15px;font-size:18px;">
                                     <h5>វិក័យបត្រ<br/>Invoice</h5>
@@ -151,7 +151,7 @@
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span>
-                                                <span class="text-nowrap" t-field="line.price_subtotal"/>
+                                                $ <span class="text-nowrap" t-field="line.price_subtotal"/>
                                             </span>
                                         </td>
                                     </tr>
@@ -171,7 +171,7 @@
                                     <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0">
                                         <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាបាត / Total in BATH </td>
                                         <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">
-                                            B <t t-esc="'{0:,.2f}'.format(o.total_exc_thb)"/>
+                                            ฿ <t t-esc="'{0:,.2f}'.format(o.total_exc_thb)"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
@@ -194,7 +194,7 @@
                                             B <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
                                         </td>
                                     </tr>
-                                    <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 ">
+                                    <tr style="page-break-inside:avoid" t-if="o.amount_residual != o.amount_total ">
                                         <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
