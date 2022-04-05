@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="report_expense_statement" model="ir.actions.report">
+    <record id="report_driver_expense" model="ir.actions.report">
         <field name="name">Driver Expense</field>
         <field name="model">account.invoice.report</field>
         <field name="report_type">qweb-pdf</field>
