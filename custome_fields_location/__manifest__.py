@@ -13,6 +13,6 @@
             ],
     'data': [
         'views/landed_cost_view.xml',
-        'views/purchase_warehouse_view.xml',
+        'views/warehouse_view.xml',
     ],
 }
