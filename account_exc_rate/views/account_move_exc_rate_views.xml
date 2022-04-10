@@ -32,7 +32,7 @@
                     <field name="amount_residual" class="oe_subtotal_footer_separator" attrs="{'invisible': [('state', '=', 'draft')]}"/>
             </group>
           </group>
-        </xpath
+        </xpath>
 
       </field>
     </record>
