@@ -151,7 +151,7 @@
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span>
-                                                $ <span class="text-nowrap" t-field="line.price_subtotal"/>
+                                                <span class="text-nowrap" t-field="line.price_subtotal"/>
                                             </span>
                                         </td>
                                     </tr>
