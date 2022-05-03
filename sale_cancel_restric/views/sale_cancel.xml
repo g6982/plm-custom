@@ -10,10 +10,10 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//button[@name='action_cancel']" position="attributes" >                                    
-                    <attribute name="attrs">{'invisible':['|',('delivery_state','=','done'),('state','=','cancel')]}</attribute>                            
+                    <attribute name="attrs">{'invisible':['|',('delivery_state','=','done'),('state','=','cancel'),('state','=','sale')]}</attribute>                            
                 </xpath>                   
                 <xpath expr="//header" position="inside">
-                    <button name="action_cancel" type="object" string="Cancel" states="sale" groups="sale_cancel_restric.group_user_sale_order_cancel_rule"/>
+                    <button name="action_cancel" type="object" string="Cancel"  attrs="{'invisible':[('delivery_state','in',('unprocessed','no','partially')),('state','in',('cancel','draft','sale'))]}" groups="sale_cancel_restric.group_user_sale_order_cancel_rule"/>
                 </xpath>  
             </field>
         </record>
