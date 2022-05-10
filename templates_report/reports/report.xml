@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>  
+        <record id="report_vendor_bill" model="ir.actions.report">
+            <field name="name">Vendor Bills</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">templates_report.report_vendor_bill_document</field>
+            <field name="report_file">templates_report.report_vendor_bill</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'vendor_bill'+(object.name)</field> 
+        </record>
         <record id="report_transport_expense" model="ir.actions.report">
             <field name="name">Advance Transport Expense Bill</field>
             <field name="model">account.move</field>
@@ -8,8 +18,7 @@
             <field name="report_file">templates_report.report_advance_expense_transport</field>
             <field name="binding_model_id" ref="account.model_account_move"/>
             <field name="binding_type">report</field>
-            <field name="print_report_name">'advance_transport_'+(object.name)</field>
-            
+            <field name="print_report_name">'advance_transport_'+(object.name)</field> 
         </record>
         <record id="report_pro_forma_invoice" model="ir.actions.report">
             <field name="name">Pro-Forma Invoice</field>

@@ -11,6 +11,7 @@
     'depends': ['account'],
     'data': [
         'views/web.xml',
+        'reports/report_vendor_bill.xml',
         'reports/report_advance_expense_transport.xml',
         'reports/report_pro_forma_invoice.xml',
         'reports/report_quotation_sale.xml',

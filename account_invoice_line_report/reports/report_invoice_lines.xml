@@ -30,7 +30,7 @@
                                     </div>
 
                                     <div style="font-size:14px; font-family:'Khmer OS';">
-                                        TEL:(855) 087 909 700, 088 388 5888
+                                        TEL: 087 909 700, 088 388 5888
                                     </div>
                                     <!-- <div style="font-size:14px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">TEL:<t t-esc="company.phone"/> </div>
@@ -130,11 +130,15 @@
                                                 <div>បរិមាណ</div>
                                                 <div>Qty</div>
                                             </td>
-                                            
-                                            <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:80px">
-                                                <div>ចុះថ្លៃ</div>
-                                                <div>Discount</div>
-                                            </td>
+
+                                            <t t-foreach="docs" t-as="line" style="page-break-inside:avoid">
+                                                <t t-if="line.discount != 0.0">
+                                                    <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:80px">
+                                                        <div>ចុះថ្លៃ</div>
+                                                        <div>Discount</div>
+                                                    </td>
+                                                </t>
+                                            </t>
                                             
                                             <td class="text-center" style="border:1px solid black; width:130px;border-left: 0px solid white;">
                                                 <div>ទឹកប្រាក់</div>
@@ -166,9 +170,9 @@
                                                 $<span t-field="line.price_average"/>
                                             </td>
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">                                                
-                                                <!-- <t t-if="line.discount != 0.0">Discount:
+                                                <t t-if="line.discount != 0.0">
                                                     <span t-esc="line.discount"/>%
-                                                </t> -->
+                                                </t>
                                             </td>
                                             <td class="text-right" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
                                                 $ <span t-field="line.price_subtotal"/>

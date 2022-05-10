@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>    
-         <template id="report_sale_invoice_document">
+         <template id="report_vendor_bill_document">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-if="not o" t-set="o" t-value="doc"/>
@@ -21,7 +21,7 @@
                                     <!-- <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="max-height:90px;" alt="Logo"/> -->
                                 </div>
                                 <div class="col-8" style="text-align:center;margin-top:10px;padding-top:15px;">
-                                    <div style="cursive; font-size:20px;"><h2>វិក័យបត្រ<br/>Invoice</h2></div>
+                                    <div style="cursive; font-size:20px;"><h2>Vendor Bill</h2></div>
                                     <!-- <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">Address: <t t-esc="company.street2"/>,<t t-esc="company.city"/><t t-esc="company.country_id.name"/></div> -->
                                     <div style="font-size:14px;">
@@ -40,8 +40,8 @@
                                         <table class="table table-borderless">
                                             <tr>
                                                 <td style="width:150px;padding-top:20px;font-size:16px;font-family:'Khmer OS';">
-                                                    <span>អតិថិជន</span><br/>
-                                                    <span>Sale To</span>
+                                                    <span>អ្នកផ្គត់ផ្គង់</span><br/>
+                                                    <span>Supplier</span>
                                                 </td>
                                                 <td style="vertical-align: middle;padding-top:20px;font-size:18px;font-family:'Khmer OS';">:
                                                     <span t-field="o.partner_id.name"/>
@@ -110,8 +110,8 @@
                                             <div>Unit Price</div>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;width:130px">
-                                            <div>សរុបជាដុល្លារ</div>
-                                            <div>Amount(USD)</div>
+                                            <div>សរុប</div>
+                                            <div>Amount</div>
                                         </td>
                                     </tr>
                                 </thead>
@@ -141,7 +141,7 @@
                                             <span t-field="line.product_uom_id"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
-                                            $ <span t-field="line.price_unit"/>
+                                             <span t-field="line.price_unit"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span>
@@ -153,7 +153,7 @@
                                         <td rowspan="7" colspan="3" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
                                             <p style="font-size:14px;" t-field="o.narration"/>
                                         </td>
-
+                                        
                                     </tr>
 
                                     <!-- Total Amount in each Currentcy, Will display KHR and THB only input the currency rate -->
@@ -170,19 +170,19 @@
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុប / Total</td>
                                         <td class="text-right" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">
-                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
+                                             <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
                                         </td>
                                     </tr>
                                     
-                                
+                                    
 
                                     <!-- Total Balance in each Currency -->
                                     <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់/ Balance</td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
-                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
+                                             <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
                                         </td>
                                     </tr>
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
