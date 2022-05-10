@@ -18,30 +18,24 @@
                             <t t-raw="0"/>
                             <div class="row header" style="font-size:18px;">
                                 <div class="col-2">
-                                    <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="max-height:90px;" alt="Logo"/>
+                                    <!-- <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="max-height:90px;" alt="Logo"/> -->
                                 </div>
                                 <div class="col-8" style="text-align:center;margin-top:10px;padding-top:15px;">
                                     <div style="cursive; font-size:20px;"><h2>វិក័យបត្រ<br/>Invoice</h2></div>
-                                    <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
-                                    <div style="font-size:14px;">Address: <t t-esc="company.street2"/>,<t t-esc="company.city"/><t t-esc="company.country_id.name"/></div>
+                                    <!-- <div style="font-size:16px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
+                                    <div style="font-size:14px;">Address: <t t-esc="company.street2"/>,<t t-esc="company.city"/><t t-esc="company.country_id.name"/></div> -->
                                     <div style="font-size:14px;">
-                                        TEL: 081 842 666, 088 388 5888, 087 909 700 
-                                        <!-- TEL:<t t-esc="company.phone"/>  -->
-                                        <!-- Email: <t t-esc="company.email"/>  -->
-                                        <!-- <t t-esc="company.website"/> -->
+                                        TEL:088 388 5888, 087 909 700                             
                                     </div>
                                 </div>
+                                <div style="border-bottom:3px solid #000000; padding-top:5px;"/>
                                 <div class="col-3"/>
                             </div>
                         </div>
 
-                        <div style="border-bottom:3px solid #000000; margin-top:5px;"/>
+                        
                         <div class="page">
-                                <!-- <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:15px;font-size:18px;">
-                                    <h5>វិក័យបត្រ<br/>Invoice</h5>
-                                </div> -->
-                                
-                                <div class="row mb-2">
+                          <div class="row mb-2">
                                     <div class="col-8">
                                         <table class="table table-borderless">
                                             <tr>
@@ -159,6 +153,12 @@
                                         <td rowspan="7" colspan="3" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
                                             <p style="font-size:14px;" t-field="o.narration"/>
                                         </td>
+                                        <td class="text-right" style="border:1px solid black;padding:1px;"> 
+                                                <t t-foreach="payments_vals" t-as="payment_vals">
+                                                <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>               
+                                                    <span t-esc="'{0:,.2f}'.format(payment_vals['amount'])"/> 
+                                                </t>                              
+                                            </td>
                                     </tr>
 
                                     <!-- Total Amount in each Currentcy, Will display KHR and THB only input the currency rate -->
@@ -180,24 +180,36 @@
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
                                         </td>
                                     </tr>
+                                    
+                                    <!-- Diaplay Paid Date and Amount -->                                  
+                                    <tr style="page-break-inside:avoid">
+                                        
+                                            <td class="text-right" style="border:1px solid black;padding:1px;"> 
+                                                <t t-foreach="payments_vals" t-as="payment_vals">
+                                                <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>               
+                                                    <span t-esc="'{0:,.2f}'.format(payment_vals['amount'])"/> 
+                                                </t>                              
+                                            </td>
+                                        
+                                    </tr>
 
                                     <!-- Total Balance in each Currency -->
-                                    <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
+                                    <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
+                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
+                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
                                             <t t-esc="'{0:,.0f}'.format(o.amount_residual*o.rate_khr)"/> ៛
                                         </td>
                                     </tr>
-                                    <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
+                                    <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
+                                        <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
                                         <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
-                                            B <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
-                                        </td>
-                                    </tr>
-                                    <tr style="page-break-inside:avoid" t-if="o.amount_residual != o.amount_total ">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
-                                        <td class="text-right" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
-                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
+                                            ฿ <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
                                         </td>
                                     </tr>
                                 </tbody>

@@ -1,5 +1,5 @@
 
-from attr import field
+
 from odoo import models, fields, api,_
 
 class AccountMoveLine(models.Model):

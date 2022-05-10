@@ -18,19 +18,19 @@
                             <t t-raw="0"/>
                             <div class="row" style="font-size:14px;">
                                 <div class="col-2" >
-                                    <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="max-height:90px;" alt="Logo"/>
+                                    <!-- <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="max-height:90px;" alt="Logo"/> -->
                                 </div>
                                 <div class="col-8" style="text-align:center; margin-top:0px; padding-top: 10px;">
                                     <!-- <div style="cursive; font-size:12px;"><h3>ភី.អិល.អិម. អ៊ីមផត អិចផត</h3></div> -->
                                     <div style="cursive; font-size:12px;">
-                                        <h3>LIM SOPHORN</h3>
+                                        <h3>Construction Material</h3>
                                     </div>
                                     <div style="font-size:14px; font-family:'Khmer OS'; padding-top: 15px;">
-                                        PHUM 2, KHUM DORNG TONG, SRUK SMACH MEANCHEY, KRONG KHEMARAK PHUMIN, KOH KONG, CAMBODIA                                       
+                                        <!-- PHUM 2, KHUM DORNG TONG, SRUK SMACH MEANCHEY, KRONG KHEMARAK PHUMIN, KOH KONG, CAMBODIA                                        -->
                                     </div>
 
                                     <div style="font-size:14px; font-family:'Khmer OS';">
-                                        TEL:(855) 011 666-631, 097 703-5555, 088 388-5888
+                                        TEL:(855) 087 909 700, 088 388 5888
                                     </div>
                                     <!-- <div style="font-size:14px; font-family:'Khmer OS', "> អាស័យដ្ឋាន: <t t-esc="company.street"/></div>
                                     <div style="font-size:14px;">TEL:<t t-esc="company.phone"/> </div>
