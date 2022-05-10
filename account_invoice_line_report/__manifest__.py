@@ -11,7 +11,7 @@
     "website": "https://github.com/OCA/account-invoice-reporting",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "depends": ["account"],
+    "depends": ["account","account_invoice_discount_total"],
     "data": [
         "reports/report.xml",
         "reports/account_invoice_report_view.xml",
