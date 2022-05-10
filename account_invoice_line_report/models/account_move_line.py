@@ -15,9 +15,9 @@ class AccountMoveLine(models.Model):
     rate_khr_inh = fields.Float(string="Rate KHR")
     rate_thb_inh = fields.Float(string="Rate THB")
     driver = fields.Many2one('res.partner',"Driver Name")
-    discount = fields.Float(string="Discount %")
+   
 
     
 
     def _select(self):
-        return super()._select() + " ,line.discount as discount, move.driver_names as driver , move.rate_khr as rate_khr_inh , move.rate_thb as rate_thb_inh , line.amount_currency as amount_in_currency, move.currency_id as move_currency_id, line.name as label_name , line.product_line_date as expense_date , line.price_total as sub_pricetotal , line.price_unit as price_unit_cus , line.currency_id as currency_id_name " 
+        return super()._select() + " , move.driver_names as driver , move.rate_khr as rate_khr_inh , move.rate_thb as rate_thb_inh , line.amount_currency as amount_in_currency, move.currency_id as move_currency_id, line.name as label_name , line.product_line_date as expense_date , line.price_total as sub_pricetotal , line.price_unit as price_unit_cus , line.currency_id as currency_id_name " 
