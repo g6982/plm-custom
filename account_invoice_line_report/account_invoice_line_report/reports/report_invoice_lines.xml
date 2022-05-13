@@ -182,7 +182,7 @@
                                         </tr>
                                         
                                         <tr style="page-break-inside:avoid" >
-                                            <td colspan="7" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD </td>
+                                            <td colspan="8" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD </td>
                                             <td class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
                                                 $ <t t-esc="sum(docs.mapped('price_subtotal'))"/>
                                             </td>

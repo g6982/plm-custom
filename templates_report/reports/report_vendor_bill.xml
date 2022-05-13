@@ -33,7 +33,7 @@
                             </div>
                         </div>
 
-                        
+                        <div style="border-bottom:3px solid #000000; margin-top:10px;"/>
                         <div class="page">
                           <div class="row mb-2">
                                     <div class="col-8">
@@ -81,7 +81,7 @@
                                         </table>
                                     </div>
                                 </div>
-                            <div style="border-bottom:3px solid #000000; margin-top:15px;"/>
+                            
                             <table class="table table-borderless" style="font-size:14px;">
                                 <thead>
                                     <tr style="font-family:'Khmer OS';">
