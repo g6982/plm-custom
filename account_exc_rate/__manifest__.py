@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "account_move_inherit",
+    'name': "account_exc_rate",
     'summary': """ Add 2 fields more for exchange rate in khmer and thai bath """,
     'description': """
         - Exchange Rate in KHR and THB 
