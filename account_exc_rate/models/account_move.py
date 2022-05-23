@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
-from ast import Mod
-from locale import currency
-from typing_extensions import Self
-from webbrowser import get
 from odoo import models, fields, api,_
 
 class account_exc_rate(models.Model):
