@@ -63,7 +63,9 @@
                                             <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">:
                                                 <span t-field="o.phone"/>
                                             </td>
+
                                         </tr>
+                                    
                                     </table>
                                 </div>
                                 <div>
@@ -75,35 +77,29 @@
                                             </td>
                                             <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">:
                                                 <span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/>
-                                            </td>   
-                                                                                     
+                                            </td>                                                                        
                                         </tr>
                                         <tr style="page-break-inside:avoid">
                                             <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';">
-                                                <span>អត្រាប្រាក់រៀល</span><br/>
-                                                <span>KHR Rate</span>
+                             
                                             </td>
                                             <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">
                                                 <t t-set="expense_rate_khr" t-value="0"/>
                                                     <t t-foreach="docs" t-as="line">
-                                                        <t t-set="expense_rate_khr" t-value="line.rate_khr_inh">
+                                                        <t t-set="expense_rate_khr" t-value="line.register_rate">
                                                         </t>
                                                     </t>
-                                                :<span t-esc="'{0:,.0f}'.format(expense_rate_khr)"/>
                                             </td>
                                         </tr>
                                         <tr style="page-break-inside:avoid">
                                             <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';">
-                                                <span>អត្រាប្រាក់បាត</span><br/>
-                                                <span>THB Rate</span>
                                             </td>
                                             <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">
                                                 <t t-set="expense_rate_thb" t-value="0"/>
                                                 <t t-foreach="docs" t-as="line">
-                                                    <t t-set="expense_rate_thb" t-value="line.rate_thb_inh">
+                                                    <t t-set="expense_rate_thb" t-value="line.register_rate">
                                                     </t>
                                                 </t>
-                                                :<span t-esc="'{0:,.2f}'.format(expense_rate_thb)"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -124,14 +120,21 @@
                                             <div>អ្នកបើកបរ</div>
                                             <div>Driver Name</div>                    
                                         </td>
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>លេខវិក័យប័ត្រ</div>
+                                            <div>Bill No.</div>
+                                        </td>
                                         <td class="text-center" style="border:1px solid black; width: 50px;border: 1px solid black;">
                                             <div>បរិយាយ</div>
                                             <div>Description</div>                    
                                         </td>
-                                        
-                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div>លេខវិក័យប័ត្រ</div>
-                                            <div>Invoice</div>
+                                        <td colspan="1" class="text-center" style="border:1px solid black; border: 1px solid black;">
+                                            <div>ថ្ងៃចុះការបង់ប្រាក់</div>
+                                            <div>Register Date</div>
+                                        </td>
+                                        <td colspan="1" class="text-center" style="border:1px solid black; border: 1px solid black;">
+                                            <div>អត្រាប្ដូរប្រាក់</div>
+                                            <div>Exchange Rate</div>
                                         </td>
 
                                         <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
@@ -174,20 +177,25 @@
                                     <tr t-foreach="docs" t-as="line" style="page-break-inside:avoid">
 
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
-                                            <span t-field="line.expense_date"/><br/>
+                                            <span t-field="line.invoice_date"/><br/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             <span t-field="line.driver"/><br/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
-                                            <span t-field="line.label_name"/><br/>
-                                            <span t-field="line.product_id"/>
+                                            <span t-field="line.move_id"/>
                                         </td>
 
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
-                                            <span t-field="line.move_id"/>
+                                            <span t-field="line.label_name"/><br/>
+                                            <span t-field="line.product_id"/>
                                         </td>
-                                   
+                                        <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
+                                            <span t-field="line.register_date"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
+                                            <span t-field="line.register_rate"/>
+                                        </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
                                             <t t-if="line.move_currency_id.name =='USD'">   
                                               <t t-set="amount_usd" t-value="line.amount_in_currency"></t>
@@ -232,7 +240,7 @@
                                     <!-- Total Amount form all Bill -->
                             
                                     <tr>                                       
-                                        <td colspan="4" class="text-right" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
+                                        <td colspan="6" class="text-right" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             Total សរុបរួម
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
@@ -245,12 +253,13 @@
                                             ฿ <span class="text-nowrap" t-esc="'{0:,.2f}'.format(sum_thb)"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
-                                            $ <span class="text-nowrap" t-esc="'{0:,.2f}'.format(abs(sum_total_khr + sum_total_thb + sum_total_usd))"/>
+                                            $ <span class="text-nowrap" style="font-weight:bold" t-esc="'{0:,.2f}'.format(abs(sum_total_khr + sum_total_thb + sum_total_usd))"/>
                                         </td>
   
                                     </tr>
                                 </tbody>
                             </table>
+                            
                         </div>
 
                         <!-- Customer and Vender Sign  -->

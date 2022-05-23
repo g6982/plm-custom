@@ -7,11 +7,14 @@
         <field name="name">account.invoice.report.tree.info</field>
         <field name="model">account.invoice.report</field>
         <field name="arch" type="xml">
-            <tree string="Invoice Line">               
-                <field name="expense_date"/>
+            <tree string="Invoice Line">   
+                <field name="inv_date" />             
+                <field name="expense_date" optional="hide"/>
                 <field name="driver" optional="hide"/>        
                 <field name="move_id" string="Invoice Number"/>
-                <field name="partner_id" />            
+                <field name="partner_id" />
+                <field name="register_date" />
+                <field name="register_rate" />             
                 <field name="product_id" />
                 <field name="label_name"/>
                 <field name="quantity"/>

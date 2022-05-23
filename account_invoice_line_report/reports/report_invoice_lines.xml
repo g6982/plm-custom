@@ -52,7 +52,7 @@
                                             <tr>
                                                 <td style="font-size:14px;font-weight:bold; width:150px;padding-top:5px; font-family:'Khmer OS';"><span>ឈ្មោះអតិថិជន</span></td>
                                                 <td style="font-size:14px;font-weight:bold; padding-top:5px;">
-                                                    :<span t-field="o.name"/> - <span t-field="o.kh_name"/>
+                                                    :<span t-field="o.name"/> 
                                                 </td>                                                
                                             </tr>
                                             <tr>

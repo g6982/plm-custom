@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import account_move_exc_rate
+from . import account_move
