@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="journal_entry_template_report_view">
+            <t t-call="web.html_container">                
+                <div class="page">  
+                        <div class="col-10" style="text-align:center;margin-top:5px;">
+                            <div style="cursive; font-size:18px;">
+                                <h2>លឹម សោភ័ណ្ឌលក់សំភារៈសំណង់</h2>
+                            </div>
+                            <div>
+                                ភូមិ២ សង្កាត់ស្មាច់មានជ័យ ក្រុងខេមរភូមិន្ទ ខេត្តកោះកុង
+                            </div>
+                            <div>
+                                TEL: (+855)88 388 5888, Fax: (+855)35 936 888
+                            </div>
+                        </div>
+                        <div style="border-bottom:3px solid black;"/>
+                        <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:0px;font-size:18px;font-weight:bold;">
+                            <h5>របាយការណ៍ចំណាយ<br/>Expense Statement</h5>
+                        </div>
+
+                        <table class="table table-borderless">
+                        
+                            <thead>
+                            
+                                <tr style="page-break-inside:avoid; border:1px solid black;">
+                                
+                                    <td class="text-center" style="border:1px solid black; border-right:0px solid white; padding:5px;">
+                                        <div style="font-size:12px;">ថ្ងៃចេញវិក័យបត្រ</div>
+                                        <div style="font-size:12px;">Bill Date</div>
+                                    </td>
+                                    <td class="text-center" style="border:1px solid black; border-left:0px solid white; padding:5px;">
+                                        <div style="font-size:12px;">ឈ្មោះអ្នកផ្គត់ផ្គង់</div>
+                                        <div style="font-size:12px;">Supplier Name</div>
+                                    </td>
+                                    <td class="text-center" style="border:1px solid black; border-right: 0px solid white;">
+                                        <div style="font-size:12px;">លេខវិក័យប័ត្រ</div>
+                                        <div style="font-size:12px;">Bill No.</div>
+                                    </td>
+                                    <td class="text-center" style="border:1px solid black; width: 50px;">
+                                        <div style="text-align:center; font-size:12px;">ដុល្លារ</div>
+                                        <div style="text-align:center; font-size:12px;">USD</div>
+                                    </td>
+                                    <td class="text-center" style="border:1px solid black; width: 50px;">
+                                        <div style="text-align:center; font-size:12px;">ខ្មែរ</div>
+                                        <div style="text-align:center; font-size:12px;">KHR</div>
+                                    </td>
+                                    <td class="text-center" style="border:1px solid black; width: 50px;">
+                                        <div style="text-align:center; font-size:12px;">បាត</div>
+                                        <div style="text-align:center; font-size:12px;">THB</div>
+                                    </td>
+                                    <td class="text-center" style="border:1px solid black; width: 20px;">
+                                        <div style="text-align:center; font-size:12px;">ថ្ងៃចុះការបង់ប្រាក់</div>
+                                        <div style="text-align:center; font-size:12px;">Register Date</div> 
+                                    </td>
+                                    <td class="text-center" style="border:1px solid black; width: 20px;">
+                                        <div style="text-align:center; font-size:12px;">អត្រាប្ដូរប្រាក់</div>
+                                        <div style="text-align:center; font-size:12px;">Register Rate </div>
+                                    </td>
+                                    <td class="text-center" style="border:1px solid black; width: 20px;">
+                                        <div style="text-align:center; font-size:12px;">គិតជាដុល្លារ</div>
+                                        <div style="text-align:center; font-size:12px;">Amount to Pay (USD)</div>
+                                    </td>
+                                   
+                                </tr>
+                                
+                            </thead>
+
+                            <t t-set="amount_usd" t-value="0"/>
+                            <t t-set="amount_khr" t-value="0"/>
+                            <t t-set="amount_thb" t-value="0"/>
+                            <t t-set="amount_pay" t-value="0"/>
+                            <t t-set="sum_usd" t-value="0"/>
+                            <t t-set="sum_khr" t-value="0"/>
+                            <t t-set="sum_thb" t-value="0"/>
+                            <t t-set="sum_amount_pay" t-value="0"/>                    
+                            <t t-set="total_khr" t-value="0"/>
+                            <t t-set="total_thb" t-value="0"/>
+                            <t t-set="total_usd" t-value="0"/>
+                            <t t-set="sum_total_usd" t-value="0"/>
+                            <t t-set="sum_total_khr" t-value="0"/>
+                            <t t-set="sum_total_thb" t-value="0"/>
+
+                            <t t-foreach="docs" t-as="o">
+                            <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+
+                            <tbody class="table table-borderless">
+                            <tr style="border:1px solid black;"> 
+                                                            
+                                <td class="text-center" style="border:1px solid black; font-size:12px;width: 20px;">
+                                    <span t-field="o.invoice_date" />
+                                </td>                            
+                                <td class="text-center" style="border:1px solid black; font-size:12px;width: 20px;">
+                                    <span t-field="o.partner_id" />
+                                </td>  
+                                <td class="text-center" style="border:1px solid black; font-size:12px;border:width: 40px;">
+                                    <span t-field="o.name" />
+                                </td>  
+                                <td style="border:1px solid black; text-align:right; font-size:12px;width: 50px;">
+                                        <t t-set="total_usd" t-value="0"/>
+                                        <t t-if="o.currency_id.name == 'USD'">                                              
+                                            <t t-set="amount_usd" t-value="o.amount_total"></t>
+                                            $ <span t-esc="'{0:,.2f}'.format(abs(amount_usd))"/>
+                                            <t t-set="sum_usd" t-value="sum_usd + amount_usd"/>  
+                                        </t>                                                                                              
+                                    </td>
+                                <td style="border:1px solid black; text-align:right; font-size:12px;width: 50px;">                                                  
+                                    <t t-if="o.currency_id.name =='KHR'">   
+                                        <t t-set="amount_khr" t-value="o.amount_total"></t>
+                                        <span t-esc="'{0:,.0f}'.format(abs(amount_khr))"/> ៛
+                                        <t t-set="sum_khr" t-value="sum_khr + amount_khr"/>
+                                    </t>
+                                </td>
+                                <td style="border:1px solid black; text-align:right; font-size:12px;width: 50px;">
+                                    <t t-if="o.currency_id.name == 'THB'">                                                                          
+                                        <t t-set="amount_thb" t-value="o.amount_total"></t>
+                                        ฿ <span t-esc="'{0:,.2f}'.format(abs(amount_thb))"/>
+                                        <t t-set="sum_thb" t-value="sum_thb + amount_thb"/>  
+                                    </t>                                                                 
+                                </td>                                                             
+                                <td class="text-center" style="border:1px solid black; font-size:12px;width: 20px;">                                            
+                                    <span t-field="o.date_register" />                                                                              
+                                </td>
+                                <td class="text-center" style="border:1px solid black; font-size:12px;width: 20px;">
+                                    <span t-field="o.rate_register" />                                                                                                                    
+                                </td>
+                                <td style="border:1px solid black; text-align:right; font-size:12px;width: 20px;">
+                                    
+                                    <!-- Display the total amount of bill divide the Rate register to Get Amount to Pay -->
+                                    <t t-if="o.currency_id.name == 'KHR' ">
+                                        <t t-set="total_khr" t-value="o.amount_total / o.rate_register"/>
+                                        $ <span  t-esc="'{0:,.2f}'.format(abs(total_khr))"/> 
+                                        <t t-set="sum_total_khr" t-value="sum_total_khr + total_khr"/>
+                                    </t>
+                                    <t t-elif="o.currency_id.name == 'THB' ">
+                                        <t t-set="total_thb" t-value="o.amount_total / o.rate_register"/>
+                                        $ <span t-esc="'{0:,.2f}'.format(abs(total_thb))"/>
+                                        <t t-set="sum_total_thb" t-value="sum_total_thb + total_thb"/>
+                                    </t>
+                                    <t t-else="o.currency_id.name == 'USD' ">
+                                        <t t-set="total_usd" t-value="o.amount_total"/>
+                                        $ <span style="text-align:right" t-esc="'{0:,.2f}'.format(abs(total_usd))"/>
+                                        <t t-set="sum_total_usd" t-value="sum_total_usd + total_usd"/>
+                                    </t>                                                                             
+                                </td> 
+                                
+                            </tr>                                                          
+                            </tbody>
+                            </t> 
+                        
+                               
+                            <tr>              
+                                <td colspan="3" style="text-align:right; font-size:13px;border:1px solid black;padding:5px;border-right: 1px solid black;">
+                                    Total សរុបរួម
+                                </td>                    
+                                <td  style="text-align:right; font-size:13px;border-right: 1px solid black; border:1px solid black;">                                                    
+                                    $ <span t-esc="'{0:,.2f}'.format(sum_usd)"/>                                          
+                                </td>
+                                <td style="text-align:right; font-size:13px;padding:5px;border-right: 1px solid black; border:1px solid black;">
+                                    <span t-esc="'{0:,.2f}'.format(sum_khr)"/> ៛
+                                </td>
+                                <td style="text-align:right; font-size:13px;padding:5px;border-right: 1px solid black;border:1px solid black;">
+                                    ฿ <span t-esc="'{0:,.2f}'.format(sum_thb)"/>
+                                </td>
+                                <td colspan="2" style="font-size:13px;padding:5px;border-right: 1px solid black; border:1px solid black;"></td>
+                                
+                                <td style="text-align:right; font-size:13px;padding:5px; border:1px solid black;">
+                                    $ <span style="text-align:right; font-weight:bold" t-esc="'{0:,.2f}'.format(abs(sum_total_khr + sum_total_thb + sum_total_usd))"/>
+                                </td>
+                            </tr> 
+                            
+                        </table>                                
+                </div>
+            </t>    
+		</template>
+	</data>
+</odoo>
