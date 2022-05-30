@@ -17,7 +17,7 @@
                         </div>
                         <div style="border-bottom:3px solid black;"/>
                         <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:0px;font-size:18px;font-weight:bold;">
-                            <h5>របាយការណ៍ចំណាយ<br/>Summary Expense Statement</h5>
+                            <h5>របាយការណ៍ចំណាយ<br/>Expense Statement</h5>
                         </div>
                         <div class="row mb-2">
                         <div colspan="12">
@@ -58,8 +58,12 @@
                                         <div style="text-align:center; font-size:12px;">Register Date</div> 
                                     </td>
                                     <td class="text-center" style="text-align:center; border-right: 1px solid black; border:1px solid black; width: 20px;">
-                                        <div style="text-align:center; font-size:12px;">អត្រាប្ដូរប្រាក់</div>
-                                        <div style="text-align:center; font-size:12px;">Register Rate </div>
+                                        <div style="text-align:center; font-size:12px;">អត្រាប្ដូរប្រាក់រៀល</div>
+                                        <div style="text-align:center; font-size:12px;">KHR Register Rate </div>
+                                    </td>
+                                    <td class="text-center" style="text-align:center; border-right: 1px solid black; border:1px solid black; width: 20px;">
+                                        <div style="text-align:center; font-size:12px;">អត្រាប្ដូរប្រាក់បាត</div>
+                                        <div style="text-align:center; font-size:12px;">THB Register Rate </div>
                                     </td>
                                     <td colspan="3" class="text-center" style="text-align:right;border-right: 1px solid black; border:1px solid black; width: 90px;">
                                         <div style="text-align:right; font-size:12px;">គិតជាដុល្លារ</div>
@@ -125,18 +129,21 @@
                                     <span style="text-align:center;" t-field="o.date_register"/>                                                                              
                                 </td>
                                 <td class="text-center" style="font-size:12px;width: 20px;">
-                                    <span style="text-align:center;" t-field="o.rate_register"/>                                                                                                                    
+                                    <span style="text-align:center;" t-field="o.khr_rate_register"/>                                                                                                                    
+                                </td>
+                                <td class="text-center" style="font-size:12px;width: 20px;">
+                                    <span style="text-align:center;" t-field="o.thb_rate_register"/>                                                                                                                    
                                 </td>
                                 <td style=" text-align:right; font-size:12px;width: 90px;border-right: 1px solid black; border:1px solid black;">
                                     
                                     <!-- Display the total amount of bill divide the Rate register to Get Amount to Pay -->
                                     <t t-if="o.currency_id.name == 'KHR' ">
-                                        <t t-set="total_khr" t-value="o.amount_total / o.rate_register"/>
+                                        <t t-set="total_khr" t-value="o.amount_total / o.khr_rate_register"/>
                                         $ <span t-esc="'{0:,.2f}'.format(abs(total_khr))"/> 
                                         <t t-set="sum_total_khr" t-value="sum_total_khr + total_khr"/>
                                     </t>
                                     <t t-elif="o.currency_id.name == 'THB' ">
-                                        <t t-set="total_thb" t-value="o.amount_total / o.rate_register"/>
+                                        <t t-set="total_thb" t-value="o.amount_total / o.thb_rate_register"/>
                                         $ <span t-esc="'{0:,.2f}'.format(abs(total_thb))"/>
                                         <t t-set="sum_total_thb" t-value="sum_total_thb + total_thb"/>
                                     </t>
