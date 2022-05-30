@@ -87,7 +87,7 @@
                                             <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">
                                                 <t t-set="expense_rate_khr" t-value="0"/>
                                                     <t t-foreach="docs" t-as="line">
-                                                        <t t-set="expense_rate_khr" t-value="line.register_rate">
+                                                        <t t-set="expense_rate_khr" t-value="line.khr_register_rate">
                                                         </t>
                                                     </t>
                                                 
@@ -101,7 +101,7 @@
                                             <td style="vertical-align: middle;padding-top:0px;font-size:18px;font-family:'Khmer OS';">
                                                 <t t-set="expense_rate_thb" t-value="0"/>
                                                 <t t-foreach="docs" t-as="line">
-                                                    <t t-set="expense_rate_thb" t-value="line.register_rate">
+                                                    <t t-set="expense_rate_thb" t-value="line.thb_register_rate">
                                                     </t>
                                                 </t>
                                                 <!-- :<span t-esc="'{0:,.2f}'.format(expense_rate_thb)"/> -->
@@ -134,6 +134,18 @@
                                             <div>បរិយាយ</div>
                                             <div>Description</div>                    
                                         </td>
+                                        <td class="text-center" style="border:1px solid black; width: 20px;border: 1px solid black;">
+                                            <div>ថ្ងៃចុះការបង់ប្រាក់</div>
+                                            <div>Register Date</div>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black; width: 20px;border: 1px solid black;">
+                                            <div>អត្រាប្ដូរប្រាក់រៀល</div>
+                                            <div>KHR Exchange Rate</div>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black; width: 20px;border: 1px solid black;">
+                                            <div>អត្រាប្ដូរប្រាក់បាត</div>
+                                            <div>THB Exchange Rate</div>
+                                        </td>
 
                                         <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <div>ទឹកប្រាក់</div>
@@ -147,10 +159,7 @@
                                             <div>ទឹកប្រាក់</div>
                                             <div>Amount THB</div>                                           
                                         </td> 
-                                        <td class="text-center" style="border:1px solid black; width: 20px;border: 1px solid black;">
-                                            <div>អត្រាប្ដូរប្រាក់</div>
-                                            <div>Exchange Rate</div>                                           
-                                        </td>  
+                                         
                                         <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <div>គិតជាដុល្លារ</div>
                                             <div>Total to USD</div>                                           
@@ -174,7 +183,7 @@
                                     <t t-set="sum_total_thb" t-value="0"/>
                                     <tr t-foreach="docs" t-as="line" style="page-break-inside:avoid">
 
-                                        <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <span t-field="line.inv_date"/><br/>
                                         </td>
                                         
@@ -183,41 +192,49 @@
                                             <span t-field="line.move_id"/>
                                         </td>
 
-                                        <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
-                                            <span t-field="line.label_name"/><br/>
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <span t-field="line.product_id"/>
                                         </td>
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                             <span t-field="line.register_date"/>                               
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <span t-field="line.khr_register_rate"/>                                            
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <span t-field="line.thb_register_rate"/>                                            
+                                        </td>
                                    
-                                        <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <t t-if="line.move_currency_id.name =='USD'">   
-                                              <t t-set="amount_usd" t-value="line.amount_in_currency"></t>
+                                              <t t-set="amount_usd" t-value="line.amount_in_currency"/>
                                                 $ <span class="text-nowrap" t-esc="'{0:,.2f}'.format(abs(amount_usd))"/>
                                                   <t t-set="sum_usd" t-value="sum_usd + amount_usd"/>
                                             </t>
                                         </td>
-                                        <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <t t-if="line.move_currency_id.name =='KHR'">   
-                                              <t t-set="amount_khr" t-value="line.amount_in_currency"></t>
+                                              <t t-set="amount_khr" t-value="line.amount_in_currency"/>
                                                 <span class="text-nowrap" t-esc="'{0:,.0f}'.format(abs(amount_khr))"/>
                                                   <t t-set="sum_khr" t-value="sum_khr + amount_khr"/> ៛
                                             </t>
-                                        </td><td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
+                                        </td><td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <t t-if="line.move_currency_id.name =='THB'">   
-                                              <t t-set="amount_thb" t-value="line.amount_in_currency"></t>
+                                              <t t-set="amount_thb" t-value="line.amount_in_currency"/>
                                                 ฿ <span class="text-nowrap" t-esc="'{0:,.2f}'.format(abs(amount_thb))"/>
                                                   <t t-set="sum_thb" t-value="sum_thb + amount_thb"/>
                                             </t>
                                         </td>
     
-                                        <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">$                                           
+                                        <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">$                                           
                                             
                                             <t t-if="line.move_currency_id.name == 'KHR' ">
-                                              <t t-set="total_khr" t-value="line.amount_in_currency / line.register_rate"/>
+                                              <t t-set="total_khr" t-value="line.amount_in_currency / line.khr_register_rate"/>
                                                 <span class="text-nowrap" t-esc="'{0:,.2f}'.format(abs(total_khr))"/>
                                                 <t t-set="sum_total_khr" t-value="sum_total_khr + total_khr"/>
                                             </t>
                                             <t t-elif="line.move_currency_id.name == 'THB' ">
-                                                <t t-set="total_thb" t-value="line.amount_in_currency / line.register_rate"/>
+                                                <t t-set="total_thb" t-value="line.amount_in_currency / line.thb_register_rate"/>
                                                 <span class="text-nowrap" t-esc="'{0:,.2f}'.format(abs(total_thb))"/>
                                                 <t t-set="sum_total_thb" t-value="sum_total_thb + total_thb"/>
                                             </t>
@@ -232,7 +249,7 @@
                                     <!-- Total Amount form all Bill -->
                             
                                     <tr>                                       
-                                        <td colspan="3" class="text-right" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
+                                        <td colspan="5" class="text-right" style="border:1px solid black;padding:5px;border-right: 0px solid black;">
                                             Total សរុបរួម
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">

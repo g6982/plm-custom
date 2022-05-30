@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+
+
+from locale import currency
+from webbrowser import get
 from odoo import models, fields, api,_
 
 class account_exc_rate(models.Model):
@@ -110,7 +114,8 @@ class account_exc_rate(models.Model):
             else:
                 record.date_register = False
               
-    rate_register = fields.Float('Rate Register',store=True,compute="_compute_register_rate")
+    khr_rate_register = fields.Float('KHR Rate Register',store=True,compute="_compute_khr_register_rate")
+    thb_rate_register = fields.Float('THB Rate Register',store=True,compute="_compute_thb_register_rate")
     @api.depends('payment_ids')
     def _compute_payment_currency(self):
         for record in self:
@@ -120,21 +125,40 @@ class account_exc_rate(models.Model):
                     payment_currency_id = rec.currency_id.id
         return payment_currency_id
 
+    # @api.depends('payment_ids')
+    # def _compute_register_rate(self):
+    #     for rec in self:
+    #         currency = rec._compute_payment_currency()
+    #         currency_id = self.env['res.currency'].search([('id','=',currency)], limit=1)
+    #         currency_rates = currency_id._get_rates(rec.company_id, rec.date_register or fields.Date.today())
+    #         rec.rate_register = currency_rates.get(currency_id.id) or 1.0
+
     @api.depends('payment_ids')
-    def _compute_register_rate(self):
+    def _compute_khr_register_rate(self):
         for rec in self:
             currency = rec._compute_payment_currency()
             currency_id = self.env['res.currency'].search([('id','=',currency)], limit=1)
-            currency_rates = currency_id._get_rates(rec.company_id, rec.date_register or fields.Date.today())
-            rec.rate_register = currency_rates.get(currency_id.id) or 1.0
+            khr_currency_id = currency_id.env['res.currency'].search([('name','=','KHR')], limit=1)
+            currency_rates = khr_currency_id._get_rates(rec.company_id, rec.date_register or fields.Date.today())
+            rec.khr_rate_register = currency_rates.get(khr_currency_id.id) or 1.0
+
+    @api.depends('payment_ids')
+    def _compute_thb_register_rate(self):
+        for rec in self:
+            currency = rec._compute_payment_currency()
+            currency_id = self.env['res.currency'].search([('id','=',currency)], limit=1)
+            thb_currency_id = currency_id.env['res.currency'].search([('name','=','THB')], limit=1)
+            currency_rates = thb_currency_id._get_rates(rec.company_id, rec.date_register or fields.Date.today())
+            rec.thb_rate_register = currency_rates.get(thb_currency_id.id) or 1.0
             
     @api.onchange('date_register')
     def _onchange_register_rate(self):
-        self._compute_register_rate
+        self._compute_khr_register_rate
+        self._compute_thb_register_rate
     ##########################
 
 
-
+   
 
 
 
