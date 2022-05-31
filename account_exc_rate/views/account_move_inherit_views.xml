@@ -16,7 +16,7 @@
             <group>
               <field name="rate_khr" attrs="{'invisible': ['|', ('move_type', 'not in', ('out_invoice', 'out_refund', 'out_receipt', )), ('payment_state' ,'=', 'invoicing_legacy')]}"/>
               <field name="rate_thb" attrs="{'invisible': ['|', ('move_type', 'not in', ('out_invoice', 'out_refund', 'out_receipt', )), ('payment_state' ,'=', 'invoicing_legacy')]}"/> 
-              <field name="payment_ids" invisible="1"/>
+              <field name="payment_ids" invisible="0"/>
               <field name="thb_exchange_rate" attrs="{'invisible': ['|', ('move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt', )), ('payment_state' ,'=', 'invoicing_legacy')]}"/>
               <field name="khr_exchange_rate" attrs="{'invisible': ['|', ('move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt', )), ('payment_state' ,'=', 'invoicing_legacy')]}"/>
               <field name="date_register"/>

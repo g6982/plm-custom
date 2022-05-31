@@ -113,6 +113,15 @@ class account_exc_rate(models.Model):
                     record.date_register = pay.date
             else:
                 record.date_register = False
+    payment_ref = fields.Char('Memo/Respect Note',store=True,compute="_compute_payment_ref")
+    @api.depends('payment_ids')
+    def _compute_payment_ref(self):
+        for record in self:
+            if record.payment_ids:
+                for pay in record.payment_ids:        
+                    record.payment_ref = pay.ref
+            else:
+                record.payment_ref = False
               
     khr_rate_register = fields.Float('KHR Rate Register',store=True,compute="_compute_khr_register_rate")
     thb_rate_register = fields.Float('THB Rate Register',store=True,compute="_compute_thb_register_rate")
