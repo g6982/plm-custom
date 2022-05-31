@@ -6,6 +6,7 @@
 				model="account.move"
 				report_type="qweb-pdf"
 				file="summary_expense_template.journal_entry_template_report_view"
-				name="summary_expense_template.journal_entry_template_report_view"/>					
+				name="summary_expense_template.journal_entry_template_report_view"/>
+				<field name="print_report_name">'Summary Expense'</field> 					
 	</data>
 </odoo>

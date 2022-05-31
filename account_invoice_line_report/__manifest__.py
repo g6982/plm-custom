@@ -18,7 +18,6 @@
         "reports/report_driver_expense.xml",
         "reports/report_vendor_expense_statement.xml",
         "reports/report_invoice_lines.xml",
-        "reports/report_expense_statement.xml",
        
         ],
     "installable": True,

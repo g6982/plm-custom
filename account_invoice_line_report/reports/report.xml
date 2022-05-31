@@ -10,16 +10,7 @@
         <field name="binding_type">report</field>
         <field name="print_report_name"></field>
     </record>
-    <record id="report_expense_statement" model="ir.actions.report">
-        <field name="name">Expense Statement(ចំណាយសរុបរួម)</field>
-        <field name="model">account.invoice.report</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">account_invoice_line_report.report_expense_statement_document</field>
-        <field name="report_file">account_invoice_line_report.report_expense_statement</field>
-        <field name="binding_model_id" ref="account.model_account_invoice_report"/>
-        <field name="binding_type">report</field>
-        <field name="print_report_name"></field>
-    </record>
+
     <record id="report_vendor_expense_statement" model="ir.actions.report">
         <field name="name">Expense Statement by Vendor (ចំណាយតាមអ្នកផ្គត់ផ្គង់)</field>
         <field name="model">account.invoice.report</field>

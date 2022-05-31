@@ -112,10 +112,10 @@
                                 <thead>
                                     <tr style="font-family:'Khmer OS';">
 
-                                        <td class="text-center" style="border:1px solid black; width: 20px;border: 1px solid black;">
+                                        <!-- <td class="text-center" style="border:1px solid black; width: 20px;border: 1px solid black;">
                                             <div>ថ្ងៃចំណាយ</div>
                                             <div>Expense Date</div>                    
-                                        </td>
+                                        </td> -->
                                         <td class="text-center" style="border:1px solid black; width: 20px;border: 1px solid black;">
                                             <div>អ្នកបើកបរ</div>
                                             <div>Driver Name</div>                    
@@ -180,19 +180,20 @@
                                     <t t-set="sum_total_thb" t-value="0"/>
                                     <tr t-foreach="docs" t-as="line" style="page-break-inside:avoid">
 
-                                        <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
+                                        <!-- <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             <span t-field="line.invoice_date"/><br/>
-                                        </td>
+                                        </td> -->
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             <span t-field="line.driver"/><br/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             <span t-field="line.move_id"/>
+                                            (<span t-field="line.invoice_date"/>)
                                         </td>
 
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
                                             <span t-field="line.label_name"/><br/>
-                                            <span t-field="line.product_id"/>
+                                            <span t-field="line.product_id.name"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             <span t-field="line.register_date"/>
@@ -247,7 +248,7 @@
                                     <!-- Total Amount form all Bill -->
                             
                                     <tr>                                       
-                                        <td colspan="7" class="text-right" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
+                                        <td colspan="6" class="text-right" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             Total សរុបរួម
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
@@ -316,12 +317,12 @@
                         <t t-set="o" t-value="o.with_context(lang=lang)"/>
                         <div>
                             <t t-raw="0"/>
-                            <div class="row" style="font-size:18px;">
+                            <div class="row" style="font-size:16px;">
                                 <div class="col-1">
                                     <!-- <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:90px;" alt="Logo"/> -->
                                 </div>
                                 <div class="col-10" style="text-align:center;margin-top:10px;">
-                                    <div style="cursive; font-size:20px;">
+                                    <div style="cursive; font-size:16px;">
                                         <h2>លឹម សោភ័ណ្ឌលក់សំភារៈសំណង់</h2>
                                     </div>
                                     <div>
@@ -339,7 +340,7 @@
 
                         <div style="border-bottom:3px solid black; margin-top:5px;"/>
                         <div class="page">
-                            <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:18px;font-weight:bold;">
+                            <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:20px;font-size:16px;font-weight:bold;">
                                 <h5>ប័ណ្ណចំណាយសាច់ប្រាក់ ឬ មូលប្បទានប័ត្រ<br/>PAYMENT VOUCHER</h5>
                             </div>
                         </div>
@@ -370,11 +371,42 @@
                                         </td>
                                     </tr>
 
+                                    
                                     <tr style="font-family:'Khmer OS';">
                                         <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <div>ទឹកប្រាក់</div>
-                                            <div>Amount</div>
+                                            <div>ទឹកប្រាក់ដុល្លារ</div>
+                                            <div>Amount in USD</div>
+                                        </td>
+                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div/>
+                                            <div>$ <span t-esc="'{0:,.2f}'.format(abs(sum_total_usd))"/></div>
                                         </td> 
+                                    </tr>
+                                    <tr style="font-family:'Khmer OS';">
+                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>ទឹកប្រាក់រៀល</div>
+                                            <div>Amount in Riel</div>
+                                        </td> 
+                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div/>
+                                            <div> <span t-esc="'{0:,.0f}'.format(abs(sum_total_khr))"/>៛</div> 
+                                        </td> 
+                                    </tr>
+                                    <tr style="font-family:'Khmer OS';">
+                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>ទឹកប្រាក់បាត</div>
+                                            <div>Amount in Bath</div>
+                                        </td>
+                                        <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div/>
+                                            <div>฿ <span t-esc="'{0:,.2f}'.format(abs(sum_total_thb))"/></div>
+                                        </td> 
+                                    </tr>
+                                    <tr style="font-family:'Khmer OS';">
+                                        <td colspan="5" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
+                                            <div>ទឹកប្រាក់សរុបគិតជាដុល្លារ</div>
+                                            <div>Total Amount in USD</div>
+                                        </td>
                                         <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <div/>
                                             <div>$ <span t-esc="'{0:,.2f}'.format(abs(sum_total_khr + sum_total_thb + sum_total_usd))"/></div>
@@ -396,7 +428,7 @@
 
                         <!-- Customer and Vender Sign  -->
                         <div style="page-break-inside:avoid;">
-                            <div class="row" style="margin-top:200px;font-weight:bold;">
+                            <div class="row" style="margin-top:20px;font-weight:bold;">
                                  <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;">
                                         <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">អ្នកទទួលប្រាក់</div>
                                         <div style="font-size:14px">Received Cash By</div>

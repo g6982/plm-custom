@@ -15,7 +15,7 @@ class AccountMoveLine(models.Model):
     rate_khr_inh = fields.Float(string="Rate KHR")
     rate_thb_inh = fields.Float(string="Rate THB")
     driver = fields.Many2one('res.partner',"Driver Name")
-    register_date = fields.Date(string="Payment Date")
+    register_date = fields.Date(string="Register Date")
     khr_register_rate = fields.Float(string="KHR Register Rate")
     thb_register_rate = fields.Float(string="THB Register Rate")
     inv_date = fields.Date(string="Inv or Bill Date")
