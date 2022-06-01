@@ -45,6 +45,17 @@
                     string="With Price"
                     domain="[('price_average','!=', 0.0)]"
                 />
+                <filter
+                    name="register_date"
+                    string="Register Date"
+                    date="register_date"
+                    context="{'group_by':'register_date'}"
+                />
+                <filter
+                    name="move_id"
+                    string="Inv/Bill Number"
+                    context="{'group_by':'move_id'}"
+                />
             </field>
         </field>
     </record>
