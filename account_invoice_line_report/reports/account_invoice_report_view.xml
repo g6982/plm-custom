@@ -9,7 +9,6 @@
         <field name="arch" type="xml">
             <tree string="Invoice Line">   
                 <field name="inv_date" />             
-                <field name="expense_date" optional="hide"/>
                 <field name="driver" optional="hide"/>        
                 <field name="move_id" string="Invoice Number"/>
                 <field name="partner_id" />
@@ -21,6 +20,7 @@
                 <field name="quantity"/>
                 <field name="amount_in_currency"/>
                 <field name="move_currency_id"/>
+                <field name="payment_refs"/>
                 <field name="price_average" />
                 <field name="price_subtotal" />
                 <field name="payment_state"  widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state in ('partial', 'in_payment')" decoration-success="payment_state in ('paid', 'reversed')" attrs="{'invisible': [('payment_state', 'in', ('invoicing_legacy'))]}"/>

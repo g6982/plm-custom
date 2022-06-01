@@ -178,8 +178,12 @@
                                     <t t-set="sum_total_usd" t-value="0"/>
                                     <t t-set="sum_total_khr" t-value="0"/>
                                     <t t-set="sum_total_thb" t-value="0"/>
+                                    <t t-set="date_register" t-value="0"/>
+                                    <t t-set="reference" t-value ="0"/>
+                                    <t t-set="refs"/> 
                                     <tr t-foreach="docs" t-as="line" style="page-break-inside:avoid">
-
+                                        <t t-set="reference" t-value = "line.payment_refs"/>
+                                        <t t-set="refs" t-value="refs + reference"/>
                                         <!-- <td class="text-center" style="border:1px solid black;padding:5px;border-right: 0px solid white;">
                                             <span t-field="line.invoice_date"/><br/>
                                         </td> -->
@@ -199,7 +203,8 @@
                                             <span t-field="line.register_date"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
-                                            <span t-field="line.khr_register_rate"/>                                            
+                                            <span t-field="line.khr_register_rate"/> 
+                                            <t t-set="date_register" t-value="line.register_date"/>                                           
                                         </td>
                                         <td class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <span t-field="line.thb_register_rate"/>                                            
@@ -355,7 +360,10 @@
                                         </td>
                                         <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <div/>
-                                            <div><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></div>
+                                            <div>
+                                                <!-- <span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/> -->
+                                                <span t-esc="date_register"/>
+                                            </div>
                                         </td>                                                
                                     </tr>
 
@@ -419,7 +427,9 @@
                                         </td> 
                                         <td colspan="3" class="text-center" style="border:1px solid black; width: 30px;border: 1px solid black;">
                                             <div/>
-                                            <div/>
+                                            <div>                                                    
+                                                <span style="white-space:pre-wrap" t-esc="'\n'.join(r.payment_refs for r in docs)"/>                                            
+                                            </div>
                                         </td> 
                                     </tr>
                                 </thead>
