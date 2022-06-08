@@ -9,7 +9,7 @@
                     <field name="picking_type_id" string="Warehouse"/>
                 </xpath>
                 <xpath expr="//field[@name='effective_date']" position="after">
-                    <field name="payment_term_id"/>
+                    <field name="payment_term_id" string="Payment Term"/>
                 </xpath>
             </field>
         </record>
