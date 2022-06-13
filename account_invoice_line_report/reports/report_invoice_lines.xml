@@ -82,7 +82,7 @@
                                                     Date:<span style="padding-left:20px;" t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td style="font-size:14px;font-weight:bold;">
                                                     Reff.No:
                                                     <b>
@@ -91,7 +91,7 @@
                                                         </t>    
                                                     </b>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                             <tr></tr>
                                             <tr></tr>
                                     </table>

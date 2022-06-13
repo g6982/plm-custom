@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Templates Report",
-    'summary': """ PLM Templates Report for Sale, tclearance, transportation, concrete and concrete with tax """,
+    'name': "Templates Report PLM",
+    'summary': """ PLM Templates Report""",
     'description': """
-        PLM Templates Report
+        PLM Templates Report for 
+        - Sale, 
+        - tclearance, 
+        - transportation, 
+        - concrete and concrete with tax 
+        - vendor bill
+        - advance expense transport
+        - quotation & pro_forma invoice in sale
     """,
     'author': "Jenny Sun ",
     'category': 'Extra Tool',

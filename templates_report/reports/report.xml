@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>  
+
         <record id="report_vendor_bill" model="ir.actions.report">
             <field name="name">Vendor Bills</field>
             <field name="model">account.move</field>

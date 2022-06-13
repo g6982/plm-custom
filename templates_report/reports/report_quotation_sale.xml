@@ -55,8 +55,9 @@
                                                 <tr>
                                                     <td style="width:150px;padding-top:0px;font-family:'Khmer OS';"><span>អាស័យដ្ឋាន: / Address:</span></td>
                                                     <td style="padding-top:0px;">
-                                                        <span t-field="o.partner_id.street"/><br/><span t-field="o.partner_id.street2"/>
-                                                        <span t-field="o.partner_id.city"/><span t-field="o.partner_id.country_id"/>
+                                                        <span t-field="o.partner_shipping_id.name"/><br/>
+                                                        <span t-field="o.partner_shipping_id.street"/><br/><span t-field="o.partner_shipping_id.street2"/>
+                                                        <span t-field="o.partner_shipping_id.city"/><span t-field="o.partner_shipping_id.country_id"/>
                                                     </td>
                                                 </tr>
                                                 <tr>

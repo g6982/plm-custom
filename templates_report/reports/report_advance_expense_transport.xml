@@ -13,8 +13,7 @@
                     </t>
                     
                     <!-- Summary Expense -->
-                    <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
-   
+                    <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">   
                         <t t-raw="0"/>
                         <t t-set="o" t-value="o.with_context(lang=lang)"/>
                         <div>
@@ -79,20 +78,16 @@
                             </div>
                             <div>
                                 <tr style="font-size:14px;">
-                                    <td style="padding-top:20px;">បរិយាយនៃការស្នើរសុំ:</td>
-                                    
+                                    <td style="padding-top:20px;">បរិយាយនៃការស្នើរសុំ:</td>                                   
                                 </tr>
                             </div>
                             <div>
                                 <tr t-foreach="o.invoice_line_ids" t-as="line" style="font-size:16px;">
                                     <td class="text-center" style="padding:5px;">
-                                        <span t-esc="line_index+1"/>--
+                                        <span t-esc="line_index+1"/>
                                     </td>
                                     <td colspan="3" style="text-align:right;padding-right:30px;margin-top:30px;padding-top:20px;font-weight:bold;">
-                                      <span t-field="line.product_line_date"/>--
-                                    </td>
-                                    <td colspan="3" style="text-align:right;padding-right:30px;margin-top:30px;padding-top:20px;font-weight:bold;">
-                                      <span t-field="line.product_id"/>--
+                                      <span t-field="line.product_id.name"/>
                                     </td>
                                     <td colspan="2" style="text-align:right;padding-right:30px;margin-top:30px;padding-top:20px;font-weight:bold;">
                                       (<span t-field="line.name"/>)
@@ -138,8 +133,7 @@
                                         </div>
                                         <div>
                                           <tr style="font-size:16px;">
-                                              <td>ហត្ថលេខា</td>
-                                              
+                                              <td>ហត្ថលេខា</td>                              
                                               <td style="text-align:left;padding-left:30px;padding-top:20px;">___________________</td>
                                           </tr>
                                         </div>

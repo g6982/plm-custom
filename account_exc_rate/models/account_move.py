@@ -36,7 +36,7 @@ class account_exc_rate(models.Model):
     source_origin = fields.Many2one('sale.origin', string="Source")
     approver = fields.Many2one('res.users', string="Approve By", help="សម្រាប់តែខាងផ្នែកដឹកជញ្ជូន:ត្រូវរើសអ្នកអនុញ្ញាតសម្រាប់ការស្នើរសុំបើកប្រាក់បំរុងមុន។")
 
-    driver_names = fields.Many2one(
+    driver_names = fields.Many2many(
         comodel_name="res.partner",
         store=True,
         readonly=False,

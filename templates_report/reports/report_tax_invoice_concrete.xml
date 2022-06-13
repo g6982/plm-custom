@@ -56,8 +56,11 @@
                                               <tr>
                                                   <td style="font-size:14px;font-weight:bold; width:150px;padding-top:0px;font-family:'Khmer OS';"><span>អាស័យដ្ឋាន / Address:</span></td>
                                                   <td style="font-size:14px;font-weight:bold; padding-top:0px;">
-                                                      :<span t-field="o.partner_id.street"/><br/><span t-field="o.partner_id.street2"/>
-                                                      <span t-field="o.partner_id.city"/><span t-field="o.partner_id.country_id"/>
+                                                      <!-- :<span t-field="o.partner_id.street"/><br/><span t-field="o.partner_id.street2"/>
+                                                      <span t-field="o.partner_id.city"/><span t-field="o.partner_id.country_id"/> -->
+                                                        <!-- <span t-field="o.partner_shipping_id.name"/><br/> -->
+                                                        :<span t-field="o.partner_shipping_id.street"/><br/><span t-field="o.partner_shipping_id.street2"/>
+                                                        <span t-field="o.partner_shipping_id.city"/><span t-field="o.partner_shipping_id.country_id"/>
                                                   </td>
                                               </tr>
                                               <tr>
@@ -233,7 +236,7 @@
                                     
                                     <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.amount_residual != o.amount_total">
                                         
-                                        <td colspan="2" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Amount Dule in RIEL </td>
+                                        <td colspan="5" style="background: #F8F0E3; border: 1px solid black;text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Amount Dule in RIEL </td>
                                         <td class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
                                             KHR<t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
                                         </td>
@@ -241,7 +244,7 @@
                                     
                                     <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
                                         
-                                        <td colspan="2" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Amount Dule in USD </td>
+                                        <td colspan="5" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Amount Dule in USD </td>
                                         <td class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
                                         </td>
