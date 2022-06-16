@@ -21,18 +21,9 @@
                                     <!-- <img src="/account_invoice_line_report/static/description/plm_logo_polo.jpg" style="max-height:90px;" alt="Logo"/> -->
                                 </div>
                                 <div class="col-8" style="text-align:center;margin-top:10px;padding-top:15px;">
-                                    <div style="cursive; font-size:20px;font-family:'Khmer OS Moul';font-weight:bold;"><h2>ក្រុមហ៊ុន ភី.អិល.អិម អ៊ីមផត អិចផត<br/>Invoice</h2></div>
+                                    <div style="cursive; font-size:20px;font-family:'Khmer OS Moul';font-weight:bold;"><h2>ក្រុមហ៊ុន ភី.អិល.អិម អ៊ីមផត អិចផត</h2></div>
                                     <div style="cursive; font-size:20px;font-family:'Khmer OS Moul'"><h3>P.L.M IMPORT EXPORT CO.,LID.</h3></div>
-                                    
-                                    <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';font-weight:bold;">
-                                        លិខិតស្នើសុំ                             
-                                    </div>
-                                    <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';">
-                                        នាងខ្ញុំឈ្មោះ <span t-field="o.user_id.name"/> បំរើការងារនៅ ក្រុមហ៊ុន ភី.អិល.អិម អ៊ីមផត អិចផត                            
-                                    </div>
-                                    <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';">
-                                        កម្មវត្ថុ: ស្នើសុំ​​ <span t-field="o.notes"/>ពីក្រុមហ៊ុន<span t-field="o.partner_id.name"/>ដូចមានរាយក្នុងតារាងខាងក្រោម:
-                                    </div>
+                                    <div style="cursive; font-size:20px;font-family:'Khmer OS Moul'"><h5>លិខិតស្នើសុំ</h5></div>                                    
                                 </div>
                                 <div style="border-bottom:3px solid #000000; padding-top:5px;"/>
                                 <div class="col-3"/>
@@ -41,54 +32,19 @@
 
                         <!-- <div style="border-bottom:3px solid #000000; margin-top:3px;"/> -->
                         <div class="page">
-                            <!-- <div class="row mb-2">
-                                <div class="col-8">
-                                    <table class="table table-borderless">
-                                        <tr>
-                                            <td style="width:150px;padding-top:20px;font-size:16px;font-family:'Khmer OS';">
-                                                <span>អតិថិជន</span><br/>
-                                                <span>Sale To</span>
-                                            </td>
-                                            <td style="vertical-align: middle;padding-top:20px;font-size:18px;font-family:'Khmer OS';">:
-                                                <span t-field="o.partner_id.name"/>
-                                            </td>
-                                            <tr>
-                                                <td style="width:150px;padding-top:0px;font-family:'Khmer OS ';"><span>អាស័យដ្ឋាន: / Address:</span></td>
-                                                <td style="padding-top:0px;">
-                                                    <span t-field="o.partner_shipping_id.name"/><br/>
-                                                    <span t-field="o.partner_shipping_id.street"/><br/><span t-field="o.partner_shipping_id.street2"/>
-                                                    <span t-field="o.partner_shipping_id.city"/><span t-field="o.partner_shipping_id.country_id"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width:150px;padding-top:0px;font-size:16px;font-family:'Khmer OS';"><span>ទូរស័ព្ទ / Tel</span></td>
-                                                <td style="padding-top:0px;">
-                                                    : <t t-if="o.partner_id.mobile"><span style="font-size:18px;" t-field="o.partner_id.mobile"/></t>
-                                                    <t t-if="o.partner_id.phone"><span style="font-size:18px;" t-field="o.partner_id.phone"/></t>
-                                                </td>
-                                            </tr>
-                                        </tr>
-                                    </table>
+                            <div>
+                                
+                                <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';magin-top:5px;">
+                                    នាងខ្ញុំឈ្មោះ <span style="font-weight:bold;font-family:'Khmer OS Moul'" t-field="o.user_id.name"/> បំរើការងារនៅ ក្រុមហ៊ុន ភី.អិល.អិម អ៊ីមផត អិចផត                            
                                 </div>
-                                <div>
-                                    <table class="table table-borderless">
-                                        <tr>
-                                            <td style="font-size:18px;font-weight:bold;padding-top:20px;">
-                                                No:<b><span t-field="o.name"/></b>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-top:0px;font-size:14px; font-family:'Khmer OS'; font-weight:bold;"><span>កាលបរិច្ឆេទ/Date:</span> <span style="font-weight:bold;" t-field="o.invoice_date"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-size:18px;font-weight:bold;">
-                                                Source:<span t-field="o.invoice_origin"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';padding-top:5px;">
+                                    <span style="font-weight:bold;font-family:'Khmer OS Moul'">កម្មវត្ថុ:</span> ស្នើសុំ​​ &#032;<span t-field="o.notes"/>&#032;ពីក្រុមហ៊ុន&#032;<span style="font-weight:bold;" t-field="o.partner_id.name"/>&#032;ដូចមានរាយក្នុងតារាងខាងក្រោម:
                                 </div>
-                            </div> -->
-                            
+                                <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';padding-top:5px;">
+                                    លេខយោងការស្នើ &#032;<span style="font-weight:bold;" t-field="o.name"/>
+                                </div>                 
+                            </div>
+                            <div style="border-bottom:3px solid white; margin-top:3px;"/>
                             <table class="table table-borderless" style="font-size:14px;">
                                 <thead>
                                     <tr style="font-family:'Khmer OS';">
@@ -96,10 +52,7 @@
                                             <div>ល.រ</div>
                                             <div>No</div>
                                         </td>
-                                        <!-- <td class="text-center" style="border:1px solid black; width: 30px">
-                                            <div>លេខកូដ</div>
-                                            <div>Item Code</div>
-                                        </td> -->
+
                                         <td class="text-center" style="border:1px solid black; width:320px">
                                             <div>បរិយាយ</div>
                                             <div>Description</div>
@@ -128,25 +81,14 @@
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span t-esc="line_index+1"/>
                                         </td>
-                                        <!-- <td class="text-center" style="border:1px solid black;padding:5px;">
-                                            <span t-field="line.product_id.default_code"/>
-                                        </td> -->
                                         <td style="border:1px solid black;padding:5px;">
-                                            <t t-if="not line.product_id">
                                                 <span t-field="line.product_id.name"/>
-                                            </t>
-                                            <t t-if="line.product_id">
-                                                <span t-field="line.product_id.name"/>
-                                                <t t-if="line.discount != 0.0">Discount:
-                                                    <span t-esc="line.discount"/>%
-                                                </t>
-                                            </t>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
-                                            <span t-field="line.product_uom_id"/>
+                                            <span t-field="line.product_uom"/>
                                         </td>
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
-                                            <span t-field="line.quantity"/>
+                                            <span t-field="line.product_qty"/>
                                         </td>
                                         
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
@@ -157,74 +99,17 @@
                                                 <span class="text-nowrap" t-field="line.price_subtotal"/>
                                             </span>
                                         </td>
-                                    </tr>
-
-                                    <!-- Note -->
+                                    </tr>                                 
                                     <tr style="page-break-inside:avoid">
-                                        <td rowspan="7" colspan="3" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
-                                            <p style="font-size:14px;" t-field="o.narration"/>
+                                      
+                                        <td colspan="5" style="border:1px solid black;text-align:center;font-weight:bold;padding:5px;font-family:'Khmer OS Moul';">សរុប/Total</td>
+                                        <td class="text-center" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">                                           
+                                            <span t-field="o.amount_total"/>
                                         </td>
                                     </tr>
-
-                                    <!-- Total Amount in each Currentcy, Will display KHR and THB only input the currency rate -->
-                                    <tr style="page-break-inside:avoid">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
-                                        <td class="text-center" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">
-                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
-                                        </td>
+                                    <tr style="page-break-inside:avoid">                                  
+                                        <td colspan="6" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS Moul';">កោះកុង &#032;<span t-field="o.date_order"/></td>                                        
                                     </tr>
-                                    <!-- <t t-if="o.payment_state == 'paid'">
-                                        <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0">
-                                            <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជារៀល / Total in RIEL </td>
-                                            <td class="text-center" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">
-                                                <t t-esc="'{0:,.0f}'.format(o.total_exc_khr)"/> ៛ 
-                                            </td>
-                                        </tr>
-                                    
-                                        <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0">
-                                            <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាបាត / Total in BATH </td>
-                                            <td class="text-center" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">
-                                                ฿ <t t-esc="'{0:,.2f}'.format(o.total_exc_thb)"/>
-                                            </td>
-                                        </tr>
-                                    </t> -->
-
-                                    <!-- Payment Vals -->
-                                    <!-- <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>
-                                    <t t-foreach="payments_vals" t-as="payment_vals">
-                                        <tr style="font-weight:bold;">
-                                            <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">
-                                                <span>Paid on <t t-esc="payment_vals['date']" t-options='{"widget": "date"}'/></span>
-                                            </td>
-                                            <td class="text-center">
-                                                <span t-esc="payment_vals['amount']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
-                                            </td>
-                                        </tr>
-                                    </t> -->
-                                    
-
-                                    <!-- Total Balance in each Currency -->
-                                    <!-- <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
-                                        <td class="text-center" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
-                                            $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
-                                        </td>
-                                    </tr>
-                                    <t t-if="o.payment_state == 'paid'">
-                                        <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                            <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
-                                            <td class="text-center" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
-                                                <t t-esc="'{0:,.0f}'.format(o.amount_residual*o.rate_khr)"/> ៛
-                                            </td>
-                                        </tr>
-                                        <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                            <td colspan="6" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
-                                            <td class="text-center" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
-                                                ฿ <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
-                                            </td>
-                                        </tr>
-                                    </t> -->
-
                                 </tbody>
                             </table>
                         </div>
@@ -232,22 +117,24 @@
                         <!-- Customer and Vender Sign  -->
                         <div style="page-break-inside:avoid;">
                             <div style="page-break-inside:avoid;">
-                                <div class="row" style="margin-top:150px;font-weight:bold;">
+                                <div class="row" style="margin-top:30px;font-weight:bold;">
                                     <div class="col-4" style="font-size:14px;margin-top: 30px;">
-                                            <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">បានឃើញនិងឯកភាព</div>
-                                            <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">នាយកគ្រប់គ្រង</div>
-                                            <div style="font-size:14px"></div>
-                                            <!--<div class="text-center;padding-top:50px;margin-top:50px;" style="font-size:14px">_________________</div>-->
+                                            <div class="text-center" style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;">បានឃើញនិងឯកភាព</div>                                           
+                                            <div class="text-center" style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;">នាយកគ្រប់គ្រង</div>                                          
+                                            <div style="font-size:14px"/>
                                     </div>
+                                    
                                     <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;"/>
+                                    
                                     <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
-                                            <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខាអ្នកស្នើសុំ</div>
-                                            <div style="font-size:14px"></div>
+                                            <div style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;">ហត្ថលេខាអ្នកស្នើសុំ</div>
+                                            <div style="font-size:14px"/>
                                             <!--<div class="text-center;padding-top:50px;margin-top:50px;" style="font-size:14px">_________________</div>-->
                                             <div style="font-size:14px;margin-top: 100px;"><span t-field="o.user_id.name"/></div>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="footer">
                                 <ul class="list-inline" style="text-align: right; font-size:12px">
                                     <li>Page: <span class="page"/> of <span class="topage"/></li>
