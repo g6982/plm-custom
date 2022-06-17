@@ -224,12 +224,12 @@
                         <!-- Customer and Vender Sign  -->
                         <div style="page-break-inside:avoid;">
                             <div class="row" style="margin-top:150px;font-weight:bold;">
-                                <div class="col-3" style="font-size:14px;margin-top: 30px;">
+                                <div class="col-4" style="font-size:14px;margin-top: 30px;">
                                         <div class="text-center" style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកទិញ</div>
                                         <div class="text-center" style="font-size:14px">Customer's Signature &amp; Name</div>
                                 </div>
-                                <div class="col-6 text-center" style="font-size:14px;margin-top: 30px;"/>
-                                <div class="col-3 text-center" style="font-size:14px;margin-top: 30px;">
+                                <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;"/>
+                                <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
                                         <div style="font-family:'Khmer OS';font-size:14px;margin-top: 18px;">ហត្ថលេខានិងឈ្មោះអ្នកលក់</div>
                                         <div style="font-size:14px">Seller's Signature &amp; Name</div>
                                 </div>
