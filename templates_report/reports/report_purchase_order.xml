@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>    
-         <template id="report_purchase_order_document">
+        <template id="report_purchase_order_document">
             <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="o">
+               <t t-foreach="docs" t-as="o">
                     <t t-if="not o" t-set="o" t-value="doc"/>
                     <t t-if="o and 'company_id' in o">
                         <t t-set="company" t-value="o.company_id"/>
@@ -34,18 +34,18 @@
                         <div class="page">
                             <div>
                                 
-                                <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';magin-top:5px;">
-                                    នាងខ្ញុំឈ្មោះ <span style="font-weight:bold;font-family:'Khmer OS Moul'" t-field="o.user_id.name"/> បំរើការងារនៅ ក្រុមហ៊ុន ភី.អិល.អិម អ៊ីមផត អិចផត                            
+                                <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';magin-top:5px;padding-top:10px;">
+                                    <h6 style="font-size=16px;font-family:'Khmer OS Moul';">នាងខ្ញុំឈ្មោះ <span style="font-weight:bold;font-family:'Khmer OS Moul'" t-field="o.user_id.name"/> បំរើការងារនៅ ក្រុមហ៊ុន ភី.អិល.អិម អ៊ីមផត អិចផត </h6>                       
                                 </div>
                                 <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';padding-top:5px;">
-                                    <span style="font-weight:bold;font-family:'Khmer OS Moul'">កម្មវត្ថុ:</span> ស្នើសុំ​​ &#032;<span t-field="o.notes"/>&#032;ពីក្រុមហ៊ុន&#032;<span style="font-weight:bold;" t-field="o.partner_id.name"/>&#032;ដូចមានរាយក្នុងតារាងខាងក្រោម:
+                                    <h6 style="font-size=16px;font-family:'Khmer OS Moul';"><span style="font-weight:bold;">កម្មវត្ថុ:</span> ស្នើសុំ​​ &#032;<span t-field="o.notes"/>&#032;ពីក្រុមហ៊ុន&#032;<span style="font-weight:bold;" t-field="o.partner_id.name"/>&#032;ដូចមានរាយក្នុងតារាងខាងក្រោម:</h6>
                                 </div>
                                 <div class="text-center" style="font-size:14px;font-family:'Khmer OS Moul';padding-top:5px;">
-                                    លេខយោងការស្នើ &#032;<span style="font-weight:bold;" t-field="o.name"/>
+                                    <h6 style="font-size=16px;font-family:'Khmer OS Moul';">លេខយោងការស្នើ &#032;<span style="font-weight:bold;" t-field="o.name"/></h6>
                                 </div>                 
                             </div>
                             <div style="border-bottom:3px solid white; margin-top:3px;"/>
-                            <table class="table table-borderless" style="font-size:14px;">
+                            <table class="table table-borderless" style="font-size:16px;">
                                 <thead>
                                     <tr style="font-family:'Khmer OS';">
                                         <td class="text-center" style="border:1px solid black; width: 30px">
@@ -77,7 +77,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="invoice_tbody">
-                                    <tr t-foreach="o.order_line" t-as="line" style="c">
+                                    <tr t-foreach="o.order_line" t-as="line">
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span t-esc="line_index+1"/>
                                         </td>
@@ -119,18 +119,17 @@
                             <div style="page-break-inside:avoid;">
                                 <div class="row" style="margin-top:30px;font-weight:bold;">
                                     <div class="col-4" style="font-size:14px;margin-top: 30px;">
-                                            <div class="text-center" style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;">បានឃើញនិងឯកភាព</div>                                           
-                                            <div class="text-center" style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;">នាយកគ្រប់គ្រង</div>                                          
+                                            <div class="text-center" style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;"><h6>បានឃើញនិងឯកភាព</h6></div>
+                                            <div class="text-center" style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;"><h6>នាយកគ្រប់គ្រង</h6></div>
                                             <div style="font-size:14px"/>
                                     </div>
                                     
                                     <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;"/>
                                     
                                     <div class="col-4 text-center" style="font-size:14px;margin-top: 30px;">
-                                            <div style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;">ហត្ថលេខាអ្នកស្នើសុំ</div>
+                                            <div style="font-family:'Khmer OS Moul';font-size:14px;margin-top: 18px;"><h6>ហត្ថលេខាអ្នកស្នើសុំ</h6></div>
                                             <div style="font-size:14px"/>
-                                            <!--<div class="text-center;padding-top:50px;margin-top:50px;" style="font-size:14px">_________________</div>-->
-                                            <div style="font-size:14px;margin-top: 100px;"><span t-field="o.user_id.name"/></div>
+                                            <div style="font-size:14px;margin-top: 100px;"><h6><span t-field="o.user_id.name"/></h6></div>
                                     </div>
                                 </div>
                             </div>
