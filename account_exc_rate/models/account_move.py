@@ -11,12 +11,12 @@ class account_exc_rate(models.Model):
     
     ############################
     # Field & functions to computer the total amunte that from input currency khmer and thb into USD
-    total_exc_khr = fields.Monetary(compute = '_compute_total_khmer', string="Total Amount in Khmer", currency_field='khr_currency_id')
-    total_exc_thb = fields.Monetary(compute = '_compute_total_bat', string="Total Amount in THB", currency_field='thb_currency_id')
-    rate_khr = fields.Float(string="Exchange Khmer")
-    rate_thb = fields.Float(string="Exchange Thb")
-    khr_currency_id = fields.Many2one('res.currency', compute = '_compute_total_khmer')
-    thb_currency_id = fields.Many2one('res.currency', compute = '_compute_total_bat')
+    total_exc_khr = fields.Monetary(store=True, compute = '_compute_total_khmer', string="Total Amount in Khmer", currency_field='khr_currency_id')
+    total_exc_thb = fields.Monetary(store=True, compute = '_compute_total_bat', string="Total Amount in THB", currency_field='thb_currency_id')
+    rate_khr = fields.Float(store=True, string="Exchange Khmer")
+    rate_thb = fields.Float(store=True, string="Exchange Thb")
+    khr_currency_id = fields.Many2one('res.currency', store=True, compute = '_compute_total_khmer')
+    thb_currency_id = fields.Many2one('res.currency', store=True, compute = '_compute_total_bat')
 
     @api.depends('amount_total')
     def _compute_total_khmer(self):
