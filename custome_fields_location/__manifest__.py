@@ -4,7 +4,7 @@
     'summary': """Change location of some field """,
     'description': """ Change location of some field """,
     'author': "A2A Digital",
-    'category': 'Extra Tools',
+    'category': 'PLM',
     'version': '14.0.1.0.0',
     'depends': [
             'stock_landed_costs',
