@@ -13,8 +13,8 @@ class account_exc_rate(models.Model):
     # Field & functions to computer the total amunte that from input currency khmer and thb into USD
     total_exc_khr = fields.Monetary(store=True, compute = '_compute_total_khmer', string="Total Amount in Khmer", currency_field='khr_currency_id')
     total_exc_thb = fields.Monetary(store=True, compute = '_compute_total_bat', string="Total Amount in THB", currency_field='thb_currency_id')
-    rate_khr = fields.Float(store=True, string="Exchange Khmer")
-    rate_thb = fields.Float(store=True, string="Exchange Thb")
+    rate_khr = fields.Float(string="Exchange Khmer")
+    rate_thb = fields.Float(string="Exchange Thb")
     khr_currency_id = fields.Many2one('res.currency', store=True, compute = '_compute_total_khmer')
     thb_currency_id = fields.Many2one('res.currency', store=True, compute = '_compute_total_bat')
 
@@ -24,6 +24,7 @@ class account_exc_rate(models.Model):
             invoice.total_exc_khr = invoice.amount_total * invoice.rate_khr 
             invoice.khr_currency_id = self.env['res.currency'].search([('id','=',66)])
 
+    @api.depends('amount_total')
     def _compute_total_bat(self):
         for i in self:
             i.total_exc_thb = i.amount_total * i.rate_thb
@@ -59,7 +60,7 @@ class account_exc_rate(models.Model):
     @api.returns('self')
     def _get_default_khr_exchange_currency(self): 
         return self.env['res.currency'].search([('name', '=', 'KHR')], limit=1)
-    khr_exchange_currency_id = fields.Many2one('res.currency', store=True, readonly=True, tracking=True, required=True,
+    khr_exchange_currency_id = fields.Many2one('res.currency',readonly=True, tracking=True, required=True,
         states={'draft': [('readonly', False)]}, default=_get_default_khr_exchange_currency)
     
     khr_exchange_rate = fields.Float('KHR Riel Exchange Rate', store=True, readonly=True, compute="_compute_khr_exchange_rate")
@@ -73,7 +74,7 @@ class account_exc_rate(models.Model):
     @api.returns('self')
     def _get_default_thb_exchange_currency(self): 
         return self.env['res.currency'].search([('name', '=', 'THB')], limit=1)
-    thb_exchange_currency_id = fields.Many2one('res.currency', store=True, readonly=True, tracking=True, required=True,
+    thb_exchange_currency_id = fields.Many2one('res.currency',readonly=True, tracking=True, required=True,
         states={'draft': [('readonly', False)]}, default=_get_default_thb_exchange_currency)
     
     thb_exchange_rate = fields.Float('Thai Bath Exchange Rate', store=True, readonly=True, compute="_compute_thb_exchange_rate")
