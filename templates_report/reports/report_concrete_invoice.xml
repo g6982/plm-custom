@@ -94,17 +94,17 @@
                                         </td>                                        
                                         <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">                                            
                                         </td>
+                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px">
+                                            <div>លេខយោងវិក័យប័ត្រ</div>
+                                            <div>Invoic Ref.</div>
+                                        </td>
+                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:130px">
+                                            <div>លេខឡាន</div>
+                                            <div>Plate Num.</div>
+                                        </td>
                                         <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px;">
                                             <div>បរិយាយ</div>
                                             <div>Description</div>
-                                        </td>
-                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px">
-                                            <!-- <div>ឯកតា</div>
-                                            <div>Unit</div> -->
-                                        </td>
-                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:130px">
-                                            <!-- <div>តម្លៃរាយ</div>
-                                            <div>Unit Price</div> -->
                                         </td>
                                         <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">                            
                                         </td>
@@ -125,6 +125,20 @@
                                         </td>
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">                                        
                                         </td>
+                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
+                                            <span t-field="line.plate_num"/>
+                                        </td>
+
+                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
+                                            <span t-field="line.inv_ref"/>
+                                        </td>
+                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
+                                            <span t-field="line.quantity"/>
+                                        </td>
+
+                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
+                                            <span t-field="line.product_uom_id"/>
+                                        </td>
                                         <td class="text-center" style="width:130px; border-bottom:1px solid black;">
                                             <t t-if="not line.product_id">
                                                 <span t-field="line.name"/>
@@ -137,13 +151,7 @@
                                             </t>
                                         </td>
 
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            <!-- <span t-field="line.quantity"/> -->
-                                        </td>
-
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            <!-- <span t-field="line.product_uom_id"/> -->
-                                        </td>
+                                        
 
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
                                             <!-- <span t-field="line.price_unit"/> -->
