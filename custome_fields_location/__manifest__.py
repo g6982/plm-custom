@@ -10,9 +10,11 @@
             'stock_landed_costs',
             'purchase',
             'sale',
+            'account',
             ],
     'data': [
         'views/landed_cost_view.xml',
         'views/warehouse_view.xml',
+        'views/account_move.xml',
     ],
 }
