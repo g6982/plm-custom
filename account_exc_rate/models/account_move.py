@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
-
 from locale import currency
 from webbrowser import get
 from odoo import models, fields, api,_

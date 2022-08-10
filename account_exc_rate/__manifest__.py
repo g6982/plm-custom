@@ -9,7 +9,7 @@
         - Inherit Payment_id to display Date and Rate based on Payment date 
     """,
     'author': "A2A Digital , Jenny Sun ",
-    'category': 'Extra Tool',
+    'category': 'PLM',
     'version': '14.0.1.0.0',
     'depends': ['account','stock_picking_invoice_link'],
     'data': [

@@ -9,8 +9,9 @@ class SaleOrder(models.Model):
         string="Plate Number",
         help="ផ្លាកលេខឡាន",
         required=True,
+        store=True,
     )
-    inv_ref = fields.Char(string="Invoice Reference",required=True,)
+    inv_ref = fields.Char(string="Invoice Reference",required=True,store=True)
 
 
 

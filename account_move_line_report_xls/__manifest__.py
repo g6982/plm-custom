@@ -6,7 +6,7 @@
     "version": "14.0.1.0.1",
     "license": "AGPL-3",
     "author": "Noviat, Odoo Community Association (OCA)",
-    "category": "Accounting & Finance",
+    "category": "PLM",
     "website": "https://github.com/OCA/account-financial-reporting",
     "summary": "Journal Items Excel export",
     "depends": ["account", "report_xlsx_helper"],

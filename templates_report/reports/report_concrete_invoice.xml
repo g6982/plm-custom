@@ -92,22 +92,22 @@
                                             <div>ល.រ</div>
                                             <div>No</div>
                                         </td>                                        
-                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">                                            
-                                        </td>
+                                        
                                         <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px">
-                                            <div>លេខយោងវិក័យប័ត្រ</div>
-                                            <div>Invoic Ref.</div>
+                                             <div>លេខឡាន</div>
+                                               
+                                             <div>Place Num.</div> 
                                         </td>
                                         <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:130px">
-                                            <div>លេខឡាន</div>
-                                            <div>Plate Num.</div>
+                                             <div>លេខវិក័យបត្រយោង</div>
+                                            <div>Invoice Ref.</div> 
                                         </td>
-                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px;">
+                                       
+                                        <td  colspan="2" class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px;">
                                             <div>បរិយាយ</div>
                                             <div>Description</div>
                                         </td>
-                                        <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">                            
-                                        </td>
+                                        
                                         <td class="text-center" style="border-bottom:1px solid black; border-top:1px solid black; width:80px">                        
                                         </td>
                                         <td class="text-center" style="border:1px solid black;width:130px;border-left: 0px solid white;">
@@ -123,23 +123,19 @@
                                         <td class="text-center" style="border:1px solid black;padding:5px;">
                                             <span t-esc="line_index+1"/>
                                         </td>
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">                                        
-                                        </td>
+
+                                        
+
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            <span t-field="line.plate_num"/>
+                                             <span t-field="line.plate_num"/> 
                                         </td>
 
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            <span t-field="line.inv_ref"/>
+                                             <span t-field="line.inv_ref"/> 
                                         </td>
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            <span t-field="line.quantity"/>
-                                        </td>
-
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">
-                                            <span t-field="line.product_uom_id"/>
-                                        </td>
-                                        <td class="text-center" style="width:130px; border-bottom:1px solid black;">
+                                        <!--<td class="text-center" style="border-bottom:1px solid black;width:130px">                                            -->
+                                        <!--</td>-->
+                                        <td colspan="2" class="text-center" style="width:130px; border-bottom:1px solid black;">
                                             <t t-if="not line.product_id">
                                                 <span t-field="line.name"/>
                                             </t>
@@ -151,14 +147,11 @@
                                             </t>
                                         </td>
 
-                                        
-
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
                                             <!-- <span t-field="line.price_unit"/> -->
                                         </td>
 
-                                        <td class="text-center" style="border-bottom:1px solid black;width:130px">                                            
-                                        </td>
+                                        
                                     
                                         <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;">
                                             <span>
@@ -169,28 +162,28 @@
                                     
                                     <!-- Note -->
                                     <tr style="page-break-inside:avoid">
-                                        <td rowspan="7" colspan="3" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
+                                        <td rowspan="6" colspan="3" style="font-size:14px;text-align:left;padding-top:30px;padding-left:0px;">
                                             <p style="font-size:14px;" t-field="o.narration"/>
                                         </td>
                                     </tr>
 
                                     <!-- Total Amount in each Currentcy, Will display KHR and THB only input the currency rate -->
                                     <tr style="page-break-inside:avoid">
-                                        <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD</td>
                                         <td class="text-center" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_total)"/>
                                         </td>
                                     </tr>
                                     <t t-if="o.payment_state == 'paid'">
                                         <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0">
-                                            <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជារៀល / Total in RIEL </td>
+                                            <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជារៀល / Total in RIEL </td>
                                             <td class="text-center" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">
                                                 <t t-esc="'{0:,.0f}'.format(o.total_exc_khr)"/> ៛ 
                                             </td>
                                         </tr>
                                     
                                         <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0">
-                                            <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាបាត / Total in BATH </td>
+                                            <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាបាត / Total in BATH </td>
                                             <td class="text-center" style="border:1px solid black;font-weight:bold;padding:5px;font-size:16px;">
                                                 ฿ <t t-esc="'{0:,.2f}'.format(o.total_exc_thb)"/>
                                             </td>
@@ -202,30 +195,30 @@
                                     <t t-foreach="payments_vals" t-as="payment_vals">
                                         <tr style="font-weight:bold;">
                                             <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">
-                                                <span>Paid on <t t-esc="payment_vals['date']" t-options='{"widget": "date"}'/></span>
+                                                <span>Paid on <t t-esc="payment_vals['date']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></span>
                                             </td>
                                             <td class="text-center">
-                                                <span t-esc="payment_vals['amount']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                                <span t-esc="payment_vals['amount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
                                             </td>
                                         </tr>
                                     </t>
                                     
                                     <!-- Total Balance in each Currency -->
                                     <tr style="page-break-inside:avoid" t-if="o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                        <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
+                                        <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាដុល្លារ / Balance in USD </td>
                                         <td class="text-center" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
                                             $ <t t-esc="'{0:,.2f}'.format(o.amount_residual)"/>
                                         </td>
                                     </tr>
                                     <t t-if="o.payment_state == 'paid'">
                                         <tr style="page-break-inside:avoid" t-if="o.rate_khr != 0.0 and o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                            <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
+                                            <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាខ្មែរ / Balance in RIEL </td>
                                             <td class="text-center" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
                                                 <t t-esc="'{0:,.0f}'.format(o.amount_residual*o.rate_khr)"/> ៛
                                             </td>
                                         </tr>
                                         <tr style="page-break-inside:avoid" t-if="o.rate_thb != 0.0 and o.amount_residual != 0.0 and o.amount_residual != o.amount_total">
-                                            <td colspan="7" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
+                                            <td colspan="6" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">ប្រាក់នៅសល់ជាបាត/ Balance in BATH </td>
                                             <td class="text-center" style="border:1px solid black; font-weight:bold;padding:5px;font-size:16px;">
                                                 ฿ <t t-esc="'{0:,.2f}'.format(o.amount_residual*o.rate_khr)"/> 
                                             </td>
@@ -253,7 +246,7 @@
                                     <li>Page: <span class="page"/> of <span class="topage"/></li>
                                 </ul>
                             </div>
-                        </div>                     
+                        </div>                        
                     </div>
                 </t>
             </t>
