@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>    
-        <template id="report_tax_invoice_concrete_document">
+         <template id="report_tax_invoice_concrete_document">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-if="not o" t-set="o" t-value="doc"/>
@@ -37,7 +37,7 @@
                         <div style="border-bottom:3px solid black; margin-top:20px;"/>
                         <div class="page">
                                 <div class="text-center" style="text-align:center;font-family:'Khmer OS Muol Light';cursive;padding-top:25px;font-size:20px;">
-                                    <h5>វិក័យបត្រអាករ<br/><b>TAX INVOICE</b></h5>
+                                    <h5>វិក្កយបត្រអាករ<br/><b>TAX INVOICE</b></h5>
                                 </div>
                                 
                                 <div class="row mb-1">
@@ -108,7 +108,7 @@
                                                   <td style="font-size:16px;font-weight:bold; width:0px;padding-top:0px;font-size:16px;font-family:'Khmer OS Battambang';"><span>កាលបរិច្ឆេទ :</span></td>
                                                   
                                                   <td style="font-size:16px;font-weight:bold; padding-top:0px;padding-left:-10px;">
-                                                      <t><span style="font-size:16px;font-weight:bold;font-family:'Khmer OS Battambang';" t-field="o.invoice_date" t-options='{"format": "d-MMM-yyyy"}'/></t>
+                                                      <t><span style="font-size:16px;font-weight:bold;font-family:'Khmer OS Battambang';" t-field="o.invoice_date" t-options="{&quot;format&quot;: &quot;d-MMM-yyyy&quot;}"/></t>
                                                   </td>
                                               </tr>
                                               <tr>
@@ -208,9 +208,9 @@
                                     
                                     <tr style="page-break-inside:avoid">
                                         <td rowspan="9" colspan="3" style="padding-top:5px; margin-top:20px;border: 1px solid black;text-align:left;font-weight:bold;padding:5px;font-family:'Khmer OS Battambang';font-size:16px;">
-                                              <br></br>
+                                              <br/>
                                               <span>Payment can be made by cheque or Bank transfer to:</span> <br/>
-                                              <br></br>
+                                              <br/>
                                               <span style="padding-right:33px;margin-top:5px;">Account Name:</span> <span style="font-weight:bold;"><b>P.L.M. IMPORT EXPORT Co., Ltd.</b></span><br/>
                                               <span style="padding-right:20px;margin-top:5px;">Account Number:</span> <span style="font-weight:bold;">038-0000002299</span><br/>
                                               <span style="padding-right:52px;margin-top:5px;">Bank Name:</span> <span>Canadia Bank PLC</span><br/>

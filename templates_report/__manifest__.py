@@ -25,6 +25,7 @@
         'reports/report_quotation_sale.xml',
         'reports/report_tax_invoice_concrete.xml',
         'reports/report_tax_invoice_by_government.xml',
+        'reports/report_other_income_receipt.xml',
         'reports/report_tclearance_invoice.xml',        
         'reports/report_sale_invoice.xml',
         'reports/report_concrete_invoice.xml',

@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div style="border-bottom:3px solid #000000; margin-top:5px;"/>
                         <div class="page">
                             <div class="text-center" style="text-align:center;font-family:'Khmer OS';cursive;padding-top:15px;font-size:18px;">
@@ -103,7 +103,7 @@
                                             <div>Invoice Ref.</div> 
                                         </td>
                                        
-                                        <td  colspan="2" class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px;">
+                                        <td colspan="2" class="text-center" style="border-bottom:1px solid black; border-top:1px solid black;width:80px;">
                                             <div>បរិយាយ</div>
                                             <div>Description</div>
                                         </td>
@@ -194,7 +194,7 @@
                                     <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>
                                     <t t-foreach="payments_vals" t-as="payment_vals">
                                         <tr style="font-weight:bold;">
-                                            <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">
+                                            <td colspan="3" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">
                                                 <span>Paid on <t t-esc="payment_vals['date']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></span>
                                             </td>
                                             <td class="text-center">

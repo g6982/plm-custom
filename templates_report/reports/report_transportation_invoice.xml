@@ -139,15 +139,16 @@
                                             
                                         </td>
                                         <td class="text-center" style="width:130px; border-bottom:1px solid black;">
-                                            <t t-if="not line.product_id">
-                                                <span t-field="line.name"/>
-                                            </t>
-                                            <t t-if="line.product_id">
-                                                <span t-field="line.product_id.name"/>
-                                                <t t-if="line.discount != 0.0">Discount:
-                                                    <span t-esc="line.discount"/>%
-                                                </t>
-                                            </t>
+                                            <!--<t t-if="not line.name">-->
+                                            <!--    <span t-field="line.product_id"/>-->
+                                            <!--</t>-->
+                                            <!--<t t-if="line.product_id">-->
+                                            <!--    <span t-field="line.product_id.name"/>-->
+                                            <!--    <t t-if="line.discount != 0.0">Discount:-->
+                                            <!--        <span t-esc="line.discount"/>%-->
+                                            <!--    </t>-->
+                                            <!--</t>-->
+                                            <t t-esc="line.name"/>
                                         </td>
 
                                         <td class="text-center" style="border-bottom:1px solid black;width:130px">
@@ -207,10 +208,10 @@
                                     <t t-foreach="payments_vals" t-as="payment_vals">
                                         <tr style="font-weight:bold;">
                                             <td colspan="4" style="text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">
-                                                <span>Paid on <t t-esc="payment_vals['date']" t-options='{"widget": "date"}'/></span>
+                                                <span>Paid on <t t-esc="payment_vals['date']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></span>
                                             </td>
                                             <td class="text-center">
-                                                <span t-esc="payment_vals['amount']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                                <span t-esc="payment_vals['amount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
                                             </td>
                                         </tr>
                                     </t>

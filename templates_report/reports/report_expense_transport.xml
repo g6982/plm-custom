@@ -13,8 +13,7 @@
                     </t>
                     
                     <!-- Summary Expense -->
-                    <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
-   
+                    <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">   
                         <t t-raw="0"/>
                         <t t-set="o" t-value="o.with_context(lang=lang)"/>
                         <div>
@@ -54,7 +53,8 @@
                                             <tr/>
                                             <tr style="font-size:16px; margin-top:20px;">
                                                 <td colspan="3">ទឹកប្រាក់ស្នើរសុំ:</td>
-                                                <td colspan="2" style="text-align:right;padding-left:40px;padding-top:20px;font-weight:bold;">	<span t-esc="'{0:,.0f}'.format(o.amount_total)"/> <span t-esc="o.currency_id.name"/></td>
+                                                <td colspan="2" style="text-align:right;padding-left:40px;padding-top:20px;font-weight:bold;">	<span t-esc="'{0:,.0f}'.format(o.amount_total)"/> <span t-esc="o.currency_id.name"/>
+                                                </td>
                                             </tr>
                                         </thead>
                                     </table>
@@ -65,13 +65,17 @@
                                         <tr style="font-size:16px;">
                                             <td>ថ្ងៃ ខែ ឆ្នាំ:</td>
                                             <td/>
-                                            <td style="text-align:left;padding-left:30px;padding-top:20px;"><span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></td>
+                                            <td style="text-align:left;padding-left:30px;padding-top:20px;"><span t-field="o.invoice_date"/></td>
                                         </tr>
                                         <tr/>
                                         <tr style="font-size:16px;">
                                             <td>លេខគណនី:</td>
                                             <td/>
-                                            <td style="text-align:left;padding-left:30px;padding-top:20px;"><span t-field="o.invoice_line_ids.account_id.code"/></td>
+                                            <td style="text-align:left;padding-left:30px;padding-top:20px;">
+                                              <t t-foreach="o.invoice_line_ids" t-as="inv">
+                                                <span t-field="inv.account_id.code"/>
+                                              </t>
+                                            </td>
                                         </tr>
                                     </thead>
                                   </table>
@@ -79,24 +83,23 @@
                             </div>
                             <div>
                                 <tr style="font-size:14px;">
-                                    <td style="padding-top:20px;">បរិយាយនៃការស្នើរសុំ:</td>
-                                    
+                                    <td style="padding-top:20px;">បរិយាយនៃការស្នើរសុំ:</td>                                   
                                 </tr>
                             </div>
                             <div>
                                 <tr t-foreach="o.invoice_line_ids" t-as="line" style="font-size:16px;">
                                     <td class="text-center" style="padding:5px;">
-                                        <span t-esc="line_index+1"/>--
+                                        <span t-esc="line_index+1"/>
                                     </td>
                                     <td colspan="3" style="text-align:right;padding-right:30px;margin-top:30px;padding-top:20px;font-weight:bold;">
-                                      <span t-field="line.product_line_date"/>--
+                                      <span t-field="line.product_id.name"/>
+                                     
                                     </td>
                                     <td colspan="3" style="text-align:right;padding-right:30px;margin-top:30px;padding-top:20px;font-weight:bold;">
-                                      <span t-field="line.product_id"/>--
-                                    </td>
-                                    <td colspan="2" style="text-align:right;padding-right:30px;margin-top:30px;padding-top:20px;font-weight:bold;">
                                       (<span t-field="line.name"/>)
-                                    </td><br/>
+                                    </td>
+                                     <td colspan="6" style="text-align:left;padding-left:30px;padding-top:20px;"><span t-field="line.account_id.code"/></td>
+                                    <br/>
                                 </tr>
                             </div>
                             <div class="row mb-2">
@@ -138,8 +141,7 @@
                                         </div>
                                         <div>
                                           <tr style="font-size:16px;">
-                                              <td>ហត្ថលេខា</td>
-                                              
+                                              <td>ហត្ថលេខា</td>                              
                                               <td style="text-align:left;padding-left:30px;padding-top:20px;">___________________</td>
                                           </tr>
                                         </div>
