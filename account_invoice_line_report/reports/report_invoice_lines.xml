@@ -167,7 +167,7 @@
                                                 <span t-field="line.quantity"/>
                                             </td>
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
-                                                $<span t-field="line.price_average"/>
+                                                $<span t-field="line.price_unit_cus"/>
                                             </td>
                                             <t t-if="line.discount != 0.0"> 
                                                 <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">                                                
@@ -177,14 +177,14 @@
                                                 </td>
                                             </t>
                                             <td class="text-right" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
-                                                $ <span t-field="line.price_subtotal"/>
+                                                $ <span t-field="line.sub_pricetotal"/>
                                             </td>
                                         </tr>
                                         
                                         <tr style="page-break-inside:avoid" >
                                             <td colspan="7" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD </td>
                                             <td class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
-                                                $ <t t-esc="sum(docs.mapped('price_subtotal'))"/>
+                                                $ <t t-esc="sum(docs.mapped('sub_pricetotal'))"/>
                                             </td>
                                         </tr> 
 
