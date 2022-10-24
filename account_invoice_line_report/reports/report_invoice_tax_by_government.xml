@@ -195,7 +195,7 @@
                                             <td class="text-right" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
                                                 <!-- $ <span t-esc="'{0:,.2f}'.format(line.sub_pricetotal)"/> -->
                                                 <t t-set="total_usd" t-value="line.sub_pricetotal"/>
-                                                ៛<span t-esc="'{0:,.2f}'.format(total_usd)"/> 
+                                                $<span t-esc="'{0:,.2f}'.format(total_usd)"/> 
                                                 <t t-set="sum_total_usd" t-value="sum_total_usd + total_usd"/>
                                             </td> 
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
