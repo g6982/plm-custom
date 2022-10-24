@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>    
-         <template id="report_invoice_lines_document">
+         <template id="report_invoice_tax_document">
             <t t-call="web.html_container">
                 <t t-foreach="docs.partner_id" t-as="o">
                     <t t-if="not o" t-set="o" t-value="doc"/>
@@ -72,7 +72,6 @@
                                         
                                     </table>
                                 </div>
-
                                 <div class="col-2"></div>
 
                                 <div class="col-4">   
@@ -110,18 +109,18 @@
                                                 <div>លេខវិក័យប័ត្រ</div>
                                                 <div>Inv.No</div>
                                             </td>
-                                            <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:80px">
+                                            <!-- <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:80px">
                                                 <div>លេខកូដ</div>
                                                 <div>Code</div>
-                                            </td>
+                                            </td> -->
                                             <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:80px">
-                                                <div>ឈ្មោះទំនិញ</div>
-                                                <div>Name</div>
+                                                <div>បរិយាយ</div>
+                                                <div>Description</div>
                                             </td>
                                             <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:80px">
                                                 <div>ឯកតា</div>
                                                 <div>Unit</div>
-                                            </td>
+                                            </td>                                                                                        
                                             <td class="text-center" style="border:1px solid black; border-top:1px solid black; width:80px">
                                                 <div>បរិមាណ</div>
                                                 <div>Qty</div>
@@ -130,23 +129,33 @@
                                                 <div>តម្លៃលក់</div>
                                                 <div>Price</div>
                                             </td>
-                                            
-
-                                            <t t-foreach="docs" t-as="line" style="page-break-inside:avoid">
+                                            <!-- <t t-foreach="docs" t-as="line" style="page-break-inside:avoid">
                                                 <t t-if="line.discount != 0.0">
                                                     <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:80px">
                                                         <div>ចុះថ្លៃ</div>
                                                         <div>Discount</div>
                                                     </td>
                                                 </t>
-                                            </t>
+                                            </t> -->
                                             
                                             <td class="text-center" style="border:1px solid black; width:130px;border-left: 0px solid white;">
-                                                <div>ទឹកប្រាក់</div>
-                                                <div>Amount</div>
+                                                <div>ទឹកប្រាក់ដុល្លារ</div>
+                                                <div>Amount USD</div>
+                                            </td> 
+                                            <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:130px">
+                                                <div>អត្រាប្រាក់</div>
+                                                <div>KHR Rate</div>
+                                            </td>          
+                                            <td class="text-center" style="border:1px solid black; border-top:1px solid black;width:130px">
+                                                <div>ទឹកប្រាក់ខ្មែរ</div>
+                                                <div>Amount KHR</div>
                                             </td>
                                         </tr>
                                     </thead>
+                                    <t t-set="total_khr" t-value="0"/>
+                                    <t t-set="sum_total_khr" t-value="0"/>
+                                    <t t-set="total_usd" t-value="0"/>
+                                    <t t-set="sum_total_usd" t-value="0"/>
                                     <tbody class="invoice_tbody">
                                         <tr t-foreach="docs" t-as="line" style="page-break-inside:avoid">                            
                                             <td class="text-center" style="width:130px; border:1px solid black;font-size:14px;">
@@ -155,41 +164,96 @@
                                             <td class="text-center" style="border:1px solid black; width:130px; font-size:14px;">
                                                 <span t-field="line.move_id"/>
                                             </td>
-                                            <td class="text-center" style="border:1px solid black; width:130px; font-size:14px;">
+                                            <!-- <td class="text-center" style="border:1px solid black; width:130px; font-size:14px;">
                                                 <span t-field="line.product_id.default_code"/>
-                                            </td>
+                                            </td> -->
                                             <td class="text-center" style="border:1px solid black; width:130px; font-size:14px;">            
-                                                <span t-field="line.product_id.name"/>
+                                                <span t-field="line.label_name"/>
                                             </td>
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
-                                                <span t-field="line.product_uom_id"/>
+                                                <t t-if="line.product_uom_id.name == 'គីប​ បេតុង​ (M³ of Concrete)'">
+                                                    M³
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-field="line.product_uom_id"/>
+                                                </t>
                                             </td>
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
                                                 <span t-field="line.quantity"/>
                                             </td>
                                             <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
                                                 $<span t-field="line.price_unit_cus"/>
-                                            </td>
-                                            
-                                            <t t-if="line.discount != 0.0"> 
+                                            </td>                                           
+                                            <!-- <t t-if="line.discount != 0.0"> 
                                                 <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">                                                
                                                     <t t-if="line.discount != 0.0">
                                                         <span t-esc="line.discount"/>%
                                                     </t>
                                                 </td>
-                                            </t>
+                                            </t> -->
+                                            
                                             <td class="text-right" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
-                                                $ <span t-esc="'{0:,.2f}'.format(line.sub_pricetotal)"/>
+                                                <!-- $ <span t-esc="'{0:,.2f}'.format(line.sub_pricetotal)"/> -->
+                                                <t t-set="total_usd" t-value="line.sub_pricetotal"/>
+                                                ៛<span t-esc="'{0:,.2f}'.format(total_usd)"/> 
+                                                <t t-set="sum_total_usd" t-value="sum_total_usd + total_usd"/>
+                                            </td> 
+                                            <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
+                                                ៛<span t-esc="'{0:,.0f}'.format(line.rate_khr_inh)"/>
+                                            </td>                                           
+                                            <td class="text-center" style="border:1px solid black;padding:5px;border-left: 0px solid white;font-size:14px; ">
+                                                <!-- ៛<span t-esc="'{0:,.0f}'.format(line.rate_khr_inh * line.sub_pricetotal)"/> -->
+                                                <t t-set="total_khr" t-value="line.rate_khr_inh * line.sub_pricetotal"/>
+                                                ៛<span t-esc="'{0:,.0f}'.format(total_khr)"/> 
+                                                <t t-set="sum_total_khr" t-value="sum_total_khr + total_khr"/>
                                             </td>
                                         </tr>
                                         
+
                                         <tr style="page-break-inside:avoid" >
-                                            <td colspan="7" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបជាដុល្លារ / Total in USD </td>
-                                            <td class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
-                                                $ <t t-esc="'{0:,.2f}'.format(sum(docs.mapped('sub_pricetotal')))"/>
+                                            <td colspan="5" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបមិនទាន់គិតពន្ធ / Total Untaxed Amount</td>
+                                            <td colspan="2" class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
+                                                <!-- $ <t t-esc="'{0:,.2f}'.format(sum(docs.mapped('sub_pricetotal')))"/> -->
+                                                $ <t t-esc="'{0:,.2f}'.format(sum_total_usd/1.1)"/>
+                                            </td>
+            
+                                            <td colspan="2" class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
+                                                ៛ <t t-esc="'{0:,.2f}'.format(sum_total_khr/1.1)"/>
                                             </td>
                                         </tr> 
 
+                                        <tr style="page-break-inside:avoid" >
+                                            <td colspan="5" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">អាករលើតម្លៃបន្ថែម១០% / VAT 10% </td>
+                                            <td colspan="2" class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
+                                                <!-- $ <t t-esc="'{0:,.2f}'.format(sum(docs.mapped('sub_pricetotal')))"/> -->
+                                                $ <t t-esc="'{0:,.2f}'.format(sum_total_usd*0.10)"/>
+                                            </td>
+                                            <td colspan="2" class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
+                                                ៛ <t t-esc="'{0:,.2f}'.format(sum_total_khr*0.10)"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="page-break-inside:avoid" >
+                                            <td colspan="5" style="border: 1px solid black;background: #F8F0E3; text-align:right;font-weight:bold;padding:5px;font-family:'Khmer OS';">សរុបរូម / Grand Total in </td>
+                                            <td colspan="2" class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
+                                                $ <t t-esc="'{0:,.2f}'.format(sum_total_usd)"/>
+                                                <!-- <t t-esc="'{0:,.2f}'.format(sum(docs.mapped('sub_pricetotal')))"/> -->
+                                            </td>
+                                            <td colspan="2" class="text-right" style="background: #F8F0E3; border:1px solid black; font-weight:bold;padding:5px;font-size:14px;">
+                                                ៛ <t t-esc="'{0:,.2f}'.format(sum_total_khr)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="page-break-inside:avoid">
+                                            <td rowspan="8" colspan="3" style="padding-top:5px; margin-top:20px;border: 1px solid black;text-align:left;font-weight:bold;padding:5px;font-family:'Khmer OS Battambang';font-size:16px;">
+                                                <br/>
+                                                <span>Payment can be made by cheque or Bank transfer to:</span> <br/>
+                                                <br/>
+                                                <span style="padding-right:33px;margin-top:5px;">Account Name:</span> <span style="font-weight:bold;"><b>P.L.M. IMPORT EXPORT Co., Ltd.</b></span><br/>
+                                                <span style="padding-right:20px;margin-top:5px;">Account Number:</span> <span style="font-weight:bold;">038-0000002299</span><br/>
+                                                <span style="padding-right:52px;margin-top:5px;">Bank Name:</span> <span>Canadia Bank PLC</span><br/>
+                                            </td>   
+                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
