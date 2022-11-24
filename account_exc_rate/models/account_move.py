@@ -61,7 +61,7 @@ class account_exc_rate(models.Model):
         states={'draft': [('readonly', False)]}, default=_get_default_khr_exchange_currency)
     
     khr_exchange_rate = fields.Float('KHR Riel Exchange Rate', store=True, readonly=True, compute="_compute_khr_exchange_rate")
-    @api.depends('khr_exchange_currency_id')
+    @api.depends('khr_exchange_currency_id','date')
     def _compute_khr_exchange_rate(self):
         for move in self:
             currency_rates = move.khr_exchange_currency_id._get_rates(move.company_id, move.invoice_date or fields.Date.today())
@@ -75,7 +75,7 @@ class account_exc_rate(models.Model):
         states={'draft': [('readonly', False)]}, default=_get_default_thb_exchange_currency)
     
     thb_exchange_rate = fields.Float('Thai Bath Exchange Rate', store=True, readonly=True, compute="_compute_thb_exchange_rate")
-    @api.depends('thb_exchange_currency_id')
+    @api.depends('thb_exchange_currency_id','date')
     def _compute_thb_exchange_rate(self):
         for move in self:
             currency_rates = move.thb_exchange_currency_id._get_rates(move.company_id, move.invoice_date or fields.Date.today())
